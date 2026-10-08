@@ -1,0 +1,16 @@
+---
+layout: page
+title: "Page Not Found"
+h1: "That page is off the schedule"
+crumb: "Page not found"
+noindex: true
+ads: false
+description: "The page you were looking for isn't here. Try the tools, guides or search."
+lede: "The link may be old or mistyped. Here's where most people are headed:"
+---
+<div class="not-found">
+<span class="result-num" aria-hidden="true">404 of 24</span>
+<p><button type="button" class="btn btn-primary" data-search-open>Search tools and guides</button></p>
+{% include tool-list.html only="time-card-calculator,overtime-calculator,shift-pattern-generator,night-shift-sleep-planner" %}
+<p style="margin-top:20px"><a href="index.html">Go to the home page</a> or browse <a href="guides.html">all guides</a>.</p>
+</div>
