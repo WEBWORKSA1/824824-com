@@ -1,0 +1,66 @@
+---
+layout: page
+title: "Contact 824824"
+h1: "Contact us"
+crumb: "Contact"
+nav: more
+ads: false
+no_exit: true
+description: "Contact 824824 with questions, corrections, partnership or advertising ideas, press requests or privacy requests. We reply within two business days."
+lede: "Questions, corrections, ideas or privacy requests: send a message and we'll reply within two business days."
+priority: 0.5
+keywords: [contact, email, support, feedback]
+---
+<div class="split split-wide">
+<section class="panel" aria-labelledby="msg-title">
+<h2 id="msg-title">Send a message</h2>
+<form class="form" data-form="contact" data-subject="New contact message — 824824" data-prefill novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<div class="grid-2">
+<label class="field"><span>Name</span><input name="name" type="text" required autocomplete="name"></label>
+<label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+</div>
+<label class="field"><span>Topic</span><select name="topic" required>
+<option value="">Choose a topic</option>
+<option>A question about a tool or guide</option>
+<option>Report an error or a rule change</option>
+<option>Sponsorship or advertising</option>
+<option>Partnership</option>
+<option>Buying this website or domain</option>
+<option>Press or media</option>
+<option>Privacy request</option>
+<option>Something else</option>
+</select></label>
+<label class="field"><span>Message</span><textarea name="message" rows="6" required minlength="10"></textarea></label>
+<label class="check"><input type="checkbox" name="consent_contact" value="yes" required data-consent> <span>824824 may use these details to reply to my message.</span></label>
+<button class="btn btn-primary" type="submit">Send message</button>
+<p class="form-status" role="status" aria-live="polite"></p>
+<template data-success-template>
+<h3>Message sent</h3>
+<p>Thanks for getting in touch. We'll reply within two business days.</p>
+</template>
+</form>
+</section>
+<aside class="stack">
+<section class="panel" aria-labelledby="other-title">
+<h2 id="other-title">Other ways to reach us</h2>
+<p>Prefer your own email app?</p>
+<p>{% include mail.html label="Email us" subject="Hello from 824824.com" class="btn btn-ghost" %}</p>
+<p class="fine-print">The link opens your email app with our address filled in.</p>
+</section>
+<section class="panel panel-dark" aria-labelledby="owner-title">
+<h2 id="owner-title">Website, domain or partnership</h2>
+<p>Interested in this website, the 824824.com domain name, sponsorship, advertising or a partnership?</p>
+<a class="btn btn-primary" href="https://web.works/contact" target="_blank" rel="noopener">Contact the owner</a>
+</section>
+<section class="panel" aria-labelledby="quick-title">
+<h2 id="quick-title">Quick links</h2>
+<ul class="plain-list">
+<li>{% include icon.html name="check" %}<a href="get-matched.html">Software shortlist for your team</a></li>
+<li>{% include icon.html name="check" %}<a href="advertise.html">Advertising and sponsorship packages</a></li>
+<li>{% include icon.html name="check" %}<a href="careers.html">Write or build with us</a></li>
+<li>{% include icon.html name="check" %}<a href="privacy.html#rights">Your privacy rights</a></li>
+</ul>
+</section>
+</aside>
+</div>

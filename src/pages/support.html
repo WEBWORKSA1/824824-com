@@ -1,0 +1,106 @@
+---
+layout: page
+title: "Support 824824: Keep Shift-Work Tools Free"
+h1: "Keep these tools free for shift workers"
+crumb: "Support us"
+nav: more
+ads: false
+no_exit: true
+description: "Support 824824 with a one-time or monthly contribution. It keeps the calculators free, funds new tools and contributors, and pays for contest prizes and outreach."
+lede: "824824 is independent. Ads and sponsors cover the basics; reader support lets us build new tools faster, pay the shift workers who write for us, and fund contest prizes."
+priority: 0.6
+keywords: [donate, support, contribute, tip, patron]
+faq:
+  - q: "Is my contribution tax-deductible?"
+    a: "No. 824824 is an independent website, not a registered charity, so contributions aren't tax-deductible."
+  - q: "Do supporters get better odds in contests?"
+    a: "No. Support never affects contest judging, our recommendations or what we write."
+  - q: "Can I cancel a monthly contribution?"
+    a: "Yes, at any time, through the payment provider you used or by contacting us."
+  - q: "Can my company or union support the site?"
+    a: "Yes. Organizations can support a tool, a guide or a contest. See the organization options on this page or our advertising and sponsorship page."
+---
+<div class="split split-wide">
+<section class="panel" data-donate aria-labelledby="give-title">
+<h2 id="give-title">Choose your support</h2>
+<div class="seg" role="group" aria-label="How often">
+<button type="button" data-freq="once" aria-pressed="true">One time</button>
+<button type="button" data-freq="monthly" aria-pressed="false">Monthly</button>
+</div>
+<fieldset style="margin-top:16px">
+<legend>Amount (US dollars)</legend>
+<div class="donate-amounts" data-amounts></div>
+</fieldset>
+<div class="grid-2" style="margin-top:14px">
+<label class="field"><span>Or enter an amount</span><input type="number" name="custom_amount" min="2" step="1" inputmode="numeric" placeholder="Other amount"></label>
+<label class="field"><span>Put it toward</span><select name="allocation">
+<option>Wherever it's needed most</option>
+<option>Operations and new tools</option>
+<option>Paying contributors and translators</option>
+<option>Contest prizes</option>
+<option>Outreach to shift workers</option>
+</select></label>
+</div>
+<p class="result-sub" style="margin-top:12px">Your choice: <strong data-donate-summary></strong></p>
+<div class="pay-buttons" data-pay style="margin-top:14px"></div>
+<div data-pay-note>
+<p class="notice" style="margin-top:12px">Online checkout is being set up. Pledge below and we'll email you a secure payment link for the amount you chose.</p>
+</div>
+
+<form class="form" data-form="pledge" data-subject="New support pledge — 824824" style="margin-top:18px" novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<input type="hidden" name="amount" value="">
+<input type="hidden" name="frequency" value="">
+<input type="hidden" name="allocation" value="">
+<div class="grid-2">
+<label class="field"><span>Name <span class="hint">(optional)</span></span><input name="name" type="text" autocomplete="name"></label>
+<label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+</div>
+<label class="field"><span>Message <span class="hint">(optional)</span></span><textarea name="message" rows="3"></textarea></label>
+<label class="check"><input type="checkbox" name="consent_wall" value="yes" data-consent> <span>List my name on the supporters wall. Leave unticked to stay anonymous.</span></label>
+<label class="check"><input type="checkbox" name="consent_newsletter" value="yes" data-consent> <span>Send me The 8/24 Brief, about two emails a month.</span></label>
+<button class="btn btn-primary" type="submit">Pledge my support</button>
+<p class="form-status" role="status" aria-live="polite"></p>
+<template data-success-template>
+<h3>Thank you</h3>
+<p>We'll email you a secure payment link for your pledge. Your support goes to work right away.</p>
+</template>
+</form>
+</section>
+
+<aside class="stack">
+<section class="panel" aria-labelledby="where-title">
+<h2 id="where-title">Where support goes</h2>
+<p>Our target split for reader contributions:</p>
+<div class="alloc">
+<div class="alloc-row code-day"><span>Operations and new tools</span><strong>35%</strong><span class="alloc-bar"><i style="width:35%"></i></span></div>
+<div class="alloc-row code-night"><span>Paying contributors and translators</span><strong>30%</strong><span class="alloc-bar"><i style="width:30%"></i></span></div>
+<div class="alloc-row code-eve"><span>Contest prizes</span><strong>25%</strong><span class="alloc-bar"><i style="width:25%"></i></span></div>
+<div class="alloc-row code-rest"><span>Outreach to shift workers</span><strong>10%</strong><span class="alloc-bar"><i style="width:10%"></i></span></div>
+</div>
+<p class="fine-print" style="margin-top:12px">We'll publish a short report of contributions and spending by category after each full quarter, starting with the first quarter of 2027.</p>
+</section>
+<section class="panel panel-dark" aria-labelledby="promise-title">
+<h2 id="promise-title">Our promise</h2>
+<ul class="ticks">
+<li>{% include icon.html name="check" %}The core calculators stay free</li>
+<li>{% include icon.html name="check" %}Support never buys rankings, reviews or contest wins</li>
+<li>{% include icon.html name="check" %}No paywall on safety or pay-rights information</li>
+</ul>
+</section>
+<section class="panel" aria-labelledby="wall-title">
+<h2 id="wall-title">Supporters wall</h2>
+<p>Be the first name here. Supporters who opt in are listed with their first name and region.</p>
+</section>
+</aside>
+</div>
+
+<section class="panel" aria-labelledby="org-title" style="margin-top:24px">
+<h2 id="org-title">For employers, unions and associations</h2>
+<div class="tiers tiers-3">
+<div class="tier code-day"><h3>Tool supporter</h3><p>Keep one calculator free and ad-light for a year, with a thank-you credit on the tool page.</p></div>
+<div class="tier code-eve"><h3>Contest patron</h3><p>Fund a month's prizes and get named as the contest's patron, with a seat on the judging panel.</p></div>
+<div class="tier code-night"><h3>Guide partner</h3><p>Fund a new guide on a topic your members need, written independently by our editors and clearly credited.</p></div>
+</div>
+<p style="margin-top:14px"><a class="btn btn-ghost" href="advertise.html">See sponsorship options</a></p>
+</section>
