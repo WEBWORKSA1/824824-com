@@ -1,0 +1,121 @@
+---
+layout: tool
+title: "Shift Differential Calculator: Night, Evening and Weekend Pay"
+h1: "Shift differential calculator"
+description: "See what evening, night and weekend shift differentials add to each shift and to your year. Flat or percentage premiums, overnight shifts and breaks included."
+lede: "Enter your shift and your employer's differential windows. You'll see the premium per shift, per week and per year, whether your differential is a flat amount or a percentage."
+scripts: [tools/differential]
+cta: worker
+priority: 0.8
+keywords: [night differential, evening differential, weekend premium, shift premium, nurse night pay, graveyard pay]
+related_tools: [overtime-calculator, hourly-salary-converter, time-card-calculator]
+related_guides: [shift-differential-pay, overtime-laws-explained]
+faq:
+  - q: "Is a shift differential required by law?"
+    a: "Not in the US under the FLSA, which does not require extra pay for night work, although some federal employees get differentials by statute. The UK has no higher legal night rate, while in Australia penalty rates for late-night or early-morning shifts depend on the award or registered agreement that covers you."
+  - q: "How does the calculator handle my unpaid break?"
+    a: "It can't know when you took the break, so it removes break time from each window in proportion to the time the shift spends there. A 30-minute break on an 8-hour shift trims every window by one-sixteenth."
+  - q: "What does the whole-shift option do?"
+    a: "If half or more of your paid time falls inside a window, every paid hour of the shift earns that window's rate; if less does, none of it does. Some employers pay this way and others pay only for hours inside the window, so check your policy."
+  - q: "Does a shift differential raise my overtime rate?"
+    a: "In the US, yes. Night-shift differentials must be included in the regular rate used for overtime, whether they are a percentage of the base rate or a set amount per hour, so use the overtime calculator for weeks with both."
+  - q: "Does the weekend premium stack with night pay?"
+    a: "In this calculator, yes: the weekend premium is added to every paid hour on top of any evening or night differential. If your employer pays only the higher premium, turn the other one off."
+sources:
+  - title: "Night Work — U.S. Department of Labor"
+    url: "https://www.dol.gov/general/topic/workhours/nightwork"
+  - title: "29 CFR 778.207 (nightshift differentials and the regular rate) — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.207"
+  - title: "5 U.S.C. 5545 (night differential for General Schedule employees) — Legal Information Institute"
+    url: "https://www.law.cornell.edu/uscode/text/5/5545"
+  - title: "38 U.S.C. 7453 (nurses: additional pay) — Legal Information Institute"
+    url: "https://www.law.cornell.edu/uscode/text/38/7453"
+  - title: "Night working hours — GOV.UK"
+    url: "https://www.gov.uk/night-working-hours"
+  - title: "Penalty rates — Fair Work Ombudsman"
+    url: "https://www.fairwork.gov.au/pay-and-wages/penalty-rates-allowances-and-other-payments/penalty-rates"
+---
+<div class="tool" data-tool="differential">
+<div class="grid-4">
+<label class="field"><span>Base hourly rate</span><span class="input-affix"><select id="sd-cur" aria-label="Currency"><option>$</option><option>€</option><option>£</option><option>₹</option><option value="C$">C$</option><option value="A$">A$</option></select><input id="sd-rate" type="number" min="0" step="0.01" value="32" inputmode="decimal"></span></label>
+<label class="field"><span>Shift starts</span><input id="sd-start" type="time" value="23:00"></label>
+<label class="field"><span>Shift ends</span><input id="sd-end" type="time" value="07:00"></label>
+<label class="field"><span>Unpaid break (min)</span><input id="sd-brk" type="number" min="0" step="1" value="30" inputmode="numeric"></label>
+</div>
+
+<div class="tool-section">
+<h2>Differential windows</h2>
+<div class="grid-4" style="align-items:end">
+<label class="check" style="align-self:center"><input id="sd-eve-on" type="checkbox" checked> <span><strong>Evening</strong></span></label>
+<label class="field"><span>From</span><input id="sd-eve-s" type="time" value="15:00"></label>
+<label class="field"><span>To</span><input id="sd-eve-e" type="time" value="23:00"></label>
+<div class="grid-2" style="gap:8px"><label class="field"><span>Type</span><select id="sd-eve-t"><option value="flat">$ per hour</option><option value="pct">% of base</option></select></label><label class="field"><span>Amount</span><input id="sd-eve-v" type="number" min="0" step="0.01" value="1.50" inputmode="decimal"></label></div>
+</div>
+<div class="grid-4" style="align-items:end;margin-top:12px">
+<label class="check" style="align-self:center"><input id="sd-night-on" type="checkbox" checked> <span><strong>Night</strong></span></label>
+<label class="field"><span>From</span><input id="sd-night-s" type="time" value="23:00"></label>
+<label class="field"><span>To</span><input id="sd-night-e" type="time" value="07:00"></label>
+<div class="grid-2" style="gap:8px"><label class="field"><span>Type</span><select id="sd-night-t"><option value="pct">% of base</option><option value="flat">$ per hour</option></select></label><label class="field"><span>Amount</span><input id="sd-night-v" type="number" min="0" step="0.01" value="10" inputmode="decimal"></label></div>
+</div>
+<div class="grid-4" style="align-items:end;margin-top:12px">
+<label class="check" style="align-self:center"><input id="sd-wk-on" type="checkbox"> <span><strong>Weekend shift</strong></span></label>
+<label class="field"><span>Type</span><select id="sd-wk-t"><option value="flat">$ per hour</option><option value="pct">% of base</option></select></label>
+<label class="field"><span>Amount</span><input id="sd-wk-v" type="number" min="0" step="0.01" value="2" inputmode="decimal"></label>
+<label class="field"><span>How hours qualify</span><select id="sd-mode"><option value="inside">Only hours inside a window</option><option value="majority">Whole shift if most of it is inside</option></select></label>
+</div>
+<div class="grid-2" style="margin-top:12px">
+<label class="field"><span>Shifts per week</span><input id="sd-spw" type="number" min="0" max="14" step="0.5" value="3" inputmode="decimal"></label>
+<label class="field"><span>Weeks worked per year</span><input id="sd-wpy" type="number" min="1" max="53" step="1" value="50" inputmode="numeric"></label>
+</div>
+</div>
+
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Pay for one shift</span><span class="result-num" id="sd-total">$0.00</span><span class="result-sub" id="sd-total-sub"></span></div>
+<dl class="result-grid">
+<div><dt>Base pay</dt><dd id="sd-base">$0.00</dd></div>
+<div class="is-ot"><dt>Differential</dt><dd id="sd-prem">$0.00</dd></div>
+<div><dt>Per week</dt><dd id="sd-week">$0.00</dd></div>
+<div class="is-pay"><dt>Differential per year</dt><dd id="sd-year">$0.00</dd></div>
+</dl>
+</div>
+<div class="tool-actions"><button type="button" class="btn btn-ghost" id="sd-share">Copy share link</button></div>
+<p class="tool-note">Unpaid break time is taken out of each window in proportion. In the US, differentials also raise the regular rate used for overtime; see the <a href="overtime-calculator.html">overtime calculator</a>.</p>
+</div>
+<!--article-->
+<h2 id="how-to-use">How to use the shift differential calculator</h2>
+<ol>
+<li><strong>Enter your shift.</strong> Add your Base hourly rate, Shift starts, Shift ends and Unpaid break (min). Overnight shifts work as entered, so 23:00 to 07:00 is an 8-hour shift.</li>
+<li><strong>Set the differential windows.</strong> Check Evening, Night or both, set each window's From and To times, and choose $ per hour or % of base with an Amount. The defaults are 15:00 to 23:00 at $1.50 an hour and 23:00 to 07:00 at 10%.</li>
+<li><strong>Add a weekend premium if it applies.</strong> Check Weekend shift and set its type and amount. It's added to every paid hour of the shift.</li>
+<li><strong>Choose how hours qualify.</strong> Pick Only hours inside a window or Whole shift if most of it is inside, whichever your policy uses.</li>
+<li><strong>Read the results.</strong> Enter Shifts per week and Weeks worked per year to see Pay for one shift, Base pay, the Differential with hours per window, pay Per week and Differential per year. Copy share link gives you a link to this setup.</li>
+</ol>
+
+<h2 id="how-it-works">How the math works</h2>
+<p>Paid hours are the time from start to end minus your unpaid break. For each window, the calculator measures how much of the shift falls inside it, including windows that cross midnight.</p>
+<p>Since it can't know when you took your break, it removes break time from each window in proportion. A 19:00 to 03:00 shift has 4 hours in each default window. With a 30-minute break, 7.5 of its 8 hours are paid, so each window gets 3.75 paid hours.</p>
+<p>Each window pays its qualifying hours × its hourly amount: the flat amount, or the percentage × your base rate. At a $32.00 base, 10% is $3.20 an hour. A weekend premium applies to every paid hour, on top of any window.</p>
+<p>With Whole shift if most of it is inside, each window is checked on its own. If half or more of your paid time falls inside it, every paid hour earns that window's rate. If not, none do.</p>
+<p>Per week = pay for one shift × shifts per week. Differential per year = the differential for one shift × shifts per week × weeks worked per year.</p>
+
+<div class="example"><h4>Example: the default night shift</h4><p>You earn $32.00 an hour and work 23:00 to 07:00 with a 30-minute unpaid break, so 7.5 hours are paid. All of them fall in the night window at 10%, or $3.20 an hour: 7.5 × $3.20 = $24.00. Base pay is 7.5 × $32.00 = $240.00, so the shift pays $264.00. At 3 shifts a week that's $792.00 a week, and over 50 weeks the differential adds $24.00 × 3 × 50 = $3,600.00.</p></div>
+
+<div class="example"><h4>Example: window hours vs whole shift</h4><p>Same rates, but you work 19:00 to 07:00 with no unpaid break. Counting only hours inside each window, you earn 4 evening hours × $1.50 = $6.00 plus 8 night hours × $3.20 = $25.60, a $31.60 differential. Under the whole-shift rule, 8 of your 12 hours fall in the night window, so all 12 earn $3.20, for $38.40, and the evening rate drops out because only 4 hours are in that window. Over 150 shifts a year, that's $4,740.00 versus $5,760.00.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Assuming the whole shift qualifies.</strong> Some policies pay only for hours inside the window. Get the window times and the qualifying rule in writing before you rely on a number.</li>
+<li><strong>Comparing flat and percentage offers by feel.</strong> Divide the flat amount by the percentage to find the break-even base rate: $1.50 ÷ 0.10 = $15.00. Above that rate, the percentage pays more, and it grows with every raise.</li>
+<li><strong>Stacking premiums your policy doesn't stack.</strong> This calculator adds evening, night and weekend premiums together. If your employer pays only the highest one, turn the others off.</li>
+<li><strong>Forgetting overtime.</strong> In the US, night-shift differentials must be included in the regular rate used for overtime (<a href="https://www.law.cornell.edu/cfr/text/29/778.207" target="_blank" rel="noopener">29 CFR 778.207</a>), so a week with both should pay more than 1.5 times your base rate for overtime hours. Check it in the <a href="overtime-calculator.html">overtime calculator</a>.</li>
+</ul>
+
+<h2 id="related-rules">Differential rules by place</h2>
+<ul>
+<li><strong>United States:</strong> the FLSA doesn't require extra pay for night work; it's a matter of agreement between you and your employer (<a href="https://www.dol.gov/general/topic/workhours/nightwork" target="_blank" rel="noopener">Department of Labor</a>). Some federal employees get differentials by statute. General Schedule employees earn 10% of basic pay for regularly scheduled work between 6 p.m. and 6 a.m. (<a href="https://www.law.cornell.edu/uscode/text/5/5545" target="_blank" rel="noopener">5 U.S.C. 5545</a>). VA nurses earn a 10% night differential on every hour of a shift when at least 4 hours fall between 6 p.m. and 6 a.m., and a 25% premium for hours between midnight Friday and midnight Sunday (<a href="https://www.law.cornell.edu/uscode/text/38/7453" target="_blank" rel="noopener">38 U.S.C. 7453</a>).</li>
+<li><strong>United Kingdom:</strong> the National Minimum Wage applies to night workers, but there is no higher legal night rate (<a href="https://www.gov.uk/night-working-hours" target="_blank" rel="noopener">GOV.UK</a>).</li>
+<li><strong>Australia:</strong> penalty rates can apply to late-night and early-morning shifts, weekends and public holidays, set by the award or registered agreement that covers you (<a href="https://www.fairwork.gov.au/pay-and-wages/penalty-rates-allowances-and-other-payments/penalty-rates" target="_blank" rel="noopener">Fair Work Ombudsman</a>).</li>
+</ul>
+<p>To check a pay stub line by line, see the <a href="shift-differential-pay.html">shift differential pay guide</a>.</p>

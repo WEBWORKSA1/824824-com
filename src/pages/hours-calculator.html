@@ -1,0 +1,130 @@
+---
+layout: tool
+title: "Hours Calculator: Time Between Two Times, Dates and Shifts"
+h1: "Hours calculator"
+description: "Work out the hours between two times, including overnight shifts and breaks, the time between two dates, add or subtract time, or add up a list of shifts."
+lede: "Four quick calculators in one: hours between two times (overnight shifts included), between two dates and times, adding or subtracting time, and adding up a list."
+scripts: [tools/hours]
+cta: worker
+priority: 0.9
+keywords: [time calculator, hours between times, work hours, duration, time difference, add hours, overnight]
+related_tools: [time-card-calculator, decimal-hours-converter, military-time-converter]
+related_guides: [decimal-hours-time-card-math, 24-hour-clock-guide]
+faq:
+  - q: "How do I calculate hours worked for an overnight shift?"
+    a: "Add 24 hours to the end time, subtract the start time, then take off any unpaid break. For 19:00 to 07:30 with a 30-minute meal, that's 31:30 minus 19:00, or 12:30, minus 0:30, which leaves 12 hours."
+  - q: "How many hours is 7 a.m. to 7 p.m.?"
+    a: "It's 12 hours before breaks. With a 30-minute unpaid meal, you worked 11 hours 30 minutes, or 11.5 decimal hours."
+  - q: "Does the hours calculator handle daylight saving time?"
+    a: "The Between dates tab does, because it measures real elapsed time using your device's clock and time zone. The Between two times tab only sees clock times, so on the night the clocks change it will be an hour off."
+  - q: "Should I subtract breaks from my hours?"
+    a: "Subtract only unpaid meal breaks. Under US federal rules, short rest breaks of about 5 to 20 minutes count as hours worked, and a meal period can be unpaid only if you're completely relieved from duty."
+  - q: "How do I add up hours for a whole week?"
+    a: "Open the Add up a list tab and enter one shift per line, either as a length such as 7:30 or a range such as 19:00-07:00. The total appears in hours and minutes and in decimal hours."
+sources:
+  - title: "Daylight Saving Time Rules — National Institute of Standards and Technology"
+    url: "https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst"
+  - title: "Times of Day FAQs — National Institute of Standards and Technology"
+    url: "https://www.nist.gov/pml/time-and-frequency-division/times-day-faqs"
+  - title: "29 CFR 785.19 - Meal — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/785.19"
+  - title: "Breaks and Meal Periods — U.S. Department of Labor"
+    url: "https://www.dol.gov/general/topic/workhours/breaks"
+---
+<div class="tool" data-tool="hours">
+<div class="tabs" role="tablist" aria-label="Calculator type">
+<button type="button" class="tab" role="tab" id="tab-times" aria-selected="true" aria-controls="panel-times" data-tab="times">Between two times</button>
+<button type="button" class="tab" role="tab" id="tab-dates" aria-selected="false" aria-controls="panel-dates" data-tab="dates" tabindex="-1">Between dates</button>
+<button type="button" class="tab" role="tab" id="tab-add" aria-selected="false" aria-controls="panel-add" data-tab="add" tabindex="-1">Add or subtract</button>
+<button type="button" class="tab" role="tab" id="tab-sum" aria-selected="false" aria-controls="panel-sum" data-tab="sum" tabindex="-1">Add up a list</button>
+</div>
+
+<div class="tab-panel" id="panel-times" role="tabpanel" aria-labelledby="tab-times">
+<div class="grid-3">
+<label class="field"><span>Start time</span><input id="h-start" type="time" value="19:00"></label>
+<label class="field"><span>End time</span><input id="h-end" type="time" value="07:30"></label>
+<label class="field"><span>Unpaid break (minutes)</span><input id="h-break" type="number" min="0" step="1" value="30" inputmode="numeric"></label>
+</div>
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Hours worked</span><span class="result-num" id="h-out">0:00</span><span class="result-sub" id="h-out-sub"></span></div>
+<div class="tool-actions"><button type="button" class="btn btn-ghost btn-sm" data-copy="#h-out">Copy result</button></div>
+</div>
+</div>
+
+<div class="tab-panel" id="panel-dates" role="tabpanel" aria-labelledby="tab-dates" hidden>
+<div class="grid-2">
+<label class="field"><span>From</span><input id="h-dt-start" type="datetime-local"></label>
+<label class="field"><span>To</span><input id="h-dt-end" type="datetime-local"></label>
+</div>
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Time between</span><span class="result-num" id="h-dt-out">0:00</span><span class="result-sub" id="h-dt-sub"></span></div>
+<div class="tool-actions"><button type="button" class="btn btn-ghost btn-sm" data-copy="#h-dt-out">Copy result</button></div>
+</div>
+<p class="tool-note">Times use your device's clock, so daylight saving changes are included automatically.</p>
+</div>
+
+<div class="tab-panel" id="panel-add" role="tabpanel" aria-labelledby="tab-add" hidden>
+<div class="grid-4">
+<label class="field"><span>Start time</span><input id="h-base" type="time" value="22:00"></label>
+<label class="field"><span>Add or subtract</span><select id="h-op"><option value="+">Add</option><option value="-">Subtract</option></select></label>
+<label class="field"><span>Hours</span><input id="h-add-h" type="number" min="0" step="1" value="12" inputmode="numeric"></label>
+<label class="field"><span>Minutes</span><input id="h-add-m" type="number" min="0" max="59" step="1" value="30" inputmode="numeric"></label>
+</div>
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Result</span><span class="result-num" id="h-add-out">--:--</span><span class="result-sub" id="h-add-sub"></span></div>
+<div class="tool-actions"><button type="button" class="btn btn-ghost btn-sm" data-copy="#h-add-out">Copy result</button></div>
+</div>
+</div>
+
+<div class="tab-panel" id="panel-sum" role="tabpanel" aria-labelledby="tab-sum" hidden>
+<label class="field"><span>One entry per line <span class="hint">Use 7:30, 7.5, 7h 30m, or a range like 19:00-07:00</span></span>
+<textarea id="h-list" rows="7" spellcheck="false">7:30
+8:15
+19:00-07:00
+6h 45m</textarea></label>
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Total</span><span class="result-num" id="h-sum-out">0:00</span><span class="result-sub" id="h-sum-sub"></span></div>
+<div class="tool-actions"><button type="button" class="btn btn-ghost btn-sm" data-copy="#h-sum-out">Copy result</button></div>
+</div>
+</div>
+</div>
+<!--article-->
+<h2 id="how-to-use">How to use the hours calculator</h2>
+<p>Pick the tab that matches your question. Results update as you type.</p>
+<ol>
+<li><strong>Between two times:</strong> enter a <strong>Start time</strong> and an <strong>End time</strong>, then any <strong>Unpaid break (minutes)</strong>. If the end time is earlier than the start, the shift is treated as crossing midnight.</li>
+<li><strong>Between dates:</strong> pick a date and time in <strong>From</strong> and <strong>To</strong>. Use this tab for spans longer than a day and for nights when the clocks change.</li>
+<li><strong>Add or subtract:</strong> enter a <strong>Start time</strong>, choose <strong>Add</strong> or <strong>Subtract</strong>, and fill in <strong>Hours</strong> and <strong>Minutes</strong>. You get the new clock time and whether it's the same day, the next day or the previous day.</li>
+<li><strong>Add up a list:</strong> type one entry per line, such as 7:30, 7.5, 7h 30m, 45m or a range like 19:00-07:00. The total appears in hours and minutes and in decimal hours.</li>
+<li>Click <strong>Copy result</strong> to paste the answer and its details into a timesheet, text or email.</li>
+</ol>
+
+<h2 id="how-it-works">How the calculator works out hours</h2>
+<p>Each time is turned into minutes after midnight, so 07:30 is 450 and 19:00 is 1,140. The calculator subtracts the start from the end, takes off the unpaid break and shows the answer three ways: hours and minutes, decimal hours and total minutes.</p>
+<ul>
+<li><strong>Overnight shifts:</strong> when the end time is earlier than the start, 24 hours (1,440 minutes) is added to the end before subtracting. If the start and end times match, that counts as a full 24-hour shift.</li>
+<li><strong>Decimal hours:</strong> the minutes are divided by 60 and rounded to two places. 45 minutes is 0.75 of an hour, so 7 hours 45 minutes is 7.75.</li>
+<li><strong>Between dates:</strong> this tab measures real elapsed time using your device's clock and time zone, so a daylight saving change is included.</li>
+<li><strong>Add up a list:</strong> each line is read as a length of time or as a start and end time. Ranges wrap past midnight just like the first tab. Lines that can't be read are listed by line number and left out of the total.</li>
+</ul>
+<div class="example"><h4>Example: a night shift with an unpaid meal</h4><p>You work 19:00 to 07:30 with a 30-minute unpaid meal. The end is earlier than the start, so the shift crosses midnight: 07:30 plus 24 hours is 31:30, and 31:30 minus 19:00 is 12 hours 30 minutes. Take off the meal and the calculator shows 12:00, which is 12.00 decimal hours or 720 minutes.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="daylight-saving">Night shifts and daylight saving time</h2>
+<p>The Between two times tab only knows clock times, not dates, so it can't see a clock change. In US areas that observe daylight saving time, clocks go back from 2:00 a.m. to 1:00 a.m. on the first Sunday in November and jump from 2:00 a.m. to 3:00 a.m. on the second Sunday in March, according to <a href="https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst" target="_blank" rel="noopener">NIST's daylight saving time rules</a>. Hawaii, most of Arizona and some US territories, including Puerto Rico and Guam, don't change their clocks. Where clocks do change, a shift that spans the change is an hour longer or shorter than its clock times suggest.</p>
+<div class="example"><h4>Example: the night the clocks fall back</h4><p>Your shift runs from 19:00 on Saturday, October 31, 2026, to 07:00 on Sunday, November 1. With your device set to a US time zone that observes daylight saving time, the Between dates tab shows 13:00, because the 1 a.m. hour happens twice. On the spring-forward night of March 13 to 14, 2027, the same shift lasts 11 hours.</p></div>
+
+<h2 id="unpaid-breaks">Which breaks to subtract</h2>
+<p>Only enter breaks that are genuinely unpaid. Under US federal rules, a meal period isn't work time if you're completely relieved from duty, and 30 minutes or more is ordinarily long enough, according to <a href="https://www.law.cornell.edu/cfr/text/29/785.19" target="_blank" rel="noopener">29 CFR 785.19</a>. If you have to eat at your desk or stay at your machine, you're still working.</p>
+<p>Short breaks are different. Federal law doesn't require employers to offer breaks, but when they do, rest breaks of about 5 to 20 minutes count as hours worked, as the Department of Labor's <a href="https://www.dol.gov/general/topic/workhours/breaks" target="_blank" rel="noopener">breaks and meal periods page</a> explains. Your state or contract may set stricter rules, so check those too.</p>
+
+<h2 id="tips">Tips and common mistakes</h2>
+<ul>
+<li><strong>In the time fields, midnight is 12:00 AM, not 12:00 PM.</strong> Enter a 4 p.m. to midnight shift with an end time of 12:00 PM (noon) and you get 20 hours instead of 8. <a href="https://www.nist.gov/pml/time-and-frequency-division/times-day-faqs" target="_blank" rel="noopener">NIST</a> considers 12 a.m. and 12 p.m. ambiguous, so 24-hour times are safer. The <a href="24-hour-clock-guide.html">24-hour clock guide</a> covers the edge cases.</li>
+<li><strong>7.30 isn't seven and a half hours.</strong> In Add up a list, 7.30 is read as 7.3 hours, which is 7 hours 18 minutes. Type 7:30 or 7.5 instead.</li>
+<li><strong>Ranges don't subtract breaks.</strong> A 19:00-07:00 line counts all 12 hours. Add a line with a minus sign, such as -30m, to take off an unpaid meal.</li>
+<li><strong>Include the break when you work out a finish time.</strong> If you start at 22:00 for 12 paid hours plus a 30-minute unpaid meal, add 12 hours 30 minutes in Add or subtract. You finish at 10:30 the next day.</li>
+<li><strong>Use decimal hours for pay math.</strong> 7:45 is 7.75 hours, not 7.45. The <a href="decimal-hours-converter.html">decimal hours converter</a> has a chart for every minute.</li>
+<li><strong>Check a whole pay period at once.</strong> For punches with rounding and overtime, use the <a href="time-card-calculator.html">time card calculator</a>.</li>
+</ul>
