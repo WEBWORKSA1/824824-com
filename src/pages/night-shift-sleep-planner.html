@@ -1,0 +1,118 @@
+---
+layout: tool
+title: "Night Shift Sleep Planner: Sleep, Nap, Light and Caffeine Times"
+h1: "Night shift sleep planner"
+description: "Build a sleep plan around your night or rotating shift: when to sleep, nap, stop caffeine and seek or avoid light. Based on NIOSH and sleep-medicine guidance."
+lede: "Tell us your shift, commute and how much sleep you need. You'll get a 24-hour plan with sleep, a nap if you want one, a caffeine cut-off and light timing, all based on public guidance from NIOSH and sleep specialists."
+scripts: [tools/sleep]
+cta: worker
+priority: 0.9
+keywords: [night shift sleep schedule, sleep after night shift, shift work sleep, nap before night shift, caffeine cutoff, circadian, graveyard shift sleep]
+related_tools: [shift-pattern-generator, time-card-calculator]
+related_guides: [night-shift-survival-guide, rotating-shift-patterns]
+faq:
+  - q: "When should I go to sleep after a night shift?"
+    a: "NIOSH advises sleeping as soon as you get home and sleeping as long as you can. If one long sleep doesn't work for you, the Sleep Foundation describes a split schedule: a few hours of sleep after work, then a longer nap that ends close to your next shift."
+  - q: "How many hours before sleep should I stop caffeine?"
+    a: "Caffeine's half-life averages about 5 hours but can be as long as 9.5 hours, so it lingers. The planner defaults to a 6-hour cut-off; choose 8 if caffeine tends to keep you awake. The American Academy of Sleep Medicine suggests stopping coffee in the later part of your shift."
+  - q: "Should I wear sunglasses on the way home?"
+    a: "Blocking morning light can help you fall asleep faster once you're home, but NIOSH cautions that sunglasses also block light's alerting effect. Wear them only if someone else is driving."
+  - q: "Should I stay up all day before my first night shift?"
+    a: "No. NIOSH warns that staying awake all day and then working all night leaves you awake for too many hours, which raises your risk of accidents and injuries. Sleep or nap beforehand; even 20 to 30 minutes can improve alertness, according to the American Academy of Sleep Medicine."
+  - q: "What if the planner says my sleep doesn't fit?"
+    a: "Shorten the commute or wind-down if you can, and protect your days off for recovery sleep. If there isn't enough time to sleep at home between shifts at all, talk to your scheduler about the rest time between shifts."
+sources:
+  - title: "Module 9: Sleep (Continued) — NIOSH Training for Nurses, CDC"
+    url: "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod9/06.html"
+  - title: "Module 9: Coping with the Night and Evening Shifts, Light — NIOSH Training for Nurses, CDC"
+    url: "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod9/03.html"
+  - title: "Module 11: Driving, Drowsy Driving — NIOSH Training for Nurses, CDC"
+    url: "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod11/02.html"
+  - title: "Module 11: Driving, Warning Signs — NIOSH Training for Nurses, CDC"
+    url: "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod11/03.html"
+  - title: "Shift Work — Sleep Education, American Academy of Sleep Medicine"
+    url: "https://sleepeducation.org/sleep-disorders/shift-work/"
+  - title: "Tips for Coping With Shift Work Disorder — Sleep Foundation"
+    url: "https://www.sleepfoundation.org/shift-work-disorder/tips/coping-strategies"
+  - title: "Pharmacology of Caffeine — Institute of Medicine, National Academies Press"
+    url: "https://nap.nationalacademies.org/read/10219/chapter/4"
+---
+<div class="tool" data-tool="sleep">
+<div class="callout warn" style="margin-top:0"><strong>Wellness information, not medical advice.</strong> If you often can't sleep, feel very sleepy at work or nod off while driving, talk to a clinician about shift work disorder.</div>
+<div class="grid-3">
+<label class="field"><span>Shift starts</span><input id="sl-start" type="time" value="19:00"></label>
+<label class="field"><span>Shift ends</span><input id="sl-end" type="time" value="07:00"></label>
+<label class="field"><span>Sleep you need (hours)</span><select id="sl-need"><option value="6">6</option><option value="6.5">6.5</option><option value="7" selected>7</option><option value="7.5">7.5</option><option value="8">8</option><option value="8.5">8.5</option><option value="9">9</option></select></label>
+<label class="field"><span>Commute each way (minutes)</span><input id="sl-commute" type="number" min="0" max="180" step="5" value="30" inputmode="numeric"></label>
+<label class="field"><span>Wind-down before sleep (minutes)</span><input id="sl-wind" type="number" min="0" max="120" step="5" value="30" inputmode="numeric"></label>
+<label class="field"><span>Caffeine cut-off before sleep (hours)</span><select id="sl-caf"><option value="4">4</option><option value="5">5</option><option value="6" selected>6</option><option value="8">8</option></select></label>
+</div>
+<fieldset style="margin-top:16px">
+<legend>How do you like to sleep between shifts?</legend>
+<div class="choices-grid">
+<label class="choice"><input type="radio" name="sl-strategy" value="after" checked><span>All at once, right after work</span></label>
+<label class="choice"><input type="radio" name="sl-strategy" value="split"><span>Split: anchor sleep plus a nap before work</span></label>
+<label class="choice"><input type="radio" name="sl-strategy" value="before"><span>Later: sleep that ends close to my next shift</span></label>
+</div>
+</fieldset>
+<label class="check" style="margin-top:12px"><input id="sl-h24" type="checkbox" checked> <span>Show 24-hour times</span></label>
+
+<div class="results" aria-live="polite">
+<p class="print-only"><strong>Sleep plan from 824824.com</strong></p>
+<div class="result-main"><span class="result-label">Sleep between shifts</span><span class="result-num" id="sl-total">0:00</span><span class="result-sub" id="sl-total-sub"></span></div>
+<div class="timeline"><div class="timeline-bar" id="sl-bar"></div><div class="timeline-scale" id="sl-scale"></div></div>
+<ul class="warnings" id="sl-warn"></ul>
+<ol class="plan-list" id="sl-list"></ol>
+</div>
+<div class="tool-actions">
+<button type="button" class="btn btn-primary" id="sl-print">Print my plan</button>
+<button type="button" class="btn btn-ghost" id="sl-share">Copy share link</button>
+</div>
+<p class="tool-note">The plan assumes you work the same shift the next day. On your first and last nights, see the tips below.</p>
+</div>
+<!--article-->
+<p>The hours between two night shifts go fast once you count the drive home, winding down and getting ready again. This planner lays out one full day, from the start of your shift to the start of the next, so you can see how much sleep really fits and when to time light, caffeine and your main meal.</p>
+
+<h2 id="how-to-use">How to use the night shift sleep planner</h2>
+<ol>
+<li><strong>Enter your shift.</strong> Set <strong>Shift starts</strong> and <strong>Shift ends</strong>. Overnight shifts work as entered, so 19:00 to 07:00 is a 12-hour shift.</li>
+<li><strong>Add your numbers.</strong> Choose <strong>Sleep you need (hours)</strong>, from 6 to 9, then enter your <strong>Commute each way (minutes)</strong> and <strong>Wind-down before sleep (minutes)</strong>.</li>
+<li><strong>Pick a caffeine cut-off.</strong> Choose 4, 5, 6 or 8 hours under <strong>Caffeine cut-off before sleep (hours)</strong>.</li>
+<li><strong>Choose how you sleep.</strong> Pick <strong>All at once</strong>, <strong>Split</strong> (an anchor sleep plus a nap before work) or <strong>Later</strong> (sleep that ends close to your next shift).</li>
+<li><strong>Read, print and share.</strong> Check the timeline and the timed checklist. Untick <strong>Show 24-hour times</strong> if you prefer a.m. and p.m., then use <strong>Print my plan</strong> or <strong>Copy share link</strong>.</li>
+</ol>
+
+<h2 id="how-it-works">How the plan is built</h2>
+<p>The plan covers 24 hours from the start of your shift and assumes you work the same shift the next day. After the shift it adds your commute and wind-down. Before the next shift it holds back 60 minutes to get ready, plus your commute in. The time left over is your sleep window, and each strategy uses it differently:</p>
+<ul>
+<li><strong>All at once:</strong> one main sleep that starts as soon as you've wound down.</li>
+<li><strong>Split:</strong> an anchor sleep of up to 4.5 hours after work, then the rest of your sleep as a nap that ends when it's time to get ready. The nap is left out if less than 30 minutes would fit.</li>
+<li><strong>Later:</strong> one main sleep that ends when it's time to get ready.</li>
+</ul>
+<p>The caffeine cut-off counts back from the start of your first sleep. Caffeine's half-life averages about 5 hours in healthy adults but ranges from roughly 1.5 to 9.5 hours, according to an <a href="https://nap.nationalacademies.org/read/10219/chapter/4" target="_blank" rel="noopener">Institute of Medicine report</a>, so pick 8 hours if coffee tends to keep you awake.</p>
+<p>For light, the checklist follows the National Institute for Occupational Safety and Health (NIOSH): <a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod9/03.html" target="_blank" rel="noopener">bright light in the first half of your shift</a> and less in the second half where that's safe. It also says to avoid bright morning light on the way home. Sunglasses help with that, but NIOSH cautions they block light's alerting effect, so wear them only if someone else is driving. The checklist also reminds you to eat your main meal before the shift, and the planner warns you when the sleep you asked for doesn't fit.</p>
+<div class="example"><h4>Example: a 7 p.m. to 7 a.m. shift</h4><p>You need 7 hours of sleep, with a 30-minute commute, 30 minutes to wind down and a 6-hour caffeine cut-off. You're home at 7:30 a.m. and asleep by 8 a.m. To leave at 6:30 p.m. after an hour to get ready, you must be up by 5:30 p.m., which gives a 9.5-hour window. All at once puts sleep from 8 a.m. to 3 p.m., with last caffeine at 2 a.m. and bright light until 1 a.m. Split gives an anchor sleep from 8 a.m. to 12:30 p.m. and a 2.5-hour nap from 3 to 5:30 p.m.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="first-and-last-night">Your first and last night of a run</h2>
+<p>The planner assumes you're mid-run, so plan the edges separately. <a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod9/06.html" target="_blank" rel="noopener">NIOSH warns</a> against staying awake all day before your first night shift and then working all night, and against staying up the whole day after your last night so you can sleep at night. Either way you're awake for too many hours, which raises your risk of accidents and injuries.</p>
+<p>Before the first night, get sleep where you can, including a nap. The <a href="https://sleepeducation.org/sleep-disorders/shift-work/" target="_blank" rel="noopener">American Academy of Sleep Medicine</a> (AASM) notes that even 20 to 30 minutes before a night shift can improve alertness. After the last night, plan some sleep that morning rather than pushing through to bedtime. The <a href="shift-pattern-generator.html">shift pattern generator</a> shows where each run of nights starts and ends.</p>
+
+<h2 id="anchor-sleep">Keep an anchor sleep</h2>
+<p>Anchor sleep is a block of sleep you keep at the same hours every day, on workdays and days off, so your body clock gets some consistency. NIOSH describes a compromise schedule for full-time night workers built around one.</p>
+<div class="example"><h4>Example: an anchor from 8 a.m. to noon</h4><p>On workdays you sleep from 8 a.m., soon after you get home, until 3 p.m. On days off you stay up until about 4 a.m. and sleep until noon. Both schedules include 8 a.m. to noon, so those four hours are sleep time every day of the week.</p></div>
+
+<h2 id="drowsy-driving">Watch for drowsy driving</h2>
+<p>The drive home is part of the shift. NIOSH notes that most drowsy-driving <a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod11/02.html" target="_blank" rel="noopener">crashes and near misses happen between 4 and 6 a.m.</a> Its <a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod11/03.html" target="_blank" rel="noopener">warning signs</a> include:</p>
+<ul>
+<li>Trouble focusing, frequent blinking or heavy eyelids</li>
+<li>Daydreaming or wandering, disconnected thoughts</li>
+<li>Not remembering the last few miles, or missing exits and traffic signs</li>
+<li>Yawning repeatedly or rubbing your eyes</li>
+<li>Trouble keeping your head up</li>
+<li>Drifting from your lane, tailgating or hitting a rumble strip</li>
+<li>Feeling restless and irritable</li>
+</ul>
+<p>If you notice any of them, stop driving as soon as it's safe. Then line up another way home: the AASM suggests a ride or a bus or cab after a night shift, and the <a href="https://www.sleepfoundation.org/shift-work-disorder/tips/coping-strategies" target="_blank" rel="noopener">Sleep Foundation</a> suggests a brief nap at work or in your car before you leave. Our <a href="night-shift-survival-guide.html">night shift survival guide</a> goes deeper on sleep, meals and safety.</p>
+<div class="callout warn"><strong>Talk to a clinician</strong> if you often can't sleep, feel very sleepy at work or have nodded off at the wheel. The AASM lists excessive sleepiness, trouble falling or staying asleep, low energy and poor concentration among the signs of shift work disorder, and the Sleep Foundation suggests seeing a doctor if problems last two weeks or longer.</div>

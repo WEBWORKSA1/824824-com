@@ -1,0 +1,126 @@
+---
+layout: tool
+title: "Overtime Calculator: Weekly Pay with the Correct Regular Rate"
+h1: "Overtime calculator"
+description: "Calculate weekly overtime pay at time and a half or double time, including the US regular-rate method when shift differentials or bonuses apply."
+lede: "Find your weekly pay with overtime. If you earn a shift differential or a non-discretionary bonus, this calculator also applies the regular-rate method US federal law uses, and shows what a base-rate-only calculation would miss."
+scripts: [tools/overtime]
+cta: worker
+priority: 0.9
+keywords: [time and a half, OT pay, double time, regular rate of pay, FLSA, overtime pay, weekly pay]
+related_tools: [time-card-calculator, shift-differential-calculator, hourly-salary-converter]
+related_guides: [overtime-laws-explained, shift-differential-pay]
+faq:
+  - q: "What is the regular rate of pay?"
+    a: "Under the FLSA, it is your total pay for the workweek, minus a few excluded payments, divided by the hours you actually worked. Overtime must be paid at no less than one and a half times that rate, so differentials and non-discretionary bonuses raise your overtime pay."
+  - q: "Does a shift differential count toward overtime pay?"
+    a: "In the US, yes: federal rules require night-shift differentials to be included in the regular rate, whether they are a percentage of the base rate or a set amount per hour. Quebec is different, because the CNESST says night or evening shift premiums are not taken into account when calculating overtime."
+  - q: "Which bonuses go into the regular rate?"
+    a: "Any bonus that isn't discretionary. A bonus can be left out only if both the decision to pay it and its amount are at the employer's sole discretion at or near the end of the period, and it isn't paid under a prior contract, agreement or promise, so a promised attendance or production bonus counts."
+  - q: "Can hours be averaged over two weeks to avoid overtime?"
+    a: "Generally not under US federal rules, which treat each workweek separately, so 30 hours one week doesn't offset 50 the next. Some places allow averaging by agreement: in Ontario, for example, hours can be averaged over two to four weeks with a written or electronic agreement."
+  - q: "Which method should I choose?"
+    a: "Choose the US regular-rate method for jobs covered by the FLSA, especially when you earn differentials or bonuses. Choose Base rate × multiplier when overtime is figured on your usual hourly rate alone, as in Quebec, or when your contract sets a fixed overtime rate."
+sources:
+  - title: "Fact Sheet #23: Overtime Pay Requirements of the FLSA — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay"
+  - title: "Fact Sheet #56A: Overview of the Regular Rate of Pay Under the FLSA — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/fact-sheets/56a-regular-rate"
+  - title: "29 CFR 778.207 (nightshift differentials and the regular rate) — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.207"
+  - title: "State Minimum Wage Laws (premium pay after designated hours) — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/minimum-wage/state"
+  - title: "Your guide to the Employment Standards Act: Overtime pay — Government of Ontario"
+    url: "https://www.ontario.ca/document/your-guide-employment-standards-act-0/overtime-pay"
+  - title: "Overtime — CNESST"
+    url: "https://www.cnesst.gouv.qc.ca/en/working-conditions/salaire-paye/salaire/overtime"
+  - title: "Overtime: your rights — GOV.UK"
+    url: "https://www.gov.uk/overtime-your-rights"
+---
+<div class="tool" data-tool="overtime">
+<div class="grid-3">
+<label class="field"><span>Base hourly rate</span><span class="input-affix"><select id="ot-cur" aria-label="Currency"><option>$</option><option>€</option><option>£</option><option>₹</option><option value="C$">C$</option><option value="A$">A$</option></select><input id="ot-rate" type="number" min="0" step="0.01" value="22" inputmode="decimal"></span></label>
+<label class="field"><span>Hours worked this week</span><input id="ot-hours" type="number" min="0" max="168" step="0.25" value="48" inputmode="decimal"></label>
+<label class="field"><span>Overtime starts after</span><select id="ot-thr"><option value="40">40 hours (US federal, Quebec, Canada federal)</option><option value="44">44 hours (Ontario, Alberta weekly)</option><option value="48">48 hours</option><option value="custom">Custom</option></select></label>
+<label class="field" id="ot-thr-custom-wrap" hidden><span>Custom weekly threshold (hours)</span><input id="ot-thr-custom" type="number" min="0" step="0.5" inputmode="decimal"></label>
+<label class="field"><span>Overtime multiplier</span><input id="ot-mult" type="number" min="1" step="0.05" value="1.5" inputmode="decimal"></label>
+<label class="field"><span>Method</span><select id="ot-method"><option value="regular">US regular-rate method</option><option value="simple">Base rate × multiplier</option></select></label>
+</div>
+
+<details class="tool-options">
+<summary>Differentials, bonuses and double time</summary>
+<div class="options-body">
+<div class="grid-3">
+<label class="field"><span>Hours that earned a differential</span><input id="ot-diff-h" type="number" min="0" step="0.25" value="0" inputmode="decimal"></label>
+<label class="field"><span>Differential type</span><select id="ot-diff-type"><option value="flat">Flat amount per hour</option><option value="pct">Percent of base rate</option></select></label>
+<label class="field"><span>Differential amount</span><input id="ot-diff-v" type="number" min="0" step="0.01" value="0" inputmode="decimal"></label>
+<label class="field"><span>Non-discretionary bonus this week <span class="hint">attendance, production or shift bonuses promised in advance</span></span><input id="ot-bonus" type="number" min="0" step="0.01" value="0" inputmode="decimal"></label>
+<label class="field"><span>Double-time hours <span class="hint">for example, California hours over 12 in a day</span></span><input id="ot-dt" type="number" min="0" step="0.25" value="0" inputmode="decimal"></label>
+<label class="field"><span>Double-time multiplier</span><input id="ot-dtm" type="number" min="1" step="0.05" value="2" inputmode="decimal"></label>
+</div>
+</div>
+</details>
+
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Gross pay for the week</span><span class="result-num" id="ot-total">$0.00</span><span class="result-sub" id="ot-total-sub"></span></div>
+<dl class="result-grid">
+<div><dt>Regular hours</dt><dd id="ot-out-reg">0</dd></div>
+<div class="is-ot"><dt>Overtime hours</dt><dd id="ot-out-ot">0</dd></div>
+<div class="is-ot"><dt>Double time</dt><dd id="ot-out-dt">0</dd></div>
+<div class="is-pay"><dt>Regular rate</dt><dd id="ot-out-rr">$0.00</dd></div>
+</dl>
+<ul class="warnings"><li id="ot-gap" hidden></li></ul>
+</div>
+<div class="tool-actions">
+<button type="button" class="btn btn-ghost" id="ot-copy">Copy result</button>
+<button type="button" class="btn btn-ghost" id="ot-share">Copy share link</button>
+</div>
+<p class="tool-note">Estimates before tax and deductions. Your entries stay in this browser.</p>
+</div>
+<!--article-->
+<h2 id="how-to-use">How to use the overtime calculator</h2>
+<ol>
+<li><strong>Enter one week.</strong> Type your Base hourly rate and Hours worked this week. Each week is calculated on its own.</li>
+<li><strong>Set the threshold and multiplier.</strong> Under Overtime starts after, choose 40, 44 or 48 hours, or Custom. Leave Overtime multiplier at 1.5 for time and a half.</li>
+<li><strong>Pick a method.</strong> US regular-rate method follows the federal Fair Labor Standards Act (FLSA). Base rate × multiplier pays overtime on your base rate alone.</li>
+<li><strong>Add extras.</strong> Open Differentials, bonuses and double time to enter Hours that earned a differential, its type and amount, any Non-discretionary bonus this week, and Double-time hours with their multiplier. The <a href="shift-differential-calculator.html">shift differential calculator</a> shows how many hours of a shift fall in each window.</li>
+<li><strong>Read the results.</strong> Gross pay for the week appears at the top, with regular, overtime and double-time hours and your regular rate. If paying overtime on the base rate alone would come to less, a note shows the gap. Copy result or Copy share link to keep it.</li>
+</ol>
+<p>This calculator uses weekly thresholds only. If daily overtime applies to you, total your shifts in the <a href="time-card-calculator.html">time card calculator</a> first. Then enter your total hours here, set a Custom threshold equal to your regular hours, and add any double-time hours.</p>
+
+<h2 id="how-it-works">How the math works</h2>
+<p>Double-time hours are set aside first, and the remaining hours above the threshold are overtime.</p>
+<h3>The US regular-rate method</h3>
+<p>Under the FLSA, hours over 40 in a workweek must be paid at least one and a half times your regular rate (<a href="https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay" target="_blank" rel="noopener">Fact Sheet #23</a>). The regular rate is your total pay for the week, minus a few statutory exclusions, divided by the hours you actually worked (<a href="https://www.dol.gov/agencies/whd/fact-sheets/56a-regular-rate" target="_blank" rel="noopener">Fact Sheet #56A</a>). Night-shift differentials go in, whether they're a percentage or a set amount per hour (<a href="https://www.law.cornell.edu/cfr/text/29/778.207" target="_blank" rel="noopener">29 CFR 778.207</a>). So do bonuses promised in advance, because a bonus can be left out as discretionary only if the employer decides both whether to pay it and how much at or near the end of the period, with no prior promise.</p>
+<p>The calculator works in four steps:</p>
+<ol>
+<li>Straight-time pay = base rate × all hours + differential pay + bonus.</li>
+<li>Regular rate = straight-time pay ÷ total hours.</li>
+<li>Overtime premium = overtime hours × (multiplier − 1) × regular rate, which is 0.5 × the regular rate at time and a half. Straight-time pay already covers every hour once, so only the extra part is added.</li>
+<li>Gross pay = straight-time pay + premium. Each double-time hour adds (double-time multiplier − 1) × regular rate.</li>
+</ol>
+<p>Base rate × multiplier pays regular hours at the base rate and overtime hours at base rate × multiplier, then adds differential pay and the bonus. It matches the regular-rate method when you have no extras, and pays less when you have extras and overtime in the same week.</p>
+
+<div class="example"><h4>Example: a differential and a bonus</h4><p>You earn $20 an hour and work 50 hours. Twenty of those hours carry a $2 night differential ($40), and you earn a $50 attendance bonus promised in advance. Straight-time pay is 50 × $20 + $40 + $50 = $1,090. Your regular rate is $1,090 ÷ 50 = $21.80. The overtime premium is 10 × $10.90 = $109, so gross pay is <strong>$1,199</strong>. Paying overtime on the base rate alone gives 40 × $20 + 10 × $30 + $40 + $50 = $1,190, which is $9 short.</p></div>
+
+<div class="example"><h4>Example: one week, three thresholds</h4><p>At $22 an hour for 48 hours with no extras, a 40-hour threshold pays 40 × $22 + 8 × $33 = $1,144. A 44-hour threshold pays 44 × $22 + 4 × $33 = $1,100. With a 48-hour threshold, all 48 hours are straight time: $1,056.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Paying overtime on the base rate when you earn extras.</strong> If you're covered by the FLSA and earn a differential or a promised bonus, check that your overtime rate reflects your regular rate, not just your base rate.</li>
+<li><strong>Averaging two weeks.</strong> Federal rules don't allow averaging hours across two or more weeks, so run each week separately.</li>
+<li><strong>Counting paid hours you didn't work.</strong> The federal rule counts hours worked, so a paid holiday you didn't work doesn't count toward the 40, though a contract can be more generous.</li>
+<li><strong>Mixing up differential types.</strong> A 10% differential on a $30 base is $3 an hour. Entered as a flat amount, 10 would mean $10 an hour.</li>
+</ul>
+
+<h2 id="related-rules">Overtime rules by place</h2>
+<ul>
+<li><strong>United States:</strong> the FLSA sets the 40-hour weekly rule, and some states add daily overtime, including California, Alaska, Nevada and Colorado (<a href="https://www.dol.gov/agencies/whd/minimum-wage/state" target="_blank" rel="noopener">DOL state summary</a>).</li>
+<li><strong>Ontario:</strong> overtime starts after 44 hours in a work week at 1.5 times the regular rate. With a written or electronic agreement, hours can be averaged over two to four weeks (<a href="https://www.ontario.ca/document/your-guide-employment-standards-act-0/overtime-pay" target="_blank" rel="noopener">Government of Ontario</a>).</li>
+<li><strong>Quebec:</strong> the standard week is 40 hours for most workers, and overtime is paid at time and a half of the usual hourly rate. The CNESST says premiums added to the hourly rate, such as night or evening shift premiums, aren't taken into account (<a href="https://www.cnesst.gouv.qc.ca/en/working-conditions/salaire-paye/salaire/overtime" target="_blank" rel="noopener">CNESST</a>), so Base rate × multiplier fits there.</li>
+<li><strong>United Kingdom:</strong> employers don't have to pay for overtime, but your average pay across all hours worked must not fall below the National Minimum Wage (<a href="https://www.gov.uk/overtime-your-rights" target="_blank" rel="noopener">GOV.UK</a>). Your contract sets any overtime rate.</li>
+</ul>
+<p>The <a href="overtime-laws-explained.html">overtime laws guide</a> covers exemptions and more places in depth.</p>
+<div class="callout warn"><strong>Important:</strong> These are estimates based on general information, not legal advice. Exempt status, state and provincial law, collective agreements and averaging arrangements can change what you're owed, so confirm with your payroll team, union or labor standards office.</div>
