@@ -1,0 +1,116 @@
+---
+layout: home
+title: "824824 — Free Time Card, Overtime and Shift Schedule Tools"
+og_title: "824824 — Eight of Twenty-Four"
+description: "Free time card, overtime, shift pattern and night-shift sleep tools for nurses, plant crews, security and anyone working shifts, plus guides to pay and schedules."
+scripts: [dial]
+priority: 1.0
+keywords: [shift work, shift workers, night shift, time card, overtime, rotating schedule]
+---
+<section class="hero">
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<h1>Your 8 of 24,<br> worked out.</h1>
+<p class="lede">Free time card, overtime, rotation and sleep tools for people who work while others sleep, and for the managers who build their schedules.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="time-card-calculator.html">Open the time card calculator</a>
+<a class="btn btn-ghost" href="shift-pattern-generator.html">Build my shift calendar</a>
+</div>
+<p class="hero-note">No sign-up, and nothing you type leaves your device. Every pay rule we mention links to its official source.</p>
+</div>
+<div class="dial-card" data-dial>
+<div class="dial-wrap">
+<svg class="dial" viewBox="0 0 400 400" role="slider" tabindex="0" aria-label="Shift start time. Use the arrow keys to move it." aria-valuemin="0" aria-valuemax="23.75" aria-valuenow="23"></svg>
+</div>
+<div class="dial-controls">
+<label class="field"><span>Shift starts</span><input type="time" name="dial_start" value="23:00" step="900"></label>
+<label class="field"><span>Shift length</span><select name="dial_len"><option value="6">6 hours</option><option value="7.5">7½ hours</option><option value="8" selected>8 hours</option><option value="9">9 hours</option><option value="10">10 hours</option><option value="12">12 hours</option><option value="16">16 hours</option><option value="24">24 hours</option></select></label>
+</div>
+<dl class="dial-readout" aria-live="polite">
+<div><dt>Starts</dt><dd data-out="start"></dd></div>
+<div><dt>Ends</dt><dd data-out="end"></dd></div>
+<div><dt>Sleep</dt><dd data-out="sleep"></dd></div>
+<div><dt>Last coffee</dt><dd data-out="coffee"></dd></div>
+</dl>
+<p class="dial-legend"><span style="--swatch: var(--amber)">Your shift</span><span style="--swatch: var(--night)">Suggested sleep</span><span style="--swatch: color-mix(in srgb, var(--night) 25%, var(--surface-3))">Night hours, 22:00 to 06:00</span></p>
+<p class="dial-foot">Drag the ring or use the arrow keys. Then <a data-link="sleep" href="night-shift-sleep-planner.html">plan sleep around this shift</a> or <a data-link="pay" href="shift-differential-calculator.html">price the night premium</a>.</p>
+</div>
+</div>
+</section>
+
+<section class="section band" aria-labelledby="tools-title">
+<div class="wrap">
+<div class="section-head">
+<h2 id="tools-title">Eleven free tools for real shifts</h2>
+<p>Overnight shifts, split shifts, 12-hour rotations, provincial and state overtime rules: the cases most calculators skip are the ones these were built for.</p>
+</div>
+{% include tool-list.html group="yes" %}
+</div>
+</section>
+
+<div class="wrap">{% include ad.html slot="home" %}</div>
+
+{% include lead-band.html heading="Running a team that never clocks out?" %}
+
+<section class="section" aria-labelledby="guides-title">
+<div class="wrap">
+<div class="section-head">
+<h2 id="guides-title">Plain answers, with the rules linked</h2>
+<p>Overtime law by country, rotating schedules compared, sleep on nights, and the math behind your pay stub. <a href="guides.html">All guides</a></p>
+</div>
+{% include guide-list.html limit="6" %}
+</div>
+</section>
+
+<section class="section band" aria-labelledby="facts-title">
+<div class="wrap">
+<div class="section-head">
+<h2 id="facts-title">Why 8 of 24</h2>
+<p>The site is named for the eight-hour share of the day that labor movements fought for, and for the millions of people whose eight hours fall at night.</p>
+</div>
+<div class="facts">
+<div class="fact code-eve"><span class="fact-num">1817</span><p>Robert Owen's call for eight hours of labor, eight of recreation and eight of rest.</p><a href="history-of-the-8-hour-day.html">The history of the 8-hour day</a></div>
+<div class="fact code-night"><span class="fact-num">15%</span><p>of US wage and salary workers don't work a regular daytime schedule (2024&ndash;25).</p><a href="https://www.bls.gov/news.release/flex2.nr0.htm" target="_blank" rel="noopener">U.S. Bureau of Labor Statistics</a></div>
+<div class="fact code-day"><span class="fact-num">21%</span><p>of workers in Europe reported doing shift work in the 2015 European Working Conditions Survey.</p><a href="https://www.eurofound.europa.eu/en/podcast-and-blog/all/working-time-clashes-work-life-balance-many-workers" target="_blank" rel="noopener">Eurofound</a></div>
+<div class="fact code-rest"><span class="fact-num">168</span><p>hours a week to cover one post around the clock: four teams on 42-hour rotations.</p><a href="staffing-calculator.html">Run the staffing math</a></div>
+</div>
+</div>
+</section>
+
+<section class="section" aria-labelledby="video-title">
+<div class="wrap">
+<div class="section-head">
+<h2 id="video-title">Watch: sleep, health and pay</h2>
+<p>Short explainers from sleep-medicine experts, public-health agencies and the US Department of Labor. <a href="videos.html">All videos</a></p>
+</div>
+{% include video-grid.html ids="4qr8heGaBjk,T114qhKIMag,qdzS7j56q9c" %}
+</div>
+</section>
+
+<section class="section band" aria-labelledby="involved-title">
+<div class="wrap">
+<div class="section-head">
+<h2 id="involved-title">Get involved</h2>
+<p>824824 is independent and free. Here's how you can win, help or reach this audience.</p>
+</div>
+<div class="tiers tiers-3">
+<div class="tier code-eve"><h3>Monthly contest</h3><p class="price">$175</p><p>in cash prizes for the best shift-work hacks. Free to enter, judged on usefulness.</p><a class="btn btn-primary" href="contests.html">Enter the contest</a></div>
+<div class="tier code-night"><h3>Support the tools</h3><p class="price">From $3</p><p>Keep calculators free and ad-light, fund new tools, and help pay contest prizes and contributors.</p><a class="btn btn-ghost" href="support.html">Support 824824</a></div>
+<div class="tier code-day"><h3>Advertise and sponsor</h3><p class="price">Founding rates</p><p>Sponsor a calculator, the newsletter or a contest, and reach shift workers and the people who schedule them.</p><a class="btn btn-ghost" href="advertise.html">See packages</a></div>
+</div>
+</div>
+</section>
+
+{% include alerts-band.html %}
+
+<section class="section" aria-labelledby="home-faq-title">
+<div class="wrap after-article" style="padding-bottom:0">
+<section class="faq">
+<h2 id="home-faq-title">Questions people ask</h2>
+<details class="faq-item"><summary>Are the tools really free?</summary><div class="faq-a"><p>Yes. Every calculator works without an account. The site is paid for by advertising, optional referral fees when businesses ask us for software recommendations, sponsorships and reader support.</p></div></details>
+<details class="faq-item"><summary>Do you see the hours and pay I enter?</summary><div class="faq-a"><p>No. Calculations run in your browser, and your entries are saved only on your device so you can come back to them. We only receive what you choose to send through a form.</p></div></details>
+<details class="faq-item"><summary>Can I rely on the overtime results?</summary><div class="faq-a"><p>Use them as a careful estimate. Presets follow published rules for common places, but exemptions, averaging agreements and collective agreements can change the answer. Check your contract and the official sources we link.</p></div></details>
+<details class="faq-item"><summary>Why is the site called 824824?</summary><div class="faq-a"><p>It reads as 8 of 24: the eight-hour share of the day, twice. <a href="what-does-824-mean.html">See what 824 means across cultures</a>.</p></div></details>
+</section>
+</div>
+</section>
