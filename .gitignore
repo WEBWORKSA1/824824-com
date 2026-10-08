@@ -1,0 +1,6 @@
+# Build output (published to the gh-pages branch)
+_site/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
