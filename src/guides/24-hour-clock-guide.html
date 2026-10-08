@@ -1,0 +1,157 @@
+---
+layout: guide
+title: "24-Hour Clock Guide: Convert Military Time to AM/PM"
+h1: "The 24-Hour Clock: A Practical Guide"
+description: "How the 24-hour clock works: convert to and from AM/PM, handle midnight and noon, say military time, write ISO 8601 and avoid shift handover time mistakes."
+category: "Time Math"
+updated: 2026-10-08
+read_min: 7
+related_tools: [military-time-converter, hours-calculator, time-card-calculator]
+related_guides: [decimal-hours-time-card-math, rotating-shift-patterns, history-of-the-8-hour-day]
+faq:
+  - q: "Is 12:00 AM midnight or noon?"
+    a: "By common convention, 12:00 AM is midnight and 12:00 PM is noon. Because the labels confuse people, NIST says they are ambiguous and advises against them, so write 00:00 or 12:00, or say 12 midnight or 12 noon."
+  - q: "Is midnight 00:00 or 24:00?"
+    a: "Both are used. 00:00 marks midnight at the start of a day and 24:00 marks midnight at the end of one, so 24:00 on Monday is the same moment as 00:00 on Tuesday."
+  - q: "How do you convert 24-hour time to 12-hour time?"
+    a: "From 13:00 to 23:59, subtract 12 and add PM. For 00:00 to 00:59, change the 00 to 12 and add AM; 01:00 to 11:59 are AM and 12:00 to 12:59 are PM, with no change to the hour."
+  - q: "How do you say 0600 in military time?"
+    a: "Say zero six hundred, often followed by the word hours. Times on the hour use hundred, so 1000 is ten hundred rather than one thousand, and times with minutes are read in pairs, so 1730 is seventeen thirty."
+  - q: "Why do hospitals use the 24-hour clock?"
+    a: "Every time of day gets a unique four-digit label, so a 0700 dose can't be confused with a 1900 dose. Nursing education materials such as Open RN note that it reduces AM/PM confusion and duplicate scheduling errors."
+  - q: "How do I calculate hours for a shift that crosses midnight?"
+    a: "Add 24 hours to the end time before subtracting the start time. A shift from 19:00 to 07:00 is 31 minus 19, or 12 hours, before any unpaid breaks."
+sources:
+  - title: "Times of Day FAQs — National Institute of Standards and Technology"
+    url: "https://www.nist.gov/pml/time-and-frequency-division/times-day-faqs"
+  - title: "Daylight Saving Time Rules — National Institute of Standards and Technology"
+    url: "https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst"
+  - title: "Aeronautical Information Manual, Chapter 4, Section 2: Radio Communications Phraseology and Techniques — Federal Aviation Administration"
+    url: "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_2.html"
+  - title: "ISO 8601 — Date and time format — International Organization for Standardization"
+    url: "https://www.iso.org/iso-8601-date-and-time-format.html"
+  - title: "Extended Date/Time Format (EDTF) Specification — Library of Congress"
+    url: "https://www.loc.gov/standards/datetime/"
+  - title: "Phonetic Alphabet and Military Time — Today's Military"
+    url: "https://www.todaysmilitary.com/life-in-the-military/customs-practices/alphabet-time"
+  - title: "Military Time: The 24-Hour Clock — timeanddate.com"
+    url: "https://www.timeanddate.com/time/military-time.html"
+  - title: "What Do AM and PM Stand For? — timeanddate.com"
+    url: "https://www.timeanddate.com/time/am-and-pm.html"
+  - title: "Practice Problems: Military Time — Open Resources for Nursing (Open RN)"
+    url: "https://open.maricopa.edu/nurserefresher/?p=752"
+---
+<p class="lead">The 24-hour clock numbers the hours of the day from 00 to 23, so every time has exactly one label and no AM or PM is needed. If you work shifts, especially in healthcare, emergency services or anywhere that runs around the clock, it's worth knowing cold. Here's how it works, how to convert it, and the mistakes that trip people up at handover.</p>
+
+<h2 id="how-it-works">How the 24-hour clock works</h2>
+<p>A day starts at midnight, written 00:00, and runs to 23:59, one minute before the next midnight. Hours count straight through from 00 to 23 instead of restarting at 12, so 1 p.m. becomes 13:00 and 11 p.m. becomes 23:00. Minutes work exactly as they do on a 12-hour clock.</p>
+<ul>
+<li><strong>Two digits for the hour, two for the minutes:</strong> 7:05 in the morning is 07:05, with a leading zero.</li>
+<li><strong>Colon optional:</strong> civilian writing usually uses one (19:30); military style drops it (1930).</li>
+<li><strong>No AM or PM:</strong> the hour alone tells you the half of the day.</li>
+</ul>
+<p>The labels AM and PM come from Latin: <em>ante meridiem</em> (before noon) and <em>post meridiem</em> (after noon). The 24-hour clock simply makes them unnecessary.</p>
+
+<h2 id="converting">Converting between 12-hour and 24-hour time</h2>
+<h3>From 12-hour to 24-hour</h3>
+<ul>
+<li><strong>12:xx AM</strong> (the hour after midnight): replace 12 with 00. 12:45 AM becomes 00:45.</li>
+<li><strong>1:00 to 11:59 AM:</strong> keep the time and add a leading zero if needed. 9:15 AM becomes 09:15.</li>
+<li><strong>12:xx PM</strong> (the hour after noon): keep it as is. 12:20 PM becomes 12:20.</li>
+<li><strong>1:00 to 11:59 PM:</strong> add 12 to the hour. 7:40 PM becomes 19:40.</li>
+</ul>
+<h3>From 24-hour to 12-hour</h3>
+<ul>
+<li><strong>00:xx:</strong> change 00 to 12 and add AM. 00:10 becomes 12:10 AM.</li>
+<li><strong>01:xx to 11:xx:</strong> drop the leading zero and add AM. 06:30 becomes 6:30 AM.</li>
+<li><strong>12:xx:</strong> keep the hour and add PM. 12:05 becomes 12:05 PM.</li>
+<li><strong>13:xx to 23:xx:</strong> subtract 12 and add PM. 22:15 becomes 10:15 PM.</li>
+</ul>
+<div class="example"><h4>Example: reading a night-shift schedule</h4><p>Your shift runs 18:45 to 07:15. Subtract 12 from 18 and you start at 6:45 PM; 07:15 is just 7:15 AM. To get the length, add 24 to the end hour because the shift crosses midnight: 31:15 minus 18:45 is 12 hours 30 minutes, before any unpaid break.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="conversion-table">24-hour to 12-hour conversion table</h2>
+<p>Every hour of the day, with the way it's usually spoken in military style. Minutes carry over unchanged, so 14:35 is 2:35 PM.</p>
+<table class="data">
+<thead><tr><th>24-hour</th><th>12-hour</th><th>Spoken (military style)</th></tr></thead>
+<tbody>
+<tr><td>00:00</td><td>12:00 AM (midnight)</td><td>zero hundred</td></tr>
+<tr><td>01:00</td><td>1:00 AM</td><td>zero one hundred</td></tr>
+<tr><td>02:00</td><td>2:00 AM</td><td>zero two hundred</td></tr>
+<tr><td>03:00</td><td>3:00 AM</td><td>zero three hundred</td></tr>
+<tr><td>04:00</td><td>4:00 AM</td><td>zero four hundred</td></tr>
+<tr><td>05:00</td><td>5:00 AM</td><td>zero five hundred</td></tr>
+<tr><td>06:00</td><td>6:00 AM</td><td>zero six hundred</td></tr>
+<tr><td>07:00</td><td>7:00 AM</td><td>zero seven hundred</td></tr>
+<tr><td>08:00</td><td>8:00 AM</td><td>zero eight hundred</td></tr>
+<tr><td>09:00</td><td>9:00 AM</td><td>zero nine hundred</td></tr>
+<tr><td>10:00</td><td>10:00 AM</td><td>ten hundred</td></tr>
+<tr><td>11:00</td><td>11:00 AM</td><td>eleven hundred</td></tr>
+<tr><td>12:00</td><td>12:00 PM (noon)</td><td>twelve hundred</td></tr>
+<tr><td>13:00</td><td>1:00 PM</td><td>thirteen hundred</td></tr>
+<tr><td>14:00</td><td>2:00 PM</td><td>fourteen hundred</td></tr>
+<tr><td>15:00</td><td>3:00 PM</td><td>fifteen hundred</td></tr>
+<tr><td>16:00</td><td>4:00 PM</td><td>sixteen hundred</td></tr>
+<tr><td>17:00</td><td>5:00 PM</td><td>seventeen hundred</td></tr>
+<tr><td>18:00</td><td>6:00 PM</td><td>eighteen hundred</td></tr>
+<tr><td>19:00</td><td>7:00 PM</td><td>nineteen hundred</td></tr>
+<tr><td>20:00</td><td>8:00 PM</td><td>twenty hundred</td></tr>
+<tr><td>21:00</td><td>9:00 PM</td><td>twenty-one hundred</td></tr>
+<tr><td>22:00</td><td>10:00 PM</td><td>twenty-two hundred</td></tr>
+<tr><td>23:00</td><td>11:00 PM</td><td>twenty-three hundred</td></tr>
+</tbody>
+</table>
+<p>For any time, including minutes, the <a href="military-time-converter.html">military time converter</a> does the conversion for you.</p>
+
+<h2 id="edge-cases">Midnight, noon and other edge cases</h2>
+<p>The trickiest conversions are in the two 12 o'clock hours.</p>
+<ul>
+<li><strong>00:00 is midnight at the start of the day.</strong> On a 12-hour clock it's 12:00 AM.</li>
+<li><strong>12:00 is noon.</strong> On a 12-hour clock it's 12:00 PM.</li>
+<li><strong>24:00 is midnight at the end of the day.</strong> A late shift can be written 16:00 to 24:00 to show it ends at midnight on the same date. 24:00 Monday is the same moment as 00:00 Tuesday, and clocks normally go straight from 23:59 to 00:00.</li>
+<li><strong>00:30 is 12:30 AM,</strong> half an hour after midnight. It's easy to misread 12:30 AM as lunchtime, but 12:30 PM, or 12:30 in 24-hour time, is the one in the middle of the day.</li>
+</ul>
+<div class="callout warn"><strong>Important:</strong> The <a href="https://www.nist.gov/pml/time-and-frequency-division/times-day-faqs" target="_blank" rel="noopener">National Institute of Standards and Technology</a> (NIST) considers 12 a.m. and 12 p.m. ambiguous and recommends not using them. Most clocks and calendars still treat 12 AM as midnight and 12 PM as noon, but in anything that matters, use 24-hour time, write "12 noon" or "12 midnight," or set deadlines at 11:59 p.m. or 12:01 a.m., as NIST suggests for dates in legal documents.</div>
+
+{% include cta-inline.html kind="worker" %}
+
+<h2 id="military-time">How military time is spoken</h2>
+<p>In military style, times are written as four digits with no colon (0600, 1730) and spoken in a set pattern. The <a href="https://www.todaysmilitary.com/life-in-the-military/customs-practices/alphabet-time" target="_blank" rel="noopener">conventions</a> are straightforward:</p>
+<ul>
+<li><strong>On the hour, say "hundred":</strong> 0600 is "zero six hundred" and 1500 is "fifteen hundred." The word "hours" often follows.</li>
+<li><strong>Never "thousand":</strong> 1000 is "ten hundred," not "one thousand," and 2000 is "twenty hundred."</li>
+<li><strong>With minutes, read two pairs:</strong> 1730 is "seventeen thirty" and 2145 is "twenty-one forty-five."</li>
+<li><strong>Say the zeros:</strong> 0705 is "zero seven zero five," and 0930 is "zero nine thirty."</li>
+</ul>
+<p>Military time often adds a time-zone letter. As <a href="https://www.timeanddate.com/time/military-time.html" target="_blank" rel="noopener">timeanddate.com explains</a>, Z marks Coordinated Universal Time (UTC) and is spoken "Zulu," so 1400Z is 14:00 UTC. Aviation is even stricter: the <a href="https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_2.html" target="_blank" rel="noopener">Federal Aviation Administration</a> uses UTC for all operations, and on the radio UTC times are read digit by digit, with 9 spoken as "niner."</p>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="iso-8601">ISO 8601: the international format</h2>
+<p>When times need to travel between people, systems or countries, the international standard <a href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank" rel="noopener">ISO 8601</a> removes the guesswork. It orders the parts from largest to smallest (year, month, day, hour, minute, second) and uses the 24-hour clock.</p>
+<ul>
+<li><strong>Date:</strong> YYYY-MM-DD, such as 2026-10-08. No more wondering whether 10/08 means October 8 or 10 August.</li>
+<li><strong>Date and time:</strong> join them with a T: 2026-10-08T19:00:00.</li>
+<li><strong>Time zone:</strong> add Z for UTC or an offset such as -04:00, as the <a href="https://www.loc.gov/standards/datetime/" target="_blank" rel="noopener">Library of Congress date-time specification</a> illustrates.</li>
+</ul>
+<div class="example"><h4>Example: a night shift in ISO 8601</h4><p>A shift starting at 7 p.m. Eastern Daylight Time on October 8, 2026, is written 2026-10-08T19:00:00-04:00. In UTC, the same moment is 2026-10-08T23:00:00Z. Because the offset is built in, a scheduling system or a colleague in another time zone reads it the same way.</p></div>
+
+<h2 id="who-uses-it">Where each format is used, and why</h2>
+<p>According to <a href="https://www.timeanddate.com/time/am-and-pm.html" target="_blank" rel="noopener">timeanddate.com</a>, most countries use the 24-hour clock, while the 12-hour clock is the everyday standard in a smaller group, including the United States, most of Canada, Australia, New Zealand and the Philippines. Even there, round-the-clock fields rely on 24-hour time:</p>
+<ul>
+<li><strong>Hospitals:</strong> <a href="https://open.maricopa.edu/nurserefresher/?p=752" target="_blank" rel="noopener">Open Resources for Nursing (Open RN)</a> describes military time as the standard for medication administration records, where a 7 a.m. and a 7 p.m. dose appear as 0700 and 1900, and notes that it reduces AM/PM confusion and duplicate scheduling errors.</li>
+<li><strong>Aviation:</strong> one UTC clock for every flight, whatever time zone it crosses.</li>
+<li><strong>Militaries:</strong> four-digit times plus zone letters for clear orders across time zones.</li>
+</ul>
+
+<h2 id="handover-mistakes">Common shift-handover mistakes</h2>
+<p>Most time errors at handover come from the same few habits:</p>
+<ol>
+<li><strong>Times without AM or PM.</strong> "Recheck at 7" could mean 07:00 or 19:00. Write the 24-hour time.</li>
+<li><strong>The wrong date after midnight.</strong> On a shift that starts October 8, anything after 00:00 happens on October 9. Log the date with the time.</li>
+<li><strong>"Midnight Tuesday."</strong> Does that mean the start or the end of Tuesday? Write 00:00 Tuesday for the start, or 24:00 Tuesday (the same moment as 00:00 Wednesday) for the end.</li>
+<li><strong>Negative shift lengths.</strong> 07:00 minus 19:00 isn't minus 12 hours. Add 24 to the end time when a shift crosses midnight, or use the <a href="hours-calculator.html">hours calculator</a>.</li>
+<li><strong>Daylight saving nights.</strong> In US areas that observe daylight saving time, <a href="https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst" target="_blank" rel="noopener">clocks fall back at 2:00 a.m.</a> on the first Sunday in November and the 1 a.m. hour repeats. The 19:00 to 07:00 shift that runs into Sunday, November 1, 2026, lasts 13 hours, not 12. On the second Sunday in March, when clocks spring forward, the same shift lasts 11.</li>
+</ol>
+<div class="callout"><strong>Tip:</strong> When you convert clock times to payroll hours, remember that 7:30 means 7 hours and 30 minutes, which is 7.5 hours, not 7.3. Our guide to <a href="decimal-hours-time-card-math.html">decimal hours and time card math</a> walks through it.</div>

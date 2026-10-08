@@ -1,0 +1,134 @@
+---
+layout: guide
+title: "Decimal Hours and Time Card Math: Conversion Table and Rules"
+h1: "Decimal Hours and Time Card Math, Step by Step"
+description: "Convert minutes to decimal hours with a full 0–59 table, do time card math for overnight shifts and unpaid breaks, and learn US rules on rounding punches."
+category: "Time Math"
+updated: 2026-10-08
+read_min: 7
+related_tools: [decimal-hours-converter, time-card-calculator, hours-calculator]
+related_guides: [24-hour-clock-guide, overtime-laws-explained, shift-differential-pay]
+faq:
+  - q: "How do I convert minutes to decimal hours?"
+    a: "Divide the minutes by 60. For example, 45 minutes ÷ 60 = 0.75, so 8 hours 45 minutes is 8.75 hours."
+  - q: "What does 7.30 hours mean on a time card?"
+    a: "It means 7 hours and 18 minutes, because 0.30 × 60 = 18. Seven and a half hours is written 7.50."
+  - q: "Is rounding time punches legal in the US?"
+    a: "Federal rules accept rounding to the nearest 5 minutes, tenth of an hour or quarter hour, as long as it does not, over time, shortchange employees for time actually worked. State rules may differ, so check locally."
+  - q: "What is the 7-minute rule?"
+    a: "It is a nickname for rounding to the nearest quarter hour: 1 to 7 minutes past a quarter-hour mark round down, and 8 to 14 minutes round up. The rounding has to work in both directions."
+  - q: "Can my employer automatically deduct a 30-minute meal break?"
+    a: "Under US federal rules, a meal period is unpaid only if you are completely relieved from duty. If you missed the break or worked through it, that time counts as hours worked."
+  - q: "How do I calculate hours for an overnight shift?"
+    a: "Convert both times to minutes after midnight and subtract. If the result is negative, add 1,440 minutes, then subtract unpaid breaks and divide by 60."
+sources:
+  - title: "29 CFR 785.48 - Use of time clocks — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/785.48"
+  - title: "29 CFR 785.19 - Meal — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/785.19"
+  - title: "Breaks and Meal Periods — U.S. Department of Labor"
+    url: "https://www.dol.gov/general/topic/workhours/breaks"
+  - title: "29 CFR 778.105 - Determining the workweek — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.105"
+  - title: "Fact Sheet #21: Recordkeeping Requirements under the FLSA — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/fact-sheets/21-flsa-recordkeeping"
+  - title: "Fact Sheet #23: Overtime Pay Requirements of the FLSA — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay"
+  - title: "29 U.S. Code 207 - Maximum hours — Legal Information Institute"
+    url: "https://www.law.cornell.edu/uscode/text/29/207"
+---
+<p class="lead">Payroll counts time in decimal hours, but your watch counts hours and minutes. Mixing the two up is one of the most common reasons a paycheck comes out wrong. This guide gives you a full minute-to-decimal table, a step-by-step method for overnight shifts and unpaid breaks, and the US federal rules on rounding time punches.</p>
+
+<div class="callout warn"><strong>Important:</strong> This is general information, not legal advice. Federal rounding and break rules are a baseline, and your state, province or contract may add stricter ones. If your hours look wrong, check with your payroll team or your jurisdiction's labor authority.</div>
+
+<h2 id="why-decimal-hours">Why payroll uses decimal hours</h2>
+<p>An hour has 60 minutes, not 100. Payroll software multiplies hours by a pay rate, and that only works when minutes are written as a fraction of an hour. To convert, divide the minutes by 60:</p>
+<ul>
+<li>30 minutes ÷ 60 = 0.50, so 7:30 becomes <strong>7.50</strong> hours.</li>
+<li>45 minutes ÷ 60 = 0.75, so 8:45 becomes <strong>8.75</strong> hours.</li>
+<li>20 minutes ÷ 60 = 0.333…, so 6:20 becomes <strong>6.33</strong> hours.</li>
+</ul>
+<p>To go the other way, multiply the decimal part by 60. A time card showing 7.30 hours means 7 hours and 18 minutes (0.30 × 60 = 18), not 7 hours 30 minutes.</p>
+<div class="example"><h4>Example: what a 12-minute mix-up costs</h4><p>You work 7 hours 30 minutes, but it gets entered as 7.30 instead of 7.50. That drops 0.20 hours, or 12 minutes. At $22 an hour, you lose $4.40 a shift, or $13.20 a week if you work three shifts.</p></div>
+
+<h2 id="minutes-to-decimal-table">Minutes to decimal hours: full table</h2>
+<p>Each value is minutes ÷ 60, rounded to two decimal places. Any multiple of 3 minutes converts exactly, and the rest are rounded.</p>
+<table class="data">
+<thead><tr><th>Min</th><th>Hours</th><th>Min</th><th>Hours</th><th>Min</th><th>Hours</th><th>Min</th><th>Hours</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>0.00</td><td>15</td><td>0.25</td><td>30</td><td>0.50</td><td>45</td><td>0.75</td></tr>
+<tr><td>1</td><td>0.02</td><td>16</td><td>0.27</td><td>31</td><td>0.52</td><td>46</td><td>0.77</td></tr>
+<tr><td>2</td><td>0.03</td><td>17</td><td>0.28</td><td>32</td><td>0.53</td><td>47</td><td>0.78</td></tr>
+<tr><td>3</td><td>0.05</td><td>18</td><td>0.30</td><td>33</td><td>0.55</td><td>48</td><td>0.80</td></tr>
+<tr><td>4</td><td>0.07</td><td>19</td><td>0.32</td><td>34</td><td>0.57</td><td>49</td><td>0.82</td></tr>
+<tr><td>5</td><td>0.08</td><td>20</td><td>0.33</td><td>35</td><td>0.58</td><td>50</td><td>0.83</td></tr>
+<tr><td>6</td><td>0.10</td><td>21</td><td>0.35</td><td>36</td><td>0.60</td><td>51</td><td>0.85</td></tr>
+<tr><td>7</td><td>0.12</td><td>22</td><td>0.37</td><td>37</td><td>0.62</td><td>52</td><td>0.87</td></tr>
+<tr><td>8</td><td>0.13</td><td>23</td><td>0.38</td><td>38</td><td>0.63</td><td>53</td><td>0.88</td></tr>
+<tr><td>9</td><td>0.15</td><td>24</td><td>0.40</td><td>39</td><td>0.65</td><td>54</td><td>0.90</td></tr>
+<tr><td>10</td><td>0.17</td><td>25</td><td>0.42</td><td>40</td><td>0.67</td><td>55</td><td>0.92</td></tr>
+<tr><td>11</td><td>0.18</td><td>26</td><td>0.43</td><td>41</td><td>0.68</td><td>56</td><td>0.93</td></tr>
+<tr><td>12</td><td>0.20</td><td>27</td><td>0.45</td><td>42</td><td>0.70</td><td>57</td><td>0.95</td></tr>
+<tr><td>13</td><td>0.22</td><td>28</td><td>0.47</td><td>43</td><td>0.72</td><td>58</td><td>0.97</td></tr>
+<tr><td>14</td><td>0.23</td><td>29</td><td>0.48</td><td>44</td><td>0.73</td><td>59</td><td>0.98</td></tr>
+</tbody>
+</table>
+<div class="callout"><strong>Tip:</strong> For exact totals, add up raw minutes for the whole week and convert once at the end. The 824824 <a href="decimal-hours-converter.html">decimal hours converter</a> converts in both directions.</div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="time-card-math">Time card math, step by step</h2>
+<p>This method works for any shift, including ones that cross midnight:</p>
+<ol>
+<li>Write both punches in 24-hour time, so 10:45 p.m. becomes 22:45. The <a href="24-hour-clock-guide.html">24-hour clock guide</a> explains the conversion.</li>
+<li>Convert each punch to minutes after midnight: hours × 60 + minutes.</li>
+<li>Subtract the start from the end. If the result is negative, the shift crossed midnight, so add 1,440 (the minutes in 24 hours).</li>
+<li>Subtract unpaid meal breaks, but only breaks that qualify as unpaid (see the next section).</li>
+<li>Divide by 60 to get decimal hours.</li>
+</ol>
+<div class="example"><h4>Example: an overnight shift</h4><p>You work 10:45 p.m. to 7:15 a.m. with a 30-minute unpaid meal. Start: 22:45 = 1,365 minutes. End: 07:15 = 435 minutes. 435 − 1,365 = −930, so add 1,440 to get 510 minutes. Subtract the 30-minute meal: 480 minutes ÷ 60 = <strong>8.00 hours</strong>.</p></div>
+<div class="example"><h4>Example: add minutes first, convert once</h4><p>You work five shifts of 7 hours 20 minutes. Round each one to 7.33 and add them, and you get 36.65 hours. Add the minutes first, and you get 36 hours 40 minutes, or 36.67 hours. The gap is small each week, but it repeats every week for every worker.</p></div>
+
+{% include cta-inline.html kind="worker" %}
+
+<h2 id="unpaid-breaks">Unpaid breaks: what can be deducted</h2>
+<p>Under US federal rules, a break can be unpaid only if it is a genuine meal period. <a href="https://www.law.cornell.edu/cfr/text/29/785.19" target="_blank" rel="noopener">29 CFR 785.19</a> says bona fide meal periods are not work time, that 30 minutes or more is ordinarily long enough, and that you must be completely relieved from duty. If you eat at your station while answering call bells or watching a monitor, that time is work.</p>
+<p>Short breaks are different. Federal law does not require employers to offer breaks at all. When they do, short rest breaks, usually about 5 to 20 minutes, count as paid hours worked, according to the Department of Labor's <a href="https://www.dol.gov/general/topic/workhours/breaks" target="_blank" rel="noopener">breaks and meal periods page</a>. Many states set their own break rules, so check locally.</p>
+<div class="callout warn"><strong>Important:</strong> If your employer automatically deducts a meal break from every shift, note each meal you missed or that was interrupted, and report it in writing so the deduction can be reversed.</div>
+
+<h2 id="rounding-rules">US rounding rules and the 7-minute rule</h2>
+<p>Federal rules do not require time clocks and do not ban rounding. Under <a href="https://www.law.cornell.edu/cfr/text/29/785.48" target="_blank" rel="noopener">29 CFR 785.48(b)</a>, start and stop times may be recorded to the nearest 5 minutes, the nearest tenth of an hour (6 minutes) or the nearest quarter hour (15 minutes). There is one condition: over time, the practice must not leave employees unpaid for time they actually worked. In other words, it has to be neutral.</p>
+<p>Rounding to the nearest quarter hour is where the "7-minute rule" nickname comes from. The midpoint between quarter-hour marks is 7.5 minutes, so 1 to 7 minutes past a mark round down and 8 to 14 minutes round up. The regulation itself does not use that name.</p>
+<table class="data">
+<thead><tr><th>Increment</th><th>Rounds down</th><th>Rounds up</th><th>Examples</th></tr></thead>
+<tbody>
+<tr><td>5 minutes</td><td>1–2 minutes past a mark</td><td>3–4 minutes past a mark</td><td>8:02 becomes 8:00; 8:03 becomes 8:05</td></tr>
+<tr><td>15 minutes</td><td>1–7 minutes past a mark</td><td>8–14 minutes past a mark</td><td>8:07 becomes 8:00; 8:08 becomes 8:15</td></tr>
+</tbody>
+</table>
+<p>The rule works in both directions: 8:53 rounds up to 9:00 and 9:07 rounds down to 9:00. A policy that rounds only in the employer's favor is not rounding to the nearest increment.</p>
+<div class="example"><h4>Example: rounding that is not neutral in practice</h4><p>You start working the moment you punch in, and you punch in at 6:55 and out at 3:05 every day. Quarter-hour rounding records 7:00 to 3:00, so 10 minutes of real work disappear each day. That is 50 minutes a week, or more than 43 hours a year (50 × 52 = 2,600 minutes). A pattern that keeps landing against workers like this fails the neutrality condition.</p></div>
+<p>Early punches are a separate issue. Under 785.48(a), if you clock in early by choice and do no work, that time does not have to be paid. If you start working, it counts.</p>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="overnight-shifts-and-workweeks">Overnight shifts, workweeks and clock changes</h2>
+<p>A few more traps catch overnight workers:</p>
+<ul>
+<li><strong>Workweek boundaries.</strong> Federal overtime is figured per workweek, a fixed, regularly recurring 168-hour period that can start on any day and at any hour (<a href="https://www.law.cornell.edu/cfr/text/29/778.105" target="_blank" rel="noopener">29 CFR 778.105</a>). Because the boundary is fixed, a shift that crosses it is split between two weeks, and each week stands alone, since averaging across weeks is not allowed (<a href="https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay" target="_blank" rel="noopener">DOL Fact Sheet #23</a>). Employers must record the day and time your workweek begins, so ask if you do not know it.</li>
+<li><strong>Hospital 8/80 periods.</strong> Hospitals and residential care facilities may, by agreement made before the work, use a fixed 14-day period instead, with overtime after 8 hours in a day and 80 hours in the period (<a href="https://www.law.cornell.edu/uscode/text/29/207" target="_blank" rel="noopener">29 U.S.C. 207(j)</a>). If you work in one, ask which system applies to you.</li>
+<li><strong>Daylight saving time.</strong> Where clocks change, an 11 p.m. to 7 a.m. shift lasts 9 hours on the night clocks fall back and 7 hours on the night they spring forward. Subtracting clock times gives the wrong answer, so count actual elapsed time, because pay is owed for time actually worked.</li>
+</ul>
+
+<h2 id="common-payroll-mistakes">Common payroll mistakes to check for</h2>
+<ol>
+<li><strong>Reading decimals as minutes:</strong> 7:30 entered as 7.30 instead of 7.50.</li>
+<li><strong>Adding clock times as decimals:</strong> 7:45 plus 8:30 typed as 7.45 + 8.30 = 15.75, when the real total is 16.25 hours.</li>
+<li><strong>Overnight shifts showing negative or tiny totals</strong> because 24 hours were not added.</li>
+<li><strong>Deducting meal breaks you missed or worked through.</strong></li>
+<li><strong>Deducting short paid rest breaks.</strong></li>
+<li><strong>One-way rounding,</strong> or rounding that consistently lands against workers.</li>
+<li><strong>Rounding each shift before totaling</strong> instead of totaling minutes first.</li>
+<li><strong>Paying clock-change nights as a scheduled 8 hours</strong> instead of the hours actually worked.</li>
+</ol>
+<p>To spot-check a pay period, run your punches through the <a href="time-card-calculator.html">time card calculator</a> and compare the total with your pay stub. Keep your own log as well. Under <a href="https://www.dol.gov/agencies/whd/fact-sheets/21-flsa-recordkeeping" target="_blank" rel="noopener">DOL Fact Sheet #21</a>, employers must keep payroll records for at least three years and time cards for two, but your own notes let you catch a gap the week it happens.</p>
