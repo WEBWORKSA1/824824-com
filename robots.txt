@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webworksa1.github.io/824824-com/sitemap.xml
