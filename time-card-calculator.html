@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Time Card Calculator with Overtime, Breaks and Night Shifts</title>
+<meta name="description" content="Free time card calculator for weekly or bi-weekly pay periods. Handles overnight shifts, unpaid breaks, rounding, state and provincial overtime, and pay.">
+<link rel="canonical" href="https://webworksa1.github.io/824824-com/time-card-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c1229" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="824824">
+<meta property="og:title" content="Time Card Calculator with Overtime, Breaks and Night Shifts">
+<meta property="og:description" content="Free time card calculator for weekly or bi-weekly pay periods. Handles overnight shifts, unpaid breaks, rounding, state and provincial overtime, and pay.">
+<meta property="og:url" content="https://webworksa1.github.io/824824-com/time-card-calculator.html">
+<meta property="og:image" content="https://webworksa1.github.io/824824-com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="824824 — Eight of Twenty-Four: free tools for shift workers">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&amp;family=Big+Shoulders:opsz,wght@10..72,700..900&amp;display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=8a59b57171">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Time card calculator","url":"https://webworksa1.github.io/824824-com/time-card-calculator.html","description":"Free time card calculator for weekly or bi-weekly pay periods. Handles overnight shifts, unpaid breaks, rounding, state and provincial overtime, and pay.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"824824","url":"https://webworksa1.github.io/824824-com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://webworksa1.github.io/824824-com/"},
+{"@type":"ListItem","position":2,"name":"Tools","item":"https://webworksa1.github.io/824824-com/tools.html"},
+{"@type":"ListItem","position":3,"name":"Time card calculator","item":"https://webworksa1.github.io/824824-com/time-card-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I enter a shift that ends after midnight?","acceptedAnswer":{"@type":"Answer","text":"Type the times as worked, such as 19:00 in and 07:30 out. When the out time is earlier than the in time, the calculator treats the shift as overnight, and equal in and out times count as a full 24 hours."}},
+{"@type":"Question","name":"Is overtime figured on my whole two-week pay period?","acceptedAnswer":{"@type":"Answer","text":"Generally not under US federal rules. Overtime is counted per workweek and hours can't be averaged across weeks, so the calculator splits a two-week period into two seven-day weeks that begin on your pay period start date."}},
+{"@type":"Question","name":"Should overnight hours count toward the start day or be split at midnight?","acceptedAnswer":{"@type":"Answer","text":"Match your employer's policy or payroll system. Under weekly-only rules the choice matters only when a shift crosses into a new week, but under daily rules such as California's it can move hours between regular, overtime and double time."}},
+{"@type":"Question","name":"Which rounding setting should I use?","acceptedAnswer":{"@type":"Answer","text":"Use the increment your employer's time clock uses, or No rounding to see your exact time. US federal rules accept rounding to the nearest 5 minutes, tenth of an hour or quarter hour only if, over time, it doesn't leave employees unpaid for time actually worked."}},
+{"@type":"Question","name":"Should I enter my meal break as unpaid?","acceptedAnswer":{"@type":"Answer","text":"Only if you were completely relieved from duty. Under US federal rules a bona fide meal period, ordinarily 30 minutes or more, can be unpaid, but short rest breaks of about 5 to 20 minutes count as hours worked."}}]}</script>
+</head>
+<body class="layout-tool">
+<a class="skip" href="#main">Skip to content</a>
+<a class="partner-bar" href="https://web.works/contact" target="_blank" rel="noopener"><span>Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership</span></a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="index.html" aria-label="824824 home"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="4.5"/><path d="M16 5a11 11 0 0 1 9.53 16.5" fill="none" stroke="var(--amber)" stroke-width="4.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.2" fill="currentColor"/></svg><span class="brand-word">824824</span><span class="brand-sub">Eight of Twenty-Four</span></a>
+<nav class="main-nav" id="main-nav" aria-label="Main">
+<ul class="nav-list">
+<li class="has-menu"><button type="button" class="nav-btn" aria-expanded="false" aria-controls="menu-tools" aria-current="page">Tools<svg class="icon chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 10 5 5 5-5"/></svg></button>
+<div class="menu menu-wide" id="menu-tools"><div class="menu-group code-eve"><p class="menu-head">Pay and overtime</p><ul><li><a href="time-card-calculator.html">Time card calculator</a></li>
+<li><a href="overtime-calculator.html">Overtime calculator</a></li>
+<li><a href="shift-differential-calculator.html">Shift differential calculator</a></li>
+<li><a href="hourly-salary-converter.html">Hourly and salary converter</a></li></ul></div>
+<div class="menu-group code-day"><p class="menu-head">Time math</p><ul><li><a href="hours-calculator.html">Hours calculator</a></li>
+<li><a href="decimal-hours-converter.html">Decimal hours converter</a></li>
+<li><a href="military-time-converter.html">Military time converter</a></li>
+<li><a href="printable-timesheet.html">Printable timesheet</a></li></ul></div>
+<div class="menu-group code-night"><p class="menu-head">Schedules and staffing</p><ul><li><a href="shift-pattern-generator.html">Shift pattern generator</a></li>
+<li><a href="staffing-calculator.html">24/7 staffing calculator</a></li></ul></div>
+<div class="menu-group code-rest"><p class="menu-head">Sleep and health</p><ul><li><a href="night-shift-sleep-planner.html">Night shift sleep planner</a></li></ul></div><p class="menu-foot"><a href="tools.html">All tools</a></p></div></li>
+<li><a class="nav-link" href="guides.html">Guides</a></li>
+<li><a class="nav-link" href="videos.html">Videos</a></li>
+<li><a class="nav-link" href="contests.html">Contests</a></li>
+<li><a class="nav-link" href="job-alerts.html">Job alerts</a></li>
+<li class="has-menu"><button type="button" class="nav-btn" aria-expanded="false" aria-controls="menu-more">More<svg class="icon chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 10 5 5 5-5"/></svg></button>
+<div class="menu" id="menu-more"><ul><li><a href="about.html">About 824824</a></li>
+<li><a href="what-does-824-mean.html">What 824 means</a></li>
+<li><a href="support.html">Support us</a></li>
+<li><a href="advertise.html">Advertise and sponsor</a></li>
+<li><a href="careers.html">Careers and contributors</a></li>
+<li><a href="contact.html">Contact</a></li></ul></div></li>
+</ul>
+<a class="btn btn-primary nav-cta-mobile" href="get-matched.html">Get matched</a>
+</nav>
+<div class="header-actions">
+<button type="button" class="icon-btn" data-search-open aria-label="Search tools and guides"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></button>
+<button type="button" class="icon-btn" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18z" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg></button>
+<a class="btn btn-primary btn-sm header-cta" href="get-matched.html">Get matched</a>
+<button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="wrap page-head tool-head code-eve"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li>
+<li><a href="tools.html">Tools</a></li>
+<li aria-current="page">Time card calculator</li></ol></nav>
+<h1>Time card calculator</h1><p class="lede">Enter your in and out times for the pay period. Overnight shifts, split shifts, unpaid breaks and overtime are handled for you, and nothing you type leaves your device.</p></div>
+<div class="wrap tool-layout">
+<section class="tool-main" aria-label="Time card calculator"><div class="tool" data-tool="time-card">
+<div class="print-hide">
+<div class="grid-3">
+<label class="field"><span>Employee name <span class="hint">(optional)</span></span><input id="tc-name" class="tc-control" type="text" autocomplete="name"></label>
+<label class="field"><span>Pay period starts</span><input id="tc-start" class="tc-control" type="date"></label>
+<div class="grid-2" style="gap:10px">
+<label class="field"><span>Pay period</span><select id="tc-period" class="tc-control"><option value="7">1 week</option><option value="14">2 weeks</option><option value="custom">Custom</option></select></label>
+<label class="field" id="tc-days-wrap" hidden><span>Days</span><input id="tc-days" class="tc-control" type="number" min="1" max="31" value="7" inputmode="numeric"></label>
+</div>
+</div>
+
+<div class="table-wrap" style="margin-top:16px">
+<table class="tc-table">
+<thead><tr><th>Day</th><th>Time in</th><th>Time out</th><th>Unpaid break (min)</th><th>Worked</th><th><span class="visually-hidden">Actions</span></th></tr></thead>
+<tbody id="tc-rows"></tbody>
+</table>
+</div>
+<div class="tool-actions">
+<button type="button" class="btn btn-ghost btn-sm" id="tc-fill">Fill weekdays like the first day</button>
+<button type="button" class="btn btn-ghost btn-sm" id="tc-example">Try a night-shift example</button>
+<button type="button" class="btn btn-ghost btn-sm" id="tc-clear">Clear times</button>
+</div>
+
+<details class="tool-options" open>
+<summary>Pay, overtime and rounding</summary>
+<div class="options-body">
+<div class="grid-3">
+<label class="field"><span>Hourly rate</span><span class="input-affix"><select id="tc-cur" class="tc-control" aria-label="Currency"><option>$</option><option>€</option><option>£</option><option>₹</option><option value="C$">C$</option><option value="A$">A$</option></select><input id="tc-rate" class="tc-control" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></span></label>
+<label class="field"><span>Overtime rule</span><select id="tc-rule" class="tc-control">
+<option value="us">US federal: over 40 hours a week</option>
+<option value="ca">California: daily 8 and 12, weekly 40, seventh day</option>
+<option value="aknv">Alaska or Nevada: daily 8, weekly 40</option>
+<option value="co">Colorado: daily 12, weekly 40</option>
+<option value="cafed">Canada federal: daily 8, weekly 40</option>
+<option value="on">Ontario: over 44 hours a week</option>
+<option value="qc">Quebec: over 40 hours a week</option>
+<option value="bc">British Columbia: daily 8 and 12, weekly 40</option>
+<option value="ab">Alberta: 8 a day or 44 a week, whichever is greater</option>
+<option value="none">No overtime</option>
+<option value="custom">Custom thresholds</option>
+</select></label>
+<div class="grid-2" style="gap:10px">
+<label class="field"><span>Overtime ×</span><input id="tc-otm" class="tc-control" type="number" min="1" step="0.05" value="1.5" inputmode="decimal"></label>
+<label class="field"><span>Double time ×</span><input id="tc-dtm" class="tc-control" type="number" min="1" step="0.05" value="2" inputmode="decimal"></label>
+</div>
+<div class="grid-3 span-all" id="tc-custom" hidden>
+<label class="field"><span>Daily overtime after (hours)</span><input id="tc-c-daily" class="tc-control" type="number" min="0" step="0.25" inputmode="decimal"></label>
+<label class="field"><span>Daily double time after (hours)</span><input id="tc-c-dt" class="tc-control" type="number" min="0" step="0.25" inputmode="decimal"></label>
+<label class="field"><span>Weekly overtime after (hours)</span><input id="tc-c-weekly" class="tc-control" type="number" min="0" step="0.5" value="40" inputmode="decimal"></label>
+</div>
+<label class="field"><span>Round punches to</span><select id="tc-round" class="tc-control"><option value="0">No rounding</option><option value="5">Nearest 5 minutes</option><option value="6">Nearest 6 minutes (tenth of an hour)</option><option value="10">Nearest 10 minutes</option><option value="15">Nearest 15 minutes</option></select></label>
+<label class="field"><span>Overnight shifts count toward</span><select id="tc-attr" class="tc-control"><option value="start">The day they start</option><option value="split">Each calendar day (split at midnight)</option></select></label>
+<label class="field"><span>Flag rest between shifts under</span><select id="tc-rest" class="tc-control"><option value="0">Don't check</option><option value="480">8 hours</option><option value="600">10 hours</option><option value="660">11 hours</option></select></label>
+</div>
+<p class="hint" style="margin:10px 0 0">Overtime presets are simplified. Exemptions, averaging agreements and collective agreements can change the result, so check your contract and our <a href="overtime-laws-explained.html">overtime laws guide</a>.</p>
+</div>
+</details>
+
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Total hours worked</span><span class="result-num" id="tc-total">0:00</span><span class="result-sub" id="tc-total-dec">0.00 decimal hours</span></div>
+<dl class="result-grid">
+<div><dt>Regular</dt><dd id="tc-reg">0:00</dd></div>
+<div class="is-ot"><dt>Overtime</dt><dd id="tc-ot">0:00</dd></div>
+<div class="is-ot" id="tc-dt-wrap" hidden><dt>Double time</dt><dd id="tc-dt">0:00</dd></div>
+<div class="is-pay"><dt>Gross pay</dt><dd id="tc-pay"><span class="sub">Add an hourly rate to see pay</span></dd></div>
+</dl>
+<div id="tc-weeks"></div>
+<ul class="warnings" id="tc-warn"></ul>
+</div>
+
+<div class="tool-actions">
+<button type="button" class="btn btn-primary" id="tc-print">Print or save as PDF</button>
+<button type="button" class="btn btn-ghost" id="tc-csv">Download CSV</button>
+<button type="button" class="btn btn-ghost" id="tc-share">Copy share link</button>
+<button type="button" class="btn btn-ghost" id="tc-copy">Copy summary</button>
+</div>
+<p class="tool-note">Your entries are saved in this browser only, so you can come back to them. Nothing is sent to us.</p>
+</div>
+<div class="report print-only" id="tc-report"></div>
+</div>
+</section>
+<aside class="tool-aside">
+<div class="aside-card"><p class="cta-title">Want shifts that fit your life?</p><p>Get free alerts for jobs that match your role, preferred shifts and pay. No account needed, and you can unsubscribe any time.</p><a class="btn btn-primary btn-block" href="job-alerts.html">Set up job alerts</a></div>
+<aside class="ad-slot ad-sidebar" data-ad="sidebar" aria-label="Advertisement"></aside>
+</aside>
+</div>
+<div class="wrap"><aside class="ad-slot ad-after-tool" data-ad="after-tool" aria-label="Advertisement"></aside></div>
+<div class="wrap article-wrap"><article class="prose">
+<h2 id="how-to-use">How to use the time card calculator</h2>
+<ol>
+<li><strong>Set the pay period.</strong> Pick the date your pay period starts, then choose 1 week, 2 weeks or Custom. Overtime is counted in seven-day blocks from that date, so start on the first day of your employer's workweek.</li>
+<li><strong>Enter each shift.</strong> Fill in Time in, Time out and Unpaid break (min) for each day you worked. Press + to add a second shift on the same day, or use Fill weekdays like the first day to copy a regular schedule.</li>
+<li><strong>Set pay and rules.</strong> Under Pay, overtime and rounding, enter your hourly rate, choose an Overtime rule, and set Round punches to and Overnight shifts count toward to match your employer's policy.</li>
+<li><strong>Check the results.</strong> You'll see total hours as hours:minutes and decimal, split into regular, overtime and double time, plus gross pay and a weekly table. Warnings flag overlapping shifts, breaks longer than the shift, shifts over 16 hours and short rest between shifts.</li>
+<li><strong>Save it.</strong> Print or save as PDF for a time card with signature lines, download a CSV, or copy a share link or summary. Your entries stay in this browser.</li>
+</ol>
+
+<h2 id="how-it-works">How the math works</h2>
+<h3>Overnight shifts</h3>
+<p>When the out time is earlier than the in time, the shift crossed midnight, so 24 hours are added. In minutes after midnight, 22:45 to 07:15 is 435 − 1,365 + 1,440 = 510, or 8:30. Equal in and out times count as a full 24-hour shift.</p>
+<p>By default, a shift counts toward the day it started. Each calendar day (split at midnight) divides the shift and its break in proportion to the time on each side.</p>
+<h3>Unpaid breaks</h3>
+<p>Break minutes come straight off the shift. Under US federal rules, a meal period is unpaid only if you're completely relieved from duty, and 30 minutes or more is ordinarily long enough (<a href="https://www.law.cornell.edu/cfr/text/29/785.19" target="_blank" rel="noopener">29 CFR 785.19</a>). Short rest breaks of about 5 to 20 minutes count as hours worked (<a href="https://www.dol.gov/general/topic/workhours/breaks" target="_blank" rel="noopener">Department of Labor</a>), so leave them out of this column.</p>
+<h3>Rounding</h3>
+<p>Rounding applies to each punch, not to the total. At 15 minutes, 1 to 7 minutes past a quarter hour round down and 8 to 14 round up. Federal rules accept rounding to the nearest 5 minutes, tenth of an hour or quarter hour if, over time, it doesn't leave employees unpaid for time actually worked (<a href="https://www.law.cornell.edu/cfr/text/29/785.48" target="_blank" rel="noopener">29 CFR 785.48</a>). The regulation doesn't name 10-minute rounding.</p>
+<h3>Decimal hours and overtime</h3>
+<p>Totals are added in minutes and converted once at the end: minutes ÷ 60, so 7:40 is 7.67 hours. Overtime is figured for each seven-day block. Daily rules come first, and hours already counted as daily overtime or double time don't count again toward the weekly threshold. Gross pay is regular hours × rate, plus overtime and double-time hours × rate × their multipliers.</p>
+
+<div class="example"><h4>Example: one night shift, rounded and not</h4><p>You punch in at 22:56, out at 07:06, and take a 30-minute unpaid meal. Unrounded, you worked 7:40, or 7.67 hours. With 15-minute rounding, the punches become 23:00 and 07:00, so you're credited with 7:30, or 7.50 hours. Rounding cost 10 minutes here; on other days it may add time, and the federal test looks at the overall result.</p></div>
+
+<div class="example"><h4>Example: four 12-hour nights under three rules</h4><p>Try a night-shift example loads four 12-hour nights (48 hours) at $28.50 an hour if no rate is entered. With each shift counted toward its start day, the US federal preset gives 40 regular and 8 overtime hours: $1,140.00 + $342.00 = $1,482.00. The California preset makes hours 9 through 12 of each shift daily overtime: 32 regular and 16 overtime hours, or $1,596.00. Ontario's preset gives 44 and 4, or $1,425.00. Split the California shifts at midnight instead and the total drops to $1,488.84, because only two calendar days now pass 8 hours.</p></div>
+
+<aside class="ad-slot ad-in-article" data-ad="in-article" aria-label="Advertisement"></aside>
+
+<h2 id="mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Averaging two weeks.</strong> Under federal rules, 30 hours one week doesn't offset 50 the next. The 2 weeks setting checks each week separately.</li>
+<li><strong>Deducting a meal you worked through.</strong> If your break was skipped or interrupted, enter 0 for that shift.</li>
+<li><strong>Reading decimals as minutes.</strong> On a pay stub, 7.30 hours means 7 hours 18 minutes. The <a href="decimal-hours-time-card-math.html">decimal hours guide</a> has a full conversion table.</li>
+<li><strong>Paying overtime on base rate when you earn extras.</strong> If you also earn a shift differential or a promised bonus, US overtime is based on a regular rate above your hourly rate, so check the week in the <a href="overtime-calculator.html">overtime calculator</a>.</li>
+</ul>
+
+<h2 id="related-rules">Overtime rules by place</h2>
+<ul>
+<li><strong>US federal:</strong> time and a half after 40 hours in a workweek, a fixed 168-hour period that can start on any day and hour, with no averaging across weeks (<a href="https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay" target="_blank" rel="noopener">Fact Sheet #23</a>).</li>
+<li><strong>California:</strong> 1.5x after 8 hours in a workday or 40 in a workweek, 2x after 12 in a workday, and on the seventh consecutive workday 1.5x for the first 8 hours and 2x after that (<a href="https://www.dir.ca.gov/dlse/faq_overtime.htm" target="_blank" rel="noopener">California Labor Commissioner</a>). The calculator applies the seventh-day rule when all seven days of a week are worked.</li>
+<li><strong>Alaska, Nevada and Colorado:</strong> daily overtime after 8 hours (12 in Colorado) plus weekly overtime after 40. Alaska's rule excludes employers with fewer than 4 employees, and Nevada's daily rule covers only employees earning less than 1.5 times the state minimum wage (<a href="https://www.dol.gov/agencies/whd/minimum-wage/state" target="_blank" rel="noopener">DOL state summary</a>).</li>
+<li><strong>Canada:</strong> federally regulated workplaces have standard hours of 8 a day and 40 a week, overtime at 1.5x or more, and at least 8 hours of rest between shifts (<a href="https://www.canada.ca/en/services/jobs/workplace/federal-labour-standards/work-hours.html" target="_blank" rel="noopener">Government of Canada</a>). Our <a href="overtime-laws-explained.html">overtime laws guide</a> covers Ontario and Quebec.</li>
+</ul>
+<div class="callout warn"><strong>Important:</strong> This is general information, not legal advice. Exemptions, alternative workweeks, averaging agreements and union contracts can change who earns overtime and when, so confirm with your employer, union or labor standards office.</div>
+<div class="share" data-share>
+<span class="share-label">Share</span>
+<button type="button" class="chip" data-share-native><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Share</button>
+<button type="button" class="chip" data-share-copy><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link</button>
+<a class="chip" data-share-to="whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+<a class="chip" data-share-to="facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+<a class="chip" data-share-to="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+<a class="chip" data-share-to="x" href="#" target="_blank" rel="noopener">X</a>
+</div></article></div>
+<div class="wrap after-article"><section class="faq" aria-labelledby="faq-title"><h2 id="faq-title">Questions people ask</h2><details class="faq-item"><summary>How do I enter a shift that ends after midnight?</summary><div class="faq-a"><p>Type the times as worked, such as 19:00 in and 07:30 out. When the out time is earlier than the in time, the calculator treats the shift as overnight, and equal in and out times count as a full 24 hours.</p></div></details>
+<details class="faq-item"><summary>Is overtime figured on my whole two-week pay period?</summary><div class="faq-a"><p>Generally not under US federal rules. Overtime is counted per workweek and hours can&#x27;t be averaged across weeks, so the calculator splits a two-week period into two seven-day weeks that begin on your pay period start date.</p></div></details>
+<details class="faq-item"><summary>Should overnight hours count toward the start day or be split at midnight?</summary><div class="faq-a"><p>Match your employer&#x27;s policy or payroll system. Under weekly-only rules the choice matters only when a shift crosses into a new week, but under daily rules such as California&#x27;s it can move hours between regular, overtime and double time.</p></div></details>
+<details class="faq-item"><summary>Which rounding setting should I use?</summary><div class="faq-a"><p>Use the increment your employer&#x27;s time clock uses, or No rounding to see your exact time. US federal rules accept rounding to the nearest 5 minutes, tenth of an hour or quarter hour only if, over time, it doesn&#x27;t leave employees unpaid for time actually worked.</p></div></details>
+<details class="faq-item"><summary>Should I enter my meal break as unpaid?</summary><div class="faq-a"><p>Only if you were completely relieved from duty. Under US federal rules a bona fide meal period, ordinarily 30 minutes or more, can be unpaid, but short rest breaks of about 5 to 20 minutes count as hours worked.</p></div></details></section><section class="sources" aria-labelledby="src-title"><h2 id="src-title">Sources</h2><p class="muted">We link to official and primary sources so you can check our work. Rules change; confirm anything important with the source.</p><ol><li><a href="https://www.law.cornell.edu/cfr/text/29/785.48" target="_blank" rel="noopener">29 CFR 785.48 - Use of time clocks — Legal Information Institute</a></li>
+<li><a href="https://www.law.cornell.edu/cfr/text/29/785.19" target="_blank" rel="noopener">29 CFR 785.19 - Meal — Legal Information Institute</a></li>
+<li><a href="https://www.dol.gov/general/topic/workhours/breaks" target="_blank" rel="noopener">Breaks and Meal Periods — U.S. Department of Labor</a></li>
+<li><a href="https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay" target="_blank" rel="noopener">Fact Sheet #23: Overtime Pay Requirements of the FLSA — U.S. Department of Labor</a></li>
+<li><a href="https://www.dol.gov/agencies/whd/minimum-wage/state" target="_blank" rel="noopener">State Minimum Wage Laws (premium pay after designated hours) — U.S. Department of Labor</a></li>
+<li><a href="https://www.dir.ca.gov/dlse/faq_overtime.htm" target="_blank" rel="noopener">Overtime — California Department of Industrial Relations, Labor Commissioner&#x27;s Office</a></li>
+<li><a href="https://www.canada.ca/en/services/jobs/workplace/federal-labour-standards/work-hours.html" target="_blank" rel="noopener">Hours of work - Federally regulated workplaces — Government of Canada</a></li></ol></section><section class="related" aria-labelledby="rel-title"><h2 id="rel-title">Keep going</h2><div class="related-grid">
+<div><h3 class="related-head">Tools</h3><ul class="roster roster-compact"><li class="roster-item code-eve"><a href="overtime-calculator.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="13" r="7.5"/><path d="M11 9v4l2.5 1.6M19 2.5v5M16.5 5h5"/></svg></span><span class="roster-text"><strong>Overtime calculator</strong><span>Overtime pay with the correct regular rate when differentials or bonuses apply.</span></span></a></li>
+<li class="roster-item code-day"><a href="decimal-hours-converter.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6.5 7 5v14M11 19h.01M14.5 5h4.5M14.5 5l-.5 5.5c1-.9 2-1.2 3-1.2a3.4 3.4 0 0 1 0 6.9c-1.3 0-2.4-.6-3-1.7"/></svg></span><span class="roster-text"><strong>Decimal hours converter</strong><span>Hours and minutes to decimal hours for payroll, and back again.</span></span></a></li>
+<li class="roster-item code-day"><a href="printable-timesheet.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="7" y="14" width="10" height="7" rx="1"/></svg></span><span class="roster-text"><strong>Printable timesheet</strong><span>A clean weekly or bi-weekly timesheet to fill in by hand and print.</span></span></a></li>
+<li class="roster-item code-eve"><a href="shift-differential-calculator.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.5 3.5a8 8 0 1 0 6 11.3A7 7 0 0 1 14.5 3.5z"/><path d="M8.5 10.5v6M6.8 12.2h3.4M6.8 14.8h3.4"/></svg></span><span class="roster-text"><strong>Shift differential calculator</strong><span>Evening, night and weekend premiums, flat or percentage, per shift and per year.</span></span></a></li></ul></div>
+<div><h3 class="related-head">Guides</h3><ul class="guide-list guide-list-compact"><li class="guide-item code-day"><a href="decimal-hours-time-card-math.html"><span class="guide-cat">Time Math</span><strong>Decimal Hours and Time Card Math, Step by Step</strong><span class="guide-desc">Convert minutes to decimal hours with a full 0–59 table, do time card math for overnight shifts and unpaid breaks, and learn US rules on rounding punches.</span><span class="guide-time">7 min read</span></a></li>
+<li class="guide-item code-eve"><a href="overtime-laws-explained.html"><span class="guide-cat">Pay &amp; Law</span><strong>Overtime Laws Explained: How Extra Hours Are Paid in Five Countries</strong><span class="guide-desc">How overtime works in the US, Canada, UK, India and Australia: the FLSA 40-hour rule, state daily overtime, the 2026 salary threshold and premium rates.</span><span class="guide-time">8 min read</span></a></li>
+<li class="guide-item code-eve"><a href="shift-differential-pay.html"><span class="guide-cat">Pay &amp; Law</span><strong>Shift Differential Pay: Rates, Overtime Math and Pay Stub Checks</strong><span class="guide-desc">What shift differentials are, flat vs percentage premiums, how US overtime law counts them, worked examples, and how to check your pay stub line by line.</span><span class="guide-time">7 min read</span></a></li></ul></div>
+</div></section></div>
+<section class="alerts-band" aria-labelledby="alerts-title">
+<div class="wrap alerts-inner">
+<div>
+<h2 id="alerts-title">Shift job alerts, free</h2>
+<p>Nurses, care aides, cooks, warehouse crews, security officers and more: tell us the role and shifts you want, and we'll send matching openings. No account, no spam.</p>
+</div>
+<form class="form form-inline" data-form="job-alert-quick" data-subject="New job alert signup (quick) — 824824" data-success="You're on the list. Watch your inbox for matching shifts." novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<label class="field"><span>Role</span><input name="role" type="text" list="role-list" placeholder="e.g. Registered nurse" required autocomplete="organization-title"></label>
+<label class="field"><span>City or postal code</span><input name="location" type="text" required autocomplete="postal-code"></label>
+<label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+<label class="check"><input type="checkbox" name="consent_alerts" value="yes" required data-consent> <span>Email me matching job alerts. I can unsubscribe at any time.</span></label>
+<button class="btn btn-primary" type="submit">Create my alert</button>
+<p class="form-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-top">
+<div class="footer-brand">
+<a class="brand brand-footer" href="index.html"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="4.5"/><path d="M16 5a11 11 0 0 1 9.53 16.5" fill="none" stroke="var(--amber)" stroke-width="4.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.2" fill="currentColor"/></svg><span class="brand-word">824824</span><span class="brand-sub">Eight of Twenty-Four</span></a>
+<p>Free, accurate tools and plain-language guides for the people who work while others sleep, and for the managers who build their schedules.</p>
+<p class="footer-mail"><a class="mail-link" href="contact.html" data-mail data-subject="Hello from 824824.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Email us</a></p>
+</div>
+<div class="footer-news">
+<h2 class="footer-head">The 8/24 Brief</h2>
+<p>New tools, pay and scheduling rule changes, and night-shift tips. About two emails a month.</p>
+<form class="form form-newsletter" data-form="newsletter" data-subject="New newsletter signup — 824824" data-success="You're subscribed. The next issue lands in your inbox." novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+<label class="field"><span>I mostly</span><select name="audience"><option>Work shifts</option><option>Schedule or manage shift workers</option><option>Both</option></select></label>
+<label class="check"><input type="checkbox" name="consent_newsletter" value="yes" required data-consent> <span>Send me The 8/24 Brief, about two emails a month. Unsubscribe any time.</span></label>
+<button class="btn btn-primary" type="submit">Subscribe</button>
+<p class="form-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</div>
+<div class="wrap footer-cols">
+<div><h2 class="footer-head">Tools</h2><ul><li><a href="time-card-calculator.html">Time card calculator</a></li>
+<li><a href="overtime-calculator.html">Overtime calculator</a></li>
+<li><a href="shift-differential-calculator.html">Shift differential calculator</a></li>
+<li><a href="hourly-salary-converter.html">Hourly and salary converter</a></li>
+<li><a href="hours-calculator.html">Hours calculator</a></li>
+<li><a href="decimal-hours-converter.html">Decimal hours converter</a></li>
+<li><a href="military-time-converter.html">Military time converter</a></li>
+<li><a href="printable-timesheet.html">Printable timesheet</a></li>
+<li><a href="shift-pattern-generator.html">Shift pattern generator</a></li>
+<li><a href="staffing-calculator.html">24/7 staffing calculator</a></li>
+<li><a href="night-shift-sleep-planner.html">Night shift sleep planner</a></li></ul></div>
+<div><h2 class="footer-head">Guides</h2><ul><li><a href="overtime-laws-explained.html">Overtime laws explained</a></li>
+<li><a href="rotating-shift-patterns.html">Rotating shift patterns</a></li>
+<li><a href="night-shift-survival-guide.html">Night shift survival</a></li>
+<li><a href="decimal-hours-time-card-math.html">Decimal hours and time cards</a></li>
+<li><a href="shift-differential-pay.html">Shift differential pay</a></li>
+<li><a href="fair-shift-scheduling-guide.html">Fair shift scheduling</a></li>
+<li><a href="24-hour-clock-guide.html">The 24-hour clock</a></li>
+<li><a href="history-of-the-8-hour-day.html">History of the 8-hour day</a></li></ul></div>
+<div><h2 class="footer-head">Get involved</h2><ul><li><a href="get-matched.html">Get matched with software</a></li>
+<li><a href="job-alerts.html">Shift job alerts</a></li>
+<li><a href="contests.html">Monthly contest</a></li>
+<li><a href="support.html">Support us</a></li>
+<li><a href="advertise.html">Advertise and sponsor</a></li>
+<li><a href="careers.html">Careers and contributors</a></li></ul></div>
+<div><h2 class="footer-head">Company</h2><ul><li><a href="about.html">About</a></li>
+<li><a href="what-does-824-mean.html">What 824 means</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html">Privacy policy</a></li>
+<li><a href="terms.html">Terms of use</a></li>
+<li><a href="disclaimer.html">Disclaimer and trademarks</a></li></ul></div>
+</div>
+<div class="wrap footer-legal">
+<p>&copy; 2026 824824.com. Tools and guides are general information, not legal, tax, financial or medical advice. Calculator results are estimates; check them against your employment contract, collective agreement and local law.</p>
+<p><strong>Trademark and copyright notice:</strong> &ldquo;824824&rdquo; is used here as a descriptive numeric domain name (8 hours of the 24-hour day). No trademark rights are claimed in the number, and 824824.com is not affiliated with, sponsored or endorsed by any company, person, team or organization that uses the numbers 8, 24, 824 or similar marks. Other product names and trademarks belong to their owners. Original text, tools and code &copy; 824824.com; embedded videos remain the property of their creators. <a href="disclaimer.html#trademark">Read the full disclosure</a>.</p>
+</div>
+</footer>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search tools and guides">
+<div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input type="search" id="search-input" placeholder="Search tools and guides" autocomplete="off" aria-controls="search-results" aria-label="Search tools and guides"><button type="button" class="icon-btn" data-search-close aria-label="Close search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+<ul class="search-results" id="search-results" role="listbox" aria-label="Results"></ul>
+<p class="search-hint">Try &ldquo;overtime&rdquo;, &ldquo;DuPont&rdquo; or &ldquo;night shift&rdquo;.</p>
+</dialog>
+<datalist id="role-list"><option value="Registered nurse"><option value="Licensed practical nurse"><option value="Personal support worker"><option value="Certified nursing assistant"><option value="Care aide"><option value="Paramedic"><option value="Cook"><option value="Server"><option value="Hotel front desk agent"><option value="Housekeeper"><option value="Security officer"><option value="Warehouse associate"><option value="Forklift operator"><option value="Production operator"><option value="Machine operator"><option value="Truck driver"><option value="Call center agent"><option value="Retail associate"><option value="Cleaner"><option value="Firefighter"></datalist>
+<script src="assets/js/config.js?v=8a59b57171"></script>
+<script src="assets/js/app.js?v=8a59b57171" defer></script>
+<script src="assets/js/tools/core.js?v=8a59b57171" defer></script>
+<script src="assets/js/tools/time-card.js?v=8a59b57171" defer></script>
+</body>
+</html>
