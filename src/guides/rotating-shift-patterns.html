@@ -1,0 +1,165 @@
+---
+layout: guide
+title: "Rotating Shift Patterns Compared: 2-2-3, DuPont, Panama, 24/48"
+h1: "Rotating Shift Patterns Explained and Compared"
+description: "Compare 2-2-3, DuPont, Panama, 4-on-4-off, 4x10, 24/48, 48/96, continental, 5-and-2 and 9/80 schedules: cycle length, teams needed and real weekly hours."
+category: "Schedules"
+updated: 2026-10-08
+read_min: 8
+related_tools: [shift-pattern-generator, overtime-calculator, hours-calculator]
+related_guides: [fair-shift-scheduling-guide, overtime-laws-explained, night-shift-survival-guide]
+faq:
+  - q: "How many hours a week does a 2-2-3 schedule average?"
+    a: "A 2-2-3 schedule works seven 12-hour shifts every 14 days, which is 84 hours over two weeks, or 42 hours a week on average. Real calendar weeks alternate, for example between 36 and 48 hours, depending on where the payroll week starts."
+  - q: "How many teams do you need for 24/7 coverage with 12-hour shifts?"
+    a: "Four. One round-the-clock post needs 168 hours of coverage a week, and four teams averaging 42 hours each add up to exactly 168."
+  - q: "What is the difference between the Pitman and Panama schedules?"
+    a: "Both use the same 2-2-3 cadence of workdays and days off. The names are used loosely, but Pitman often means fixed day and night teams, while Panama usually means teams that rotate between day and night blocks."
+  - q: "Does a 42-hour average mean 2 hours of overtime every week?"
+    a: "It usually means more. Under the federal FLSA, overtime is figured one workweek at a time, so a 42-hour average that shows up as alternating 36- and 48-hour weeks produces 8 overtime hours every two weeks, not 4."
+  - q: "How many hours do 24/48 and 48/96 fire schedules average?"
+    a: "Both average 56 hours a week with three platoons. Public fire departments can use a work period of up to 28 days under FLSA section 7(k), with overtime after 212 hours in a 28-day period."
+  - q: "Can I see these patterns on a calendar?"
+    a: "Yes. The shift pattern generator on this site can build a calendar for patterns such as 2-2-3, Panama, DuPont, 4-on-4-off and continental, so you can check exact workdays and days off."
+sources:
+  - title: "Rotational Shiftwork — Canadian Centre for Occupational Health and Safety"
+    url: "https://www.ccohs.ca/oshanswers/ergonomics/shiftwrk.html"
+  - title: "29 CFR 778.101, Maximum nonovertime hours — Legal Information Institute, Cornell Law School"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.101"
+  - title: "29 CFR 778.104, Each workweek stands alone — Legal Information Institute, Cornell Law School"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.104"
+  - title: "29 CFR 778.105, Determining the workweek — Legal Information Institute, Cornell Law School"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.105"
+  - title: "29 CFR 553.230, Maximum hours standards for work periods of 7 to 28 days, section 7(k) — Legal Information Institute, Cornell Law School"
+    url: "https://www.law.cornell.edu/cfr/text/29/553.230"
+  - title: "Alternative Work Schedules (Handbook) — U.S. Office of Personnel Management"
+    url: "https://www.opm.gov/policy-data-oversight/pay-leave/reference-materials/handbooks/alternative-work-schedules/"
+  - title: "Overtime — California Department of Industrial Relations, Labor Commissioner's Office"
+    url: "https://www.dir.ca.gov/dlse/faq_overtime.htm"
+  - title: "Pitman Schedule — soon.works"
+    url: "https://soon.works/shift-patterns/pitman"
+  - title: "DuPont Schedule — soon.works"
+    url: "https://soon.works/shift-patterns/dupont"
+  - title: "Continental Schedule — soon.works"
+    url: "https://soon.works/shift-patterns/continental"
+---
+<p class="lead">A shift pattern is a repeating sequence of workdays and days off. The right one depends on the hours you need covered, the people you have, and how much fatigue and overtime you can accept. Here are ten common patterns, with the math checked so you can compare them fairly.</p>
+
+<h2 id="at-a-glance">The patterns at a glance</h2>
+<p>Averages assume every scheduled shift is worked, with no extra overtime or leave.</p>
+<table class="data">
+<thead>
+<tr><th>Pattern</th><th>Shift</th><th>Cycle</th><th>Teams for 24/7</th><th>Avg hours/week</th><th>Main trade-off</th></tr>
+</thead>
+<tbody>
+<tr><td>2-2-3 (Pitman)</td><td>12 h</td><td>14 days</td><td>4</td><td>42</td><td>Uneven weeks</td></tr>
+<tr><td>Panama</td><td>12 h</td><td>28 days</td><td>4</td><td>42</td><td>Day-night swap every 2 weeks</td></tr>
+<tr><td>DuPont</td><td>12 h</td><td>28 days</td><td>4</td><td>42</td><td>One 72-hour week</td></tr>
+<tr><td>4-on-4-off (4x12)</td><td>12 h</td><td>8 days (16 if rotating)</td><td>4</td><td>42</td><td>Four long shifts in a row</td></tr>
+<tr><td>4-3 (4x10)</td><td>10 h</td><td>7 days</td><td>Not built for 24/7</td><td>40</td><td>Long days; daily overtime in some states</td></tr>
+<tr><td>24/48</td><td>24 h</td><td>3 days</td><td>3 platoons</td><td>56</td><td>24 hours on duty</td></tr>
+<tr><td>48/96</td><td>Two 24s</td><td>6 days</td><td>3 platoons</td><td>56</td><td>48 hours on duty</td></tr>
+<tr><td>Continental</td><td>8 h</td><td>28 days</td><td>4</td><td>42</td><td>Up to 7 shifts in a row</td></tr>
+<tr><td>Fixed 5-on-2-off</td><td>8 h</td><td>7 days</td><td>4.2 people per post</td><td>40</td><td>Needs relief staff</td></tr>
+<tr><td>9/80</td><td>9 h (one 8 h)</td><td>14 days</td><td>Not built for 24/7</td><td>40</td><td>Workweek setup affects overtime</td></tr>
+</tbody>
+</table>
+
+<h2 id="how-the-math-works">How the schedule math works</h2>
+<p>Three numbers let you compare patterns fairly:</p>
+<ul>
+<li><strong>Cycle length:</strong> how many days pass before the pattern repeats.</li>
+<li><strong>Average weekly hours:</strong> shifts per cycle × shift length ÷ (cycle days ÷ 7).</li>
+<li><strong>Teams for 24/7:</strong> one round-the-clock post needs 168 hours of coverage a week (24 × 7). Divide 168 by the average weekly hours per team.</li>
+</ul>
+<div class="example"><h4>Example: a 12-hour pattern that works 14 of 28 days</h4><p>14 shifts × 12 hours = 168 hours over 28 days, which is four weeks. 168 ÷ 4 = <strong>42 hours a week</strong> on average. And 168 ÷ 42 = 4, so four teams cover one post around the clock. That's why 2-2-3, Panama, DuPont and 4-on-4-off all land on 42 hours and four teams.</p></div>
+<div class="callout warn"><strong>Important:</strong> Averages hide overtime. Under the federal Fair Labor Standards Act, overtime is generally due after <a href="https://www.law.cornell.edu/cfr/text/29/778.101" target="_blank" rel="noopener">40 hours in a workweek</a>, and <a href="https://www.law.cornell.edu/cfr/text/29/778.104" target="_blank" rel="noopener">each workweek stands alone</a>, so hours can't be averaged across weeks. A 42-hour average can include 48- or even 60-hour weeks. See our <a href="overtime-laws-explained.html">overtime laws guide</a> for federal and state rules.</div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="twelve-hour-rotations">12-hour rotations: 2-2-3, Panama and DuPont</h2>
+<h3>2-2-3 (Pitman)</h3>
+<p>Each team follows a 14-day cadence: work 2, off 2, work 3, off 2, work 2, off 3. That's seven 12-hour shifts every two weeks, or 42 hours a week on average. Four teams cover 24/7: two day teams and two night teams, with each pair working opposite days. In the usual layout you work Monday, Tuesday, Friday, Saturday and Sunday one week, then Wednesday and Thursday the next. The names get mixed up; some schedulers reserve <a href="https://soon.works/shift-patterns/pitman" target="_blank" rel="noopener">"Pitman" for fixed day and night teams</a> and call the rotating version Panama.</p>
+<ul>
+<li><strong>Pros:</strong> Never more than three shifts in a row, and every other weekend is a three-day weekend off.</li>
+<li><strong>Cons:</strong> Calendar weeks are uneven. For a day team, a Sunday-to-Saturday workweek alternates 36 and 48 hours (8 overtime hours every two weeks), while a Monday-to-Sunday workweek alternates 60 and 24 (20 overtime hours).</li>
+</ul>
+<h3>Panama</h3>
+<p>Panama uses the same 2-2-3 cadence, but teams swap between day and night blocks, usually every two weeks, so the full rotation takes 28 days. It still averages 42 hours with four teams.</p>
+<ul>
+<li><strong>Pros:</strong> Nights are shared evenly, and short work blocks limit fatigue.</li>
+<li><strong>Cons:</strong> Your body clock flips between days and nights every two weeks.</li>
+</ul>
+<h3>DuPont</h3>
+<p>The DuPont is a 28-day, four-crew rotation: 4 nights, 3 off, 3 days, 1 off, 3 nights, 3 off, 4 days, 7 off. That's 14 twelve-hour shifts, or 168 hours in four weeks: 42 a week on average.</p>
+<ul>
+<li><strong>Pros:</strong> A full seven days off every cycle, and no more than four shifts in a row.</li>
+<li><strong>Cons:</strong> In the standard four-week grid, weeks are scheduled at 48, 72, 48 and 0 hours, and one day off between the day and night blocks leaves little time to readjust.</li>
+</ul>
+
+<h2 id="four-on-four-off-and-four-tens">4-on-4-off and 4-3 (four 10s)</h2>
+<h3>4-on-4-off (4x12)</h3>
+<p>Work four 12-hour shifts, then take four days off. The cycle is 8 days (16 if teams alternate day and night blocks), and four teams cover 24/7. Each team works 48 hours every 8 days, which averages 42 hours a week. Real calendar weeks come in runs: four 48-hour weeks, then four 36-hour weeks.</p>
+<ul>
+<li><strong>Pros:</strong> The simplest rule to remember, and every break lasts four days.</li>
+<li><strong>Cons:</strong> Four 12-hour shifts in a row is demanding, especially on nights, and your workdays slide one weekday later with each cycle.</li>
+</ul>
+<h3>4-3 (4x10)</h3>
+<p>Four 10-hour days and three days off, every week, for 40 hours. Like the 9/80, it's a compressed schedule, which the <a href="https://www.opm.gov/policy-data-oversight/pay-leave/reference-materials/handbooks/alternative-work-schedules/" target="_blank" rel="noopener">U.S. Office of Personnel Management</a> defines for federal staff as 80 hours every two weeks worked in fewer than 10 workdays. It isn't built for 24/7: three 10-hour shifts cover 30 hours a day, leaving 6 hours of overlap that you either use for busy periods or pay for anyway.</p>
+<ul>
+<li><strong>Pros:</strong> Three days off every week, with no overtime under the federal 40-hour rule.</li>
+<li><strong>Cons:</strong> Long days, and some states count overtime by the day. In California, for example, hours over 8 in a workday generally earn overtime unless an exception applies.</li>
+</ul>
+
+{% include cta-inline.html kind="business" %}
+
+<h2 id="fire-service-schedules">Fire service: 24/48 and 48/96</h2>
+<p>Both use three platoons (often A, B and C) working 24-hour shifts.</p>
+<ul>
+<li><strong>24/48:</strong> 24 hours on, 48 off. The cycle is 3 days, so each platoon works one day in three: 24 ÷ 3 × 7 = 56 hours a week on average, with real weeks of 48 or 72.</li>
+<li><strong>48/96:</strong> two back-to-back 24-hour shifts, then four days off. It also averages 56 hours a week over a 6-day cycle, with one commute per cycle instead of two.</li>
+</ul>
+<p>Public fire departments can use FLSA section 7(k), which allows a work period of 7 to 28 days. For a full 28-day period, <a href="https://www.law.cornell.edu/cfr/text/29/553.230" target="_blank" rel="noopener">overtime starts after 212 hours</a>, an average of 53 a week. Both patterns average 224 hours per 28 days, 12 over that threshold, so some overtime is usually built in.</p>
+<ul>
+<li><strong>Pros:</strong> Few commutes and long stretches at home.</li>
+<li><strong>Cons:</strong> Very long duty periods; rest on shift depends on call volume.</li>
+</ul>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="continental-rotation">Continental 8-hour rotation</h2>
+<p>A continental rotation runs three 8-hour shifts (mornings, afternoons and nights) and rotates quickly and always forward; with four crews it covers 24/7. Its first block is the eight-hour 2-2-3: two mornings, two afternoons, three nights. One workable 28-day layout:</p>
+<ol>
+<li>2 mornings, 2 afternoons, 3 nights, 2 off</li>
+<li>2 mornings, 3 afternoons, 2 nights, 2 off</li>
+<li>3 mornings, 2 afternoons, 2 nights, 3 off</li>
+</ol>
+<p>That's 21 shifts × 8 hours = 168 hours in 28 days, or 42 hours a week. Stagger the four crews by one week and every shift is covered every day.</p>
+<ul>
+<li><strong>Pros:</strong> Shorter shifts, no more than three nights in a row, and forward rotation, which the <a href="https://www.ccohs.ca/oshanswers/ergonomics/shiftwrk.html" target="_blank" rel="noopener">Canadian Centre for Occupational Health and Safety</a> (CCOHS) recommends because the body clock adjusts more easily when shift times move later.</li>
+<li><strong>Cons:</strong> Up to seven shifts in a row, breaks of only two or three days, and scheduled weeks ranging from 32 to 56 hours.</li>
+</ul>
+<div class="callout"><strong>Tip:</strong> CCOHS also advises avoiding start times as early as 5 or 6 a.m. and allowing at least 24 hours off after a set of nights. Changeovers at 07:00, 15:00 and 23:00 avoid those early starts.</div>
+
+<h2 id="fixed-and-nine-eighty">Fixed 5-on-2-off and 9/80</h2>
+<h3>Fixed 5-on-2-off</h3>
+<p>Five 8-hour shifts and two days off: 40 hours a week, with each person always on the same shift. Covering one post 24/7 takes 168 ÷ 40 = 4.2 full-time people, so you need staggered days off plus relief or part-time staff.</p>
+<ul>
+<li><strong>Pros:</strong> Predictable hours, no rotation, and overtime is easy to avoid.</li>
+<li><strong>Cons:</strong> People fixed on nights often switch back to daytime living on days off, which can undo their adjustment. Weekend coverage needs extra planning.</li>
+</ul>
+<h3>9/80</h3>
+<p>Over two weeks, work eight 9-hour days and one 8-hour day, then take the tenth day off: 80 hours, or 40 a week. The catch is overtime. Week one holds 44 hours and week two holds 36. Because a <a href="https://www.law.cornell.edu/cfr/text/29/778.105" target="_blank" rel="noopener">workweek can begin on any day and at any hour</a>, an employer can start it halfway through the 8-hour day, splitting that day 4 and 4 so both workweeks total exactly 40. The change has to be meant as permanent, not as a way around overtime.</p>
+<ul>
+<li><strong>Pros:</strong> A three-day weekend every other week at no extra cost.</li>
+<li><strong>Cons:</strong> Longer days, and payroll has to be set up correctly from the start.</li>
+</ul>
+
+<h2 id="choosing-a-pattern">How to choose a pattern</h2>
+<ul>
+<li><strong>Start with coverage.</strong> Hours per day, days per week, people per shift. For 24/7, four teams on 12-hour shifts or four crews on 8-hour shifts make the numbers work.</li>
+<li><strong>Check real weeks, not averages.</strong> Lay the pattern over your actual payroll workweek and count the overtime.</li>
+<li><strong>Weigh fatigue.</strong> CCOHS notes that longer shifts can mean fewer nights in a row and longer breaks, but long hours bring extra fatigue. Match shift length to how demanding the work is.</li>
+<li><strong>Involve your staff.</strong> CCOHS recommends simple, predictable schedules shared well in advance.</li>
+</ul>
+<p>Once you've narrowed it down, use the <a href="shift-pattern-generator.html">shift pattern generator</a> to build a calendar for any of these patterns and see the exact workdays and days off before you commit. If your team works nights, share our <a href="night-shift-survival-guide.html">night shift survival guide</a>.</p>

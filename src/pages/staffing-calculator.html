@@ -1,0 +1,121 @@
+---
+layout: tool
+title: "24/7 Staffing Calculator: How Many Employees Do You Need?"
+h1: "24/7 staffing calculator"
+description: "Calculate how many employees you need to cover a post around the clock, with absences, shift length and overtime cost built in. Free, no sign-up."
+lede: "Find the headcount to cover every hour you're open. Enter how many people you need at once, your hours and your typical absence rate, and see the staff, shifts and cost it takes."
+scripts: [tools/staffing]
+cta: business
+priority: 0.9
+keywords: [staffing calculator, FTE calculator, coverage, headcount, 24/7 coverage, relief factor, shift planning, workforce planning]
+related_tools: [shift-pattern-generator, overtime-calculator, time-card-calculator]
+related_guides: [fair-shift-scheduling-guide, rotating-shift-patterns]
+faq:
+  - q: "How many employees do I need to cover one position 24/7?"
+    a: "Divide 168 weekly hours by the productive hours each person works. At 42 paid hours with no absence, that's exactly 4 people. At 40 paid hours with 10% absence, it's 168 ÷ 36 = 4.67, so you'd need 5."
+  - q: "What does FTE mean in this calculator?"
+    a: "One full-time equivalent is one person working the paid weekly hours you enter. The calculator divides the hours you need covered by each person's productive hours to get FTEs, then rounds up to whole people for the headcount."
+  - q: "What absence rate should I use?"
+    a: "Use your own records: the share of paid hours lost to vacation, sick time, training and other paid time away from the post. The calculator starts at 10%, but a rate based on your last 12 months is more reliable."
+  - q: "Does the labor cost include benefits or overtime?"
+    a: "No. Labor cost per week is FTEs × paid hours × your hourly rate, so it's base pay only. Overtime cost appears separately if you enter your current team and an hourly rate, and the team is short of the hours you need."
+  - q: "Can I use it for a business that isn't open 24/7?"
+    a: "Yes. Set hours open per day and days open per week to match your operation, such as 16 hours a day, 5 days a week. Coverage, FTEs and headcount follow the same formulas."
+sources:
+  - title: "29 CFR 778.104, Each workweek stands alone — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.104"
+  - title: "Directive 2003/88/EC (working time) — EUR-Lex"
+    url: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32003L0088"
+  - title: "Hours of work - Federally regulated workplaces — Government of Canada"
+    url: "https://www.canada.ca/en/services/jobs/workplace/federal-labour-standards/work-hours.html"
+  - title: "Work Organization Strategies to Promote Alertness and Health in Nurses (Module 5, scheduling guidelines) — NIOSH, CDC"
+    url: "https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod5/06.html"
+---
+<div class="tool" data-tool="staffing">
+<div class="grid-3">
+<label class="field"><span>People needed at the same time</span><input id="st-pos" type="number" min="0" step="1" value="2" inputmode="numeric"></label>
+<label class="field"><span>Hours open per day</span><input id="st-hpd" type="number" min="1" max="24" step="0.5" value="24" inputmode="decimal"></label>
+<label class="field"><span>Days open per week</span><input id="st-dpw" type="number" min="1" max="7" step="1" value="7" inputmode="numeric"></label>
+<label class="field"><span>Shift length (hours)</span><select id="st-len"><option value="8">8</option><option value="10">10</option><option value="12" selected>12</option><option value="24">24</option></select></label>
+<label class="field"><span>Paid hours per employee per week</span><input id="st-avg" type="number" min="1" max="80" step="0.5" value="42" inputmode="decimal"></label>
+<label class="field"><span>Expected absence (%) <span class="hint">vacation, sick time, training</span></span><input id="st-abs" type="number" min="0" max="60" step="0.5" value="10" inputmode="decimal"></label>
+</div>
+<div class="choices" style="margin-top:10px" role="group" aria-label="Common weekly hours">
+<button type="button" class="chip" data-avg="36">36 h</button>
+<button type="button" class="chip" data-avg="37.5">37.5 h</button>
+<button type="button" class="chip" data-avg="40">40 h</button>
+<button type="button" class="chip" data-avg="42">42 h (12-hour rotation)</button>
+</div>
+
+<details class="tool-options">
+<summary>Cost and your current team</summary>
+<div class="options-body">
+<div class="grid-3">
+<label class="field"><span>Average hourly rate</span><span class="input-affix"><select id="st-cur" aria-label="Currency"><option>$</option><option>€</option><option>£</option><option>₹</option><option value="C$">C$</option><option value="A$">A$</option></select><input id="st-rate" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></span></label>
+<label class="field"><span>Overtime multiplier</span><input id="st-otm" type="number" min="1" step="0.05" value="1.5" inputmode="decimal"></label>
+<label class="field"><span>People on your team now</span><input id="st-have" type="number" min="0" step="1" inputmode="numeric" placeholder="optional"></label>
+</div>
+</div>
+</details>
+
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Headcount needed</span><span class="result-num" id="st-head">0</span><span class="result-sub" id="st-head-sub"></span></div>
+<dl class="result-grid">
+<div><dt>Coverage per week</dt><dd id="st-cov">0</dd></div>
+<div><dt>Shifts to fill per week</dt><dd id="st-shifts">0</dd></div>
+<div><dt>Productive hours per person</dt><dd id="st-prod">0</dd></div>
+<div class="is-pay"><dt>Labor cost per week</dt><dd id="st-cost">$0.00</dd></div>
+</dl>
+<ul class="warnings" id="st-gap" hidden></ul>
+</div>
+<div class="tool-actions">
+<a class="btn btn-primary" id="st-match" href="get-matched.html">Get scheduling software that fits this team</a>
+<a class="btn btn-ghost" href="shift-pattern-generator.html">Turn it into a rotation</a>
+<button type="button" class="btn btn-ghost" id="st-share">Copy share link</button>
+</div>
+<p class="tool-note">Productive hours = paid hours minus expected absence. Headcount is rounded up to whole people.</p>
+</div>
+<!--article-->
+<p>Covering a post around the clock takes more people than the hours alone suggest, because every hour still has to be filled while someone is on vacation, out sick or in training. This calculator turns the coverage you need into hours, full-time equivalents (FTEs), headcount and weekly cost, and shows the gap if your current team is short.</p>
+
+<h2 id="how-to-use">How to use the staffing calculator</h2>
+<ol>
+<li><strong>Describe your coverage.</strong> Enter <strong>People needed at the same time</strong>, <strong>Hours open per day</strong> and <strong>Days open per week</strong>. One post staffed around the clock is 1, 24 and 7.</li>
+<li><strong>Pick a shift length.</strong> Choose 8, 10, 12 or 24 under <strong>Shift length (hours)</strong>. It changes how many shifts you fill each week, not how many people you need.</li>
+<li><strong>Set paid hours.</strong> Type the <strong>Paid hours per employee per week</strong> or tap a chip for 36, 37.5 or 40 hours, or 42 hours for a 12-hour rotation.</li>
+<li><strong>Add expected absence.</strong> Under <strong>Expected absence (%)</strong>, enter the share of paid time people spend away on vacation, sick time and training.</li>
+<li><strong>Add cost and your team (optional).</strong> Open <strong>Cost and your current team</strong> for an average hourly rate and currency, an overtime multiplier (1.5 unless you change it) and the number of people on your team now.</li>
+<li><strong>Read and share.</strong> Check the headcount, coverage per week, shifts to fill, productive hours per person and labor cost, then use <strong>Copy share link</strong> to send the scenario to a colleague.</li>
+</ol>
+
+<h2 id="how-it-works">How the calculator works</h2>
+<ul>
+<li><strong>Coverage per week</strong> = people needed at the same time × hours open per day × days open per week.</li>
+<li><strong>Productive hours per person</strong> = paid hours × (1 − absence rate).</li>
+<li><strong>FTEs</strong> = coverage hours ÷ productive hours per person.</li>
+<li><strong>Headcount</strong> = FTEs rounded up to the next whole person.</li>
+<li><strong>Shifts to fill per week</strong> = coverage hours ÷ shift length.</li>
+</ul>
+<p>Labor cost per week is FTEs × paid hours × hourly rate, and the yearly figure is that times 52. It uses the exact FTE figure before rounding and covers base pay only, so benefits, payroll taxes and shift differentials aren't included.</p>
+<p>If you enter your current team, the calculator compares the hours you need with team size × productive hours. A shortfall shows as hours a week, overtime per person and, if you've added a rate, overtime cost at your multiplier. A surplus shows as spare hours to absorb absences.</p>
+<div class="example"><h4>Example: one post, around the clock</h4><p>1 × 24 × 7 = 168 hours of coverage a week. On 42-hour rotations with 0% absence, each person brings 42 productive hours, so 168 ÷ 42 = 4 FTEs and a headcount of 4. With 12-hour shifts, that's 14 shifts to fill each week.</p></div>
+<div class="example"><h4>Example: two posts, 10% absence and a team of 8</h4><p>2 × 24 × 7 = 336 hours. At 40 paid hours and 10% absence, each person brings 40 × 0.9 = 36 productive hours, so 336 ÷ 36 = 9.33 FTEs and a headcount of 10. A team of 8 supplies 8 × 36 = 288 hours, leaving you 48 hours short every week: about 6 overtime hours per person. At $25 an hour and time and a half, that overtime costs $1,800 a week.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="absence-and-relief">What absence and relief factors mean</h2>
+<p>Your absence rate is the share of paid hours when people are paid but not available to cover a post: vacation, sick time, training and similar time away. The calculator starts at 10%, but a rate from your own payroll or attendance records for the past 12 months is more reliable. If vacations bunch up in summer or around holidays, check those weeks separately.</p>
+<p>A relief factor turns the same idea into people per post: how many people it takes to keep one position filled every hour you're open. It's one post's coverage hours ÷ productive hours per person. For a 24/7 post at 40 paid hours and 10% absence, that's 168 ÷ 36 = 4.67. Enter 1 person needed at the same time and the FTE figure is your relief factor. The fraction still has to be filled, through part-time hours, overtime or one more hire.</p>
+
+<h2 id="build-the-rotation">Turn the headcount into a rotation</h2>
+<p>Headcount tells you how many people you need; a rotation tells each of them when to work. Take your result to the <a href="shift-pattern-generator.html">shift pattern generator</a> and match it to a pattern. Four teams on a 12-hour rotation such as 2-2-3 or Panama average 42 hours each and cover one post exactly. Anyone beyond that core four per post becomes relief staff for vacation and sick shifts.</p>
+<p>Check overtime as well as headcount. Under the federal Fair Labor Standards Act, <a href="https://www.law.cornell.edu/cfr/text/29/778.104" target="_blank" rel="noopener">each workweek stands alone</a>, so a rotation that averages 42 hours still produces overtime in its longer weeks. The pattern generator shows how much for each payroll start day, and the <a href="overtime-calculator.html">overtime calculator</a> works out what it pays. For managers comparing tools to run all this, our <a href="get-matched.html">free software shortlist</a> matches scheduling software to your team size and budget.</p>
+
+<h2 id="rest-and-hours-limits">Check rest and hours limits</h2>
+<p>The calculator doesn't check legal limits, and closing a shortfall with overtime can run into them. Test your plan against the rules where you operate:</p>
+<ul>
+<li><strong>European Union:</strong> at least 11 consecutive hours of rest in every 24 hours, and an average week of no more than 48 hours including overtime, under the <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32003L0088" target="_blank" rel="noopener">Working Time Directive</a>.</li>
+<li><strong>Canada, federally regulated workplaces:</strong> at least <a href="https://www.canada.ca/en/services/jobs/workplace/federal-labour-standards/work-hours.html" target="_blank" rel="noopener">8 consecutive hours between shifts</a>, and in most cases no more than 48 hours of work a week.</li>
+<li><strong>Research guidance:</strong> NIOSH training material for nurses cites a recommendation of <a href="https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod5/06.html" target="_blank" rel="noopener">at least 11 hours between two shifts</a>.</li>
+</ul>
+<p>Before you lean on overtime, check how close it pushes individual weeks to these limits. Our <a href="fair-shift-scheduling-guide.html">fair shift scheduling guide</a> covers rest rules and US fair workweek laws in more detail.</p>
