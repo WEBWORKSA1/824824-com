@@ -1,0 +1,80 @@
+---
+layout: tool
+title: "Free Printable Timesheet: Weekly or Bi-Weekly Template"
+h1: "Printable timesheet"
+description: "Make a free printable weekly or bi-weekly timesheet with your company, employee name and dates filled in. Split-shift and notes columns optional. Print or save as PDF."
+lede: "Fill in the top, pick one or two weeks, and print. Handy for job sites, agencies and anywhere without a time clock."
+scripts: [tools/timesheet]
+body_class: "tool sheet"
+cta: worker
+priority: 0.8
+keywords: [printable timesheet, timesheet template, blank timesheet, weekly time sheet, biweekly time sheet, pdf timesheet]
+related_tools: [time-card-calculator, decimal-hours-converter, hours-calculator]
+related_guides: [decimal-hours-time-card-math, overtime-laws-explained]
+faq:
+  - q: "What should a timesheet include?"
+    a: "At a minimum, the dates, the times you started and stopped work, any unpaid meal breaks, and total hours for each day and each week. For workers who aren't exempt, US federal rules require employers to keep records of hours worked each day and total hours each workweek, along with pay details."
+  - q: "Can I fill in a timesheet by hand?"
+    a: "Yes. US federal rules let employers use any timekeeping method they choose, including having workers write down their own times, as long as the records are complete and accurate."
+  - q: "What day should a weekly timesheet start on?"
+    a: "Start it on the first day of your employer's workweek. Under federal rules, a workweek is a fixed, regularly recurring period of 168 hours that can begin on any day and at any hour, so it doesn't have to match the calendar week."
+  - q: "How do I total overtime on a bi-weekly timesheet?"
+    a: "Total each week on its own line. Federal overtime is figured per workweek, and averaging hours over two weeks isn't allowed, so 45 hours one week and 35 the next still means 5 overtime hours."
+  - q: "How do I save the timesheet as a PDF?"
+    a: "Click Print or save as PDF, then choose a save-as-PDF option instead of a printer in your browser's print dialog. The form fields above the sheet are left off the printout."
+sources:
+  - title: "Fact Sheet #21: Recordkeeping Requirements under the FLSA — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/fact-sheets/21-flsa-recordkeeping"
+  - title: "29 CFR 778.105, Determining the workweek — Legal Information Institute"
+    url: "https://www.law.cornell.edu/cfr/text/29/778.105"
+  - title: "Fact Sheet #23: Overtime Pay Requirements of the FLSA — U.S. Department of Labor"
+    url: "https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay"
+  - title: "Breaks and Meal Periods — U.S. Department of Labor"
+    url: "https://www.dol.gov/general/topic/workhours/breaks"
+---
+<div class="tool" data-tool="timesheet">
+<div class="print-hide">
+<div class="grid-3">
+<label class="field"><span>Company</span><input id="ts-company" type="text" autocomplete="organization"></label>
+<label class="field"><span>Employee</span><input id="ts-name" type="text" autocomplete="name"></label>
+<label class="field"><span>Week starting</span><input id="ts-start" type="date"></label>
+<label class="field"><span>Length</span><select id="ts-weeks"><option value="1">1 week</option><option value="2">2 weeks</option></select></label>
+</div>
+<div class="choices" style="margin-top:14px">
+<label class="check"><input id="ts-split" type="checkbox"> <span>Second in and out (split shifts)</span></label>
+<label class="check"><input id="ts-notes" type="checkbox" checked> <span>Notes column</span></label>
+<label class="check"><input id="ts-rate" type="checkbox"> <span>Pay rate lines</span></label>
+</div>
+<div class="tool-actions"><button type="button" class="btn btn-primary" id="ts-print">Print or save as PDF</button></div>
+</div>
+<div class="ts-sheet" id="ts-sheet" aria-label="Timesheet preview"></div>
+</div>
+<!--article-->
+<h2 id="how-to-use">How to use the printable timesheet</h2>
+<ol>
+<li>Type the <strong>Company</strong> and <strong>Employee</strong> names, or leave them blank to get write-in lines.</li>
+<li>Set <strong>Week starting</strong> to the first day of your workweek. It starts out on this week's Sunday, and the sheet lists seven dated days from whatever date you pick.</li>
+<li>Choose a <strong>Length</strong> of 1 week or 2 weeks. A two-week sheet gets a separate total row for each week.</li>
+<li>Tick the extras you need. <strong>Second in and out (split shifts)</strong> adds a second pair of time columns, <strong>Notes column</strong> is on by default, and <strong>Pay rate lines</strong> adds blanks for the hourly and overtime rates.</li>
+<li>Check the preview, then click <strong>Print or save as PDF</strong>. In your browser's print dialog, pick a printer or a save-as-PDF option.</li>
+</ol>
+
+<h2 id="how-it-works">What the sheet includes and why</h2>
+<p>Each day gets a row with the day and date, <strong>Time in</strong>, <strong>Time out</strong>, <strong>Unpaid break</strong> and <strong>Total hours</strong>, plus the second in and out pair and the notes column if you turned them on. Each week ends with a total row. At the bottom are lines for total hours for the period, overtime hours, and employee and supervisor signatures with dates. The times are left blank so you can fill them in by hand.</p>
+<p>US federal rules let employers use any timekeeping method they choose, including having workers write down their own times, as long as the records are complete and accurate. For workers who aren't exempt, those records must show the time and day the workweek begins, hours worked each day and total hours each workweek, along with pay details, according to <a href="https://www.dol.gov/agencies/whd/fact-sheets/21-flsa-recordkeeping" target="_blank" rel="noopener">DOL Fact Sheet #21</a>. The daily and weekly totals on this sheet cover the hours. If your workweek starts at a set time, such as 07:00 on Sunday, write that in the notes.</p>
+<p>The workweek matters because overtime is figured one week at a time. A workweek is a fixed, regularly recurring period of 168 hours, or seven consecutive 24-hour periods. It doesn't have to match the calendar week and can begin on any day and at any hour, under <a href="https://www.law.cornell.edu/cfr/text/29/778.105" target="_blank" rel="noopener">29 CFR 778.105</a>. For covered workers who aren't exempt, the Fair Labor Standards Act (FLSA) requires at least time and a half for hours over 40 in a workweek, and hours can't be averaged over two or more weeks, as <a href="https://www.dol.gov/agencies/whd/fact-sheets/23-flsa-overtime-pay" target="_blank" rel="noopener">DOL Fact Sheet #23</a> explains. That's why a two-week sheet totals each week separately.</p>
+<div class="example"><h4>Example: a two-week sheet with uneven weeks</h4><p>You work 44 hours in week 1 and 36 hours in week 2. That's 80 hours for the period, the same as two 40-hour weeks, but the weeks can't be averaged. Write 44 in the Week 1 total row, 36 in the Week 2 total row, 80 for the period and 4 in Overtime hours, because week 1 went 4 hours over 40.</p></div>
+<div class="example"><h4>Example: a night shift row</h4><p>You start Friday at 19:00 and finish Saturday at 07:30, with a 30-minute unpaid meal. On Friday's row, write 19:00 in Time in, 07:30 in Time out and 0:30 in Unpaid break. The shift spans 12 hours 30 minutes, so Total hours is 12:00, or 12.00 if your payroll uses decimals. Add a note that it ended on Saturday.</p></div>
+
+{% include ad.html slot="in-article" %}
+
+<h2 id="tips">Tips for accurate timesheets</h2>
+<ul>
+<li><strong>Write actual times, not the schedule.</strong> If you stay 20 minutes late, write the real time out. Fact Sheet #21 says that when a worker on a fixed schedule works different hours, the employer must record the hours actually worked.</li>
+<li><strong>Use 24-hour time.</strong> 19:00 can't be misread the way 7:00 can. The <a href="military-time-converter.html">military time converter</a> translates a whole roster at once.</li>
+<li><strong>Put only unpaid meal breaks in Unpaid break.</strong> Short rest breaks of about 5 to 20 minutes count as hours worked, according to the Department of Labor's <a href="https://www.dol.gov/general/topic/workhours/breaks" target="_blank" rel="noopener">breaks and meal periods page</a>.</li>
+<li><strong>Total overnight shifts carefully.</strong> When the time out is earlier than the time in, add 24 hours to the time out before subtracting, or use the <a href="hours-calculator.html">hours calculator</a>.</li>
+<li><strong>Use decimal hours if payroll does.</strong> 7 hours 45 minutes is 7.75, not 7.45. The <a href="decimal-hours-converter.html">decimal hours converter</a> does the math.</li>
+<li><strong>Flag shifts that cross into a new workweek.</strong> Write the actual dates and times so payroll can count the hours in the right week.</li>
+<li><strong>Sign it, date it and keep a copy.</strong> Under Fact Sheet #21, employers keep payroll records for at least three years and time cards for two, but a photo of your own sheet lets you check each paycheck.</li>
+</ul>

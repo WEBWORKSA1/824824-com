@@ -1,0 +1,96 @@
+---
+layout: page
+title: "Shift Job Alerts: Nights, Weekends and 12-Hour Jobs by Email"
+h1: "Shift job alerts"
+crumb: "Job alerts"
+nav: alerts
+ads: false
+no_exit: true
+description: "Get free email alerts for shift jobs that match your role, location, preferred shifts and pay: nursing, care, hospitality, security, warehouse, manufacturing and more."
+lede: "Tell us the work you do and the shifts you want. We'll email openings that match your role, area and pay, and nothing else."
+priority: 0.8
+keywords: [night shift jobs, weekend jobs, 12 hour shift jobs, nursing jobs, care aide jobs, security jobs, warehouse jobs, job alerts]
+faq:
+  - q: "How much do job alerts cost?"
+    a: "Nothing. Alerts are free for job seekers, and every email has an unsubscribe link."
+  - q: "Will employers see my details?"
+    a: "Only if you tick the box that lets recruiters and employers contact you. Otherwise we only use your details to send alerts."
+  - q: "Which areas do you cover?"
+    a: "Alerts are rolling out region by region. Sign up now and we'll confirm by email when matching alerts start in your area."
+  - q: "Can I change what I get?"
+    a: "Yes. Reply to any alert or use the contact page to change your role, area, shifts or pay range, or to stop alerts."
+---
+<div class="split split-wide">
+<div class="panel">
+<form class="form" data-form="job-alerts" data-subject="New job alert signup — 824824" data-prefill novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<div class="grid-2">
+<label class="field"><span>Job title or role</span><input name="role" type="text" list="role-list" required placeholder="e.g. Personal support worker"></label>
+<label class="field"><span>Years of experience</span><select name="experience"><option>Less than 1</option><option>1 to 3</option><option>3 to 5</option><option>5 to 10</option><option>10 or more</option></select></label>
+<label class="field"><span>City or postal code</span><input name="location" type="text" required autocomplete="postal-code"></label>
+<label class="field"><span>How far will you travel?</span><select name="radius"><option>5 miles or 8 km</option><option selected>15 miles or 25 km</option><option>30 miles or 50 km</option><option>Open to relocating</option><option>Remote only</option></select></label>
+</div>
+<fieldset>
+<legend>Shifts you want<span class="legend-sub">Choose all that apply.</span></legend>
+<div class="choices" data-required-group="Choose at least one shift you'd work.">
+<label class="choice"><input type="checkbox" name="shifts" value="Days"><span>Days</span></label>
+<label class="choice"><input type="checkbox" name="shifts" value="Evenings"><span>Evenings</span></label>
+<label class="choice"><input type="checkbox" name="shifts" value="Nights"><span>Nights</span></label>
+<label class="choice"><input type="checkbox" name="shifts" value="Rotating"><span>Rotating</span></label>
+<label class="choice"><input type="checkbox" name="shifts" value="Weekends"><span>Weekends</span></label>
+<label class="choice"><input type="checkbox" name="shifts" value="12-hour shifts"><span>12-hour shifts</span></label>
+</div>
+</fieldset>
+<fieldset>
+<legend>Type of work</legend>
+<div class="choices">
+<label class="choice"><input type="checkbox" name="job_type" value="Full-time"><span>Full-time</span></label>
+<label class="choice"><input type="checkbox" name="job_type" value="Part-time"><span>Part-time</span></label>
+<label class="choice"><input type="checkbox" name="job_type" value="Casual or per diem"><span>Casual or per diem</span></label>
+<label class="choice"><input type="checkbox" name="job_type" value="Agency or travel"><span>Agency or travel</span></label>
+<label class="choice"><input type="checkbox" name="job_type" value="Contract"><span>Contract</span></label>
+</div>
+</fieldset>
+<div class="grid-2">
+<label class="field"><span>Lowest pay you'd accept</span><input name="min_pay" type="text" placeholder="e.g. $24 an hour"></label>
+<label class="field"><span>Licenses or certifications <span class="hint">(optional)</span></span><input name="certifications" type="text" placeholder="e.g. RN, CNA, forklift, guard license"></label>
+<label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+<label class="field"><span>Mobile number <span class="hint">(optional)</span></span><input name="mobile" type="tel" autocomplete="tel"></label>
+</div>
+<div class="stack" style="gap:10px">
+<label class="check"><input type="checkbox" name="consent_alerts" value="yes" required data-consent> <span>Email me job alerts that match these details. I can unsubscribe at any time.</span></label>
+<label class="check"><input type="checkbox" name="consent_recruiters" value="yes" data-consent> <span>Let recruiters and employers with matching jobs contact me.</span></label>
+<label class="check"><input type="checkbox" name="consent_sms" value="yes" data-consent> <span>Text me urgent shift openings at the mobile number above. Message and data rates may apply; reply STOP to opt out.</span></label>
+</div>
+<p class="fine-print">See our <a href="privacy.html">Privacy policy</a>. We never post your details publicly.</p>
+<button class="btn btn-primary" type="submit">Create my job alert</button>
+<p class="form-status" role="status" aria-live="polite"></p>
+<template data-success-template>
+<h3>Your alert is set</h3>
+<p>We'll email matching openings as alerts go live in your area. Until then, these tools can help with your next offer:</p>
+<p><a href="shift-differential-calculator.html">Price a night differential</a>, <a href="hourly-salary-converter.html">compare hourly and salary offers</a> or <a href="night-shift-sleep-planner.html">plan sleep for a new schedule</a>.</p>
+</template>
+</form>
+</div>
+<aside class="stack">
+<div class="panel panel-dark">
+<h2>Built for shift workers</h2>
+<ul class="ticks">
+<li>{% include icon.html name="check" %}Filter by days, nights, weekends or 12s</li>
+<li>{% include icon.html name="check" %}Set your minimum pay</li>
+<li>{% include icon.html name="check" %}Recruiter contact is your choice</li>
+<li>{% include icon.html name="check" %}Free, with no account</li>
+</ul>
+</div>
+<div class="panel">
+<h2>Hiring shift workers?</h2>
+<p>Feature your openings in alerts and next to the tools nurses, care aides, security officers and plant crews use every week.</p>
+<a class="btn btn-ghost" href="advertise.html#featured-jobs">Feature a job</a>
+</div>
+<div class="panel">
+<h2>Negotiating an offer?</h2>
+<p>Check what nights or weekends add to a year's pay before you say yes.</p>
+<a class="btn btn-ghost" href="shift-differential-calculator.html">Shift differential calculator</a>
+</div>
+</aside>
+</div>
