@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shift Pattern Generator: 2-2-3, DuPont, Panama and 24/48 Calendars</title>
+<meta name="description" content="Build a calendar for 2-2-3, DuPont, Panama, 4-on-4-off, continental, 24/48 and custom rotations. Check team coverage and overtime, and export to your phone.">
+<link rel="canonical" href="https://webworksa1.github.io/824824-com/shift-pattern-generator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-6620975821265271">
+<meta name="theme-color" content="#f2f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c1229" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="824824">
+<meta property="og:title" content="Shift Pattern Generator: 2-2-3, DuPont, Panama and 24/48 Calendars">
+<meta property="og:description" content="Build a calendar for 2-2-3, DuPont, Panama, 4-on-4-off, continental, 24/48 and custom rotations. Check team coverage and overtime, and export to your phone.">
+<meta property="og:url" content="https://webworksa1.github.io/824824-com/shift-pattern-generator.html">
+<meta property="og:image" content="https://webworksa1.github.io/824824-com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="824824 — Eight of Twenty-Four: free tools for shift workers">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&amp;family=Big+Shoulders:opsz,wght@10..72,700..900&amp;display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=8a59b57171">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Shift pattern generator","url":"https://webworksa1.github.io/824824-com/shift-pattern-generator.html","description":"Build a calendar for 2-2-3, DuPont, Panama, 4-on-4-off, continental, 24/48 and custom rotations. Check team coverage and overtime, and export to your phone.","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"824824","url":"https://webworksa1.github.io/824824-com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://webworksa1.github.io/824824-com/"},
+{"@type":"ListItem","position":2,"name":"Tools","item":"https://webworksa1.github.io/824824-com/tools.html"},
+{"@type":"ListItem","position":3,"name":"Shift pattern generator","item":"https://webworksa1.github.io/824824-com/shift-pattern-generator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many teams do I need to cover a post 24/7 with 12-hour shifts?","acceptedAnswer":{"@type":"Answer","text":"Four. One post needs 168 hours of coverage a week, and four teams averaging 42 hours each add up to exactly 168. The generator shows this as people per 24/7 post: 168 divided by the pattern's average weekly hours."}},
+{"@type":"Question","name":"Why does my overtime change when I change the payroll week start day?","acceptedAnswer":{"@type":"Answer","text":"US federal overtime is counted one workweek at a time, and hours can't be averaged across weeks. Moving the start day regroups the same shifts, so a 2-2-3 day team can go from alternating 36- and 48-hour weeks to 24- and 60-hour weeks."}},
+{"@type":"Question","name":"Can I put my rotation in Google Calendar or on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add to my calendar (.ics) downloads every shift in the months you're viewing as events that Google Calendar, Apple Calendar and Outlook can open. To cover more time, set up to 12 months under Shift times and calendar settings first."}},
+{"@type":"Question","name":"How do I enter a rotation that isn't in the list?","acceptedAnswer":{"@type":"Answer","text":"Choose Custom pattern and type one letter per day of the cycle: D for day, E for evening, N for night, X for a 24-hour shift and O for a day off. For example, DDNNOOOO is two days, two nights and four days off. Then set each shift's start time and length."}},
+{"@type":"Question","name":"Does the overtime figure include state overtime rules?","acceptedAnswer":{"@type":"Answer","text":"No. It applies only the federal rule of overtime after 40 hours in a workweek. State laws, section 7(k) work periods for public fire and police employees, and rules outside the US can differ, so check the rules that apply to you."}}]}</script>
+</head>
+<body class="layout-tool">
+<a class="skip" href="#main">Skip to content</a>
+<a class="partner-bar" href="https://web.works/contact" target="_blank" rel="noopener"><span>Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership</span></a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="index.html" aria-label="824824 home"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="4.5"/><path d="M16 5a11 11 0 0 1 9.53 16.5" fill="none" stroke="var(--amber)" stroke-width="4.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.2" fill="currentColor"/></svg><span class="brand-word">824824</span><span class="brand-sub">Eight of Twenty-Four</span></a>
+<nav class="main-nav" id="main-nav" aria-label="Main">
+<ul class="nav-list">
+<li class="has-menu"><button type="button" class="nav-btn" aria-expanded="false" aria-controls="menu-tools" aria-current="page">Tools<svg class="icon chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 10 5 5 5-5"/></svg></button>
+<div class="menu menu-wide" id="menu-tools"><div class="menu-group code-eve"><p class="menu-head">Pay and overtime</p><ul><li><a href="time-card-calculator.html">Time card calculator</a></li>
+<li><a href="overtime-calculator.html">Overtime calculator</a></li>
+<li><a href="shift-differential-calculator.html">Shift differential calculator</a></li>
+<li><a href="hourly-salary-converter.html">Hourly and salary converter</a></li></ul></div>
+<div class="menu-group code-day"><p class="menu-head">Time math</p><ul><li><a href="hours-calculator.html">Hours calculator</a></li>
+<li><a href="decimal-hours-converter.html">Decimal hours converter</a></li>
+<li><a href="military-time-converter.html">Military time converter</a></li>
+<li><a href="printable-timesheet.html">Printable timesheet</a></li></ul></div>
+<div class="menu-group code-night"><p class="menu-head">Schedules and staffing</p><ul><li><a href="shift-pattern-generator.html">Shift pattern generator</a></li>
+<li><a href="staffing-calculator.html">24/7 staffing calculator</a></li></ul></div>
+<div class="menu-group code-rest"><p class="menu-head">Sleep and health</p><ul><li><a href="night-shift-sleep-planner.html">Night shift sleep planner</a></li></ul></div><p class="menu-foot"><a href="tools.html">All tools</a></p></div></li>
+<li><a class="nav-link" href="guides.html">Guides</a></li>
+<li><a class="nav-link" href="videos.html">Videos</a></li>
+<li><a class="nav-link" href="contests.html">Contests</a></li>
+<li><a class="nav-link" href="job-alerts.html">Job alerts</a></li>
+<li class="has-menu"><button type="button" class="nav-btn" aria-expanded="false" aria-controls="menu-more">More<svg class="icon chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 10 5 5 5-5"/></svg></button>
+<div class="menu" id="menu-more"><ul><li><a href="about.html">About 824824</a></li>
+<li><a href="what-does-824-mean.html">What 824 means</a></li>
+<li><a href="support.html">Support us</a></li>
+<li><a href="advertise.html">Advertise and sponsor</a></li>
+<li><a href="careers.html">Careers and contributors</a></li>
+<li><a href="contact.html">Contact</a></li></ul></div></li>
+</ul>
+<a class="btn btn-primary nav-cta-mobile" href="get-matched.html">Get matched</a>
+</nav>
+<div class="header-actions">
+<button type="button" class="icon-btn" data-search-open aria-label="Search tools and guides"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></button>
+<button type="button" class="icon-btn" data-theme-toggle aria-label="Switch between light and dark theme"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18z" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg></button>
+<a class="btn btn-primary btn-sm header-cta" href="get-matched.html">Get matched</a>
+<button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="wrap page-head tool-head code-night"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li>
+<li><a href="tools.html">Tools</a></li>
+<li aria-current="page">Shift pattern generator</li></ol></nav>
+<h1>Shift pattern generator</h1><p class="lede">Pick a rotation, your team and the day your cycle starts. You get a month-by-month calendar, team coverage, average hours and real overtime per payroll week, plus a calendar file for your phone.</p></div>
+<div class="wrap tool-layout">
+<section class="tool-main" aria-label="Shift pattern generator"><div class="tool" data-tool="pattern">
+<div class="grid-3">
+<label class="field"><span>Rotation</span><select id="sp-pattern"></select></label>
+<label class="field"><span>Day 1 of the cycle <span class="hint">(any date your team starts it)</span></span><input id="sp-start" type="date"></label>
+<label class="field"><span>Show the calendar for</span><select id="sp-team"></select></label>
+</div>
+<p class="hint" id="sp-about" style="margin:10px 0 0"></p>
+<div class="grid-3" style="margin-top:12px">
+<label class="field" id="sp-custom-wrap" hidden><span>Custom cycle</span><input id="sp-custom" type="text" spellcheck="false" autocapitalize="characters" placeholder="DDNNOOOO"><span class="hint">D day, E evening, N night, X 24-hour, O off</span></label>
+<label class="field" id="sp-kind-wrap" hidden><span>These shifts are</span><select id="sp-kind"><option value="D">Day shifts</option><option value="N">Night shifts</option></select></label>
+</div>
+
+<details class="tool-options">
+<summary>Shift times and calendar settings</summary>
+<div class="options-body">
+<div id="sp-times"></div>
+<div class="grid-3">
+<label class="field"><span>Months to show</span><select id="sp-months"><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="6">6</option><option value="12">12</option></select></label>
+<label class="field"><span>Starting month</span><select id="sp-from"></select></label>
+<label class="field"><span>Weeks and payroll start on</span><select id="sp-wstart"><option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option></select></label>
+</div>
+</div>
+</details>
+
+<div class="results" aria-live="polite">
+<div class="result-main"><span class="result-label">Average hours per week</span><span class="result-num" id="sp-avg">0</span><span class="result-sub" id="sp-avg-sub"></span></div>
+<dl class="result-grid">
+<div><dt>Cycle length</dt><dd id="sp-len">0</dd></div>
+<div><dt>Longest run on</dt><dd id="sp-on">0</dd></div>
+<div><dt>Longest break</dt><dd id="sp-off">0</dd></div>
+<div><dt>People per 24/7 post</dt><dd id="sp-teams">0</dd></div>
+<div class="is-ot"><dt>Federal overtime</dt><dd id="sp-ot">0</dd></div>
+</dl>
+</div>
+
+<div class="tool-actions">
+<button type="button" class="btn btn-primary" id="sp-ics">Add to my calendar (.ics)</button>
+<button type="button" class="btn btn-ghost" id="sp-csv">Download CSV</button>
+<button type="button" class="btn btn-ghost" id="sp-print">Print calendar</button>
+<button type="button" class="btn btn-ghost" id="sp-share">Copy share link</button>
+</div>
+<p class="tool-note">The .ics file opens in Google Calendar, Apple Calendar and Outlook, and adds each shift as an event.</p>
+
+<div class="legend" id="sp-legend"></div>
+<div class="cal-months" id="sp-cal"></div>
+
+<section class="tool-section" id="sp-coverage-wrap" aria-labelledby="sp-cov-title">
+<h2 id="sp-cov-title">Team coverage from day 1</h2>
+<div class="table-wrap"><table class="coverage" id="sp-coverage"></table></div>
+<p class="hint" id="sp-coverage-note" style="margin-top:8px"></p>
+</section>
+
+<section class="tool-section" aria-labelledby="sp-ot-title">
+<h2 id="sp-ot-title">Overtime depends on when the payroll week starts</h2>
+<p class="hint">US federal overtime is counted one workweek at a time, so the same rotation can produce very different overtime. Hours over 40 per week, averaged over a full cycle:</p>
+<div class="table-wrap"><table class="grid-table" id="sp-ot-table"></table></div>
+</section>
+</div>
+</section>
+<aside class="tool-aside">
+<div class="aside-card"><p class="cta-title">Scheduling people around the clock?</p><p>Answer five quick questions and get a free shortlist of scheduling, time-clock and payroll software that fits your team size and budget. No obligation, and you decide who contacts you.</p><a class="btn btn-primary btn-block" href="get-matched.html">Get my free shortlist</a></div>
+<aside class="ad-slot ad-sidebar" data-ad="sidebar" aria-label="Advertisement"></aside>
+</aside>
+</div>
+<div class="wrap"><aside class="ad-slot ad-after-tool" data-ad="after-tool" aria-label="Advertisement"></aside></div>
+<div class="wrap article-wrap"><article class="prose">
+<p>A rotation looks simple on paper: work 2, off 2, work 3. The hard part is laying it over a real calendar to see which weekends you work, how many teams a post needs and how much overtime payroll will count. This generator does that for 11 preset rotations or a cycle you type in.</p>
+
+<h2 id="how-to-use">How to use the shift pattern generator</h2>
+<ol>
+<li><strong>Pick a rotation.</strong> Choose one from the <strong>Rotation</strong> list. For the fixed 2-2-3 (Pitman), fixed 4-on-4-off, 4-3 and 5-on-2-off patterns, use <strong>These shifts are</strong> to switch between day and night shifts. For <strong>Custom pattern</strong>, type one letter per day in <strong>Custom cycle</strong>: D day, E evening, N night, X 24-hour, O off.</li>
+<li><strong>Set day 1.</strong> In <strong>Day 1 of the cycle</strong>, enter any date your team starts the pattern. Team A starts on that date, and <strong>Show the calendar for</strong> switches to the other teams, which run the same cycle from different points so their workdays interlock.</li>
+<li><strong>Adjust the details.</strong> Open <strong>Shift times and calendar settings</strong> to change each shift's start time and length, show 1 to 12 months from any starting month, and choose the day your weeks and payroll start on.</li>
+<li><strong>Read the results.</strong> You'll see average hours per week, cycle length, longest run on, longest break, people per 24/7 post and federal overtime for your payroll week.</li>
+<li><strong>Check coverage and overtime.</strong> Below the calendar, the coverage grid lines up every team day by day, and the overtime table compares all seven payroll start days.</li>
+<li><strong>Take it with you.</strong> <strong>Add to my calendar (.ics)</strong> saves every shift in the months shown as events for Google Calendar, Apple Calendar or Outlook. You can also download a CSV, print the calendar or copy a share link.</li>
+</ol>
+
+<h2 id="how-it-works">How the generator does the math</h2>
+<ul>
+<li><strong>Average hours per week:</strong> the hours of every shift in one cycle, divided by the cycle length in days, times 7. A 2-2-3 cycle has seven 12-hour shifts in 14 days: 84 ÷ 14 × 7 = 42.</li>
+<li><strong>Longest run on and longest break:</strong> counted across the point where the cycle repeats, so a run that carries over into the next cycle is counted in full.</li>
+<li><strong>People per 24/7 post:</strong> 168 hours in a week ÷ average weekly hours. That's 4 at 42 hours, 3 at 56 hours and 4.2 at 40 hours. It assumes nobody is ever absent; the <a href="staffing-calculator.html">staffing calculator</a> adds vacation and sick time.</li>
+<li><strong>Federal overtime:</strong> the hours over 40 in each 7-day workweek, starting on the day you chose, averaged over enough weeks for the cycle and the calendar to line up again. Each shift counts in the workweek where it starts.</li>
+<li><strong>Coverage:</strong> the grid shows each team's first 14 to 28 days and notes whether every shift is covered exactly once a day.</li>
+</ul>
+<div class="example"><h4>Example: one 2-2-3 team, two payroll weeks</h4><p>Your day team's cycle starts on a Monday. You work Monday, Tuesday and Friday through Sunday, then Wednesday and Thursday the next week: 42 hours a week on average. With payroll weeks running Sunday to Saturday, your weeks alternate 48 and 36 hours, for 8 overtime hours every two weeks, or 4 a week. Start the payroll week on Monday and the same shifts fall into 60- and 24-hour weeks: 20 overtime hours every two weeks, or 10 a week. Nothing changed except where the week begins.</p></div>
+
+<aside class="ad-slot ad-in-article" data-ad="in-article" aria-label="Advertisement"></aside>
+
+<h2 id="choosing-a-pattern">Choosing a pattern</h2>
+<p>Start with what you need covered. For a post staffed 24/7, Panama, DuPont, rotating 4-on-4-off and continental each use four teams to cover every shift exactly once a day; 24/48 and 48/96 do the same with three platoons on 24-hour shifts. The 4-3, 5-on-2-off and 9/80 presets are standard and <a href="https://www.opm.gov/policy-data-oversight/pay-leave/reference-materials/handbooks/alternative-work-schedules/" target="_blank" rel="noopener">compressed workweeks</a>, not round-the-clock rotations.</p>
+<p>Fixed patterns cover only one shift. The fixed 2-2-3 and fixed 4-on-4-off presets show two teams that share the day shifts, or the night shifts, between them. For 24/7 coverage you need a second pair of teams on the other shift, four teams in all. Names vary: some schedulers <a href="https://soon.works/shift-patterns/pitman" target="_blank" rel="noopener">use Pitman for fixed day and night teams</a> and call the rotating version Panama, which is how this tool labels them.</p>
+<p>Then weigh fatigue. The <a href="https://www.ccohs.ca/oshanswers/ergonomics/shiftwrk.html" target="_blank" rel="noopener">Canadian Centre for Occupational Health and Safety</a> recommends rotating forward from day to afternoon to night, allowing at least 24 hours off after each set of night shifts and avoiding start times as early as 5 or 6 a.m. The continental preset rotates forward and starts mornings at 07:00 by default; you can change all three start times under <strong>Shift times and calendar settings</strong>. Our <a href="rotating-shift-patterns.html">rotating shift patterns guide</a> compares the trade-offs of each pattern.</p>
+
+<h2 id="payroll-week-overtime">Why the payroll week changes your overtime</h2>
+<p>Under the federal Fair Labor Standards Act, <a href="https://www.law.cornell.edu/cfr/text/29/778.104" target="_blank" rel="noopener">each workweek stands alone</a>: hours can't be averaged across two or more weeks. The <a href="https://www.law.cornell.edu/cfr/text/29/778.105" target="_blank" rel="noopener">workweek</a> is a fixed, recurring block of 168 hours that can begin on any day and at any hour. Once it's set, it stays put, and an employer can change it only if the change is meant to be permanent and isn't designed to avoid overtime.</p>
+<p>So a 42-hour average doesn't simply mean 2 overtime hours a week. Across this tool's 42-hour presets, the average runs from 2 to 12 hours a week, depending on the pattern and how its cycle lines up with the payroll week. Check the overtime table before you set up payroll, not after.</p>
+<p>Two limits to know. The tool's workweeks begin at midnight on the day you pick, so it shows a 9/80 as alternating 44- and 36-hour weeks. Because a workweek can begin at any hour, an employer can start it halfway through the 8-hour day so both weeks total 40. And the tool applies only the federal 40-hour weekly rule. Public fire departments can use work periods of up to 28 days under section 7(k), with overtime after <a href="https://www.law.cornell.edu/cfr/text/29/553.230" target="_blank" rel="noopener">212 hours in 28 days</a>, and state rules can differ. See our <a href="overtime-laws-explained.html">overtime laws guide</a>.</p>
+<div class="share" data-share>
+<span class="share-label">Share</span>
+<button type="button" class="chip" data-share-native><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Share</button>
+<button type="button" class="chip" data-share-copy><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link</button>
+<a class="chip" data-share-to="whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+<a class="chip" data-share-to="facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+<a class="chip" data-share-to="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+<a class="chip" data-share-to="x" href="#" target="_blank" rel="noopener">X</a>
+</div></article></div>
+<div class="wrap after-article"><section class="faq" aria-labelledby="faq-title"><h2 id="faq-title">Questions people ask</h2><details class="faq-item"><summary>How many teams do I need to cover a post 24/7 with 12-hour shifts?</summary><div class="faq-a"><p>Four. One post needs 168 hours of coverage a week, and four teams averaging 42 hours each add up to exactly 168. The generator shows this as people per 24/7 post: 168 divided by the pattern&#x27;s average weekly hours.</p></div></details>
+<details class="faq-item"><summary>Why does my overtime change when I change the payroll week start day?</summary><div class="faq-a"><p>US federal overtime is counted one workweek at a time, and hours can&#x27;t be averaged across weeks. Moving the start day regroups the same shifts, so a 2-2-3 day team can go from alternating 36- and 48-hour weeks to 24- and 60-hour weeks.</p></div></details>
+<details class="faq-item"><summary>Can I put my rotation in Google Calendar or on my phone?</summary><div class="faq-a"><p>Yes. Add to my calendar (.ics) downloads every shift in the months you&#x27;re viewing as events that Google Calendar, Apple Calendar and Outlook can open. To cover more time, set up to 12 months under Shift times and calendar settings first.</p></div></details>
+<details class="faq-item"><summary>How do I enter a rotation that isn&#x27;t in the list?</summary><div class="faq-a"><p>Choose Custom pattern and type one letter per day of the cycle: D for day, E for evening, N for night, X for a 24-hour shift and O for a day off. For example, DDNNOOOO is two days, two nights and four days off. Then set each shift&#x27;s start time and length.</p></div></details>
+<details class="faq-item"><summary>Does the overtime figure include state overtime rules?</summary><div class="faq-a"><p>No. It applies only the federal rule of overtime after 40 hours in a workweek. State laws, section 7(k) work periods for public fire and police employees, and rules outside the US can differ, so check the rules that apply to you.</p></div></details></section><section class="sources" aria-labelledby="src-title"><h2 id="src-title">Sources</h2><p class="muted">We link to official and primary sources so you can check our work. Rules change; confirm anything important with the source.</p><ol><li><a href="https://www.ccohs.ca/oshanswers/ergonomics/shiftwrk.html" target="_blank" rel="noopener">Rotational Shiftwork — Canadian Centre for Occupational Health and Safety</a></li>
+<li><a href="https://www.law.cornell.edu/cfr/text/29/778.104" target="_blank" rel="noopener">29 CFR 778.104, Each workweek stands alone — Legal Information Institute</a></li>
+<li><a href="https://www.law.cornell.edu/cfr/text/29/778.105" target="_blank" rel="noopener">29 CFR 778.105, Determining the workweek — Legal Information Institute</a></li>
+<li><a href="https://www.law.cornell.edu/cfr/text/29/553.230" target="_blank" rel="noopener">29 CFR 553.230, Maximum hours standards for work periods of 7 to 28 days, section 7(k) — Legal Information Institute</a></li>
+<li><a href="https://www.opm.gov/policy-data-oversight/pay-leave/reference-materials/handbooks/alternative-work-schedules/" target="_blank" rel="noopener">Alternative Work Schedules (Handbook) — U.S. Office of Personnel Management</a></li>
+<li><a href="https://soon.works/shift-patterns/pitman" target="_blank" rel="noopener">Pitman Schedule — soon.works</a></li></ol></section><section class="related" aria-labelledby="rel-title"><h2 id="rel-title">Keep going</h2><div class="related-grid">
+<div><h3 class="related-head">Tools</h3><ul class="roster roster-compact"><li class="roster-item code-night"><a href="staffing-calculator.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.6 14.4A4.6 4.6 0 0 1 21 19"/></svg></span><span class="roster-text"><strong>24/7 staffing calculator</strong><span>How many people it takes to cover every hour, with absences and overtime built in.</span></span></a></li>
+<li class="roster-item code-eve"><a href="time-card-calculator.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/><circle cx="16.5" cy="16.5" r="1.2"/></svg></span><span class="roster-text"><strong>Time card calculator</strong><span>Weekly or bi-weekly time cards with breaks, overnight shifts, rounding, overtime and pay.</span></span></a></li>
+<li class="roster-item code-rest"><a href="night-shift-sleep-planner.html"><span class="roster-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><span class="roster-text"><strong>Night shift sleep planner</strong><span>A sleep, nap, light and caffeine plan built around your exact shift.</span></span></a></li></ul></div>
+<div><h3 class="related-head">Guides</h3><ul class="guide-list guide-list-compact"><li class="guide-item code-night"><a href="rotating-shift-patterns.html"><span class="guide-cat">Schedules</span><strong>Rotating Shift Patterns Explained and Compared</strong><span class="guide-desc">Compare 2-2-3, DuPont, Panama, 4-on-4-off, 4x10, 24/48, 48/96, continental, 5-and-2 and 9/80 schedules: cycle length, teams needed and real weekly hours.</span><span class="guide-time">8 min read</span></a></li>
+<li class="guide-item code-night"><a href="fair-shift-scheduling-guide.html"><span class="guide-cat">Schedules</span><strong>Fair Shift Scheduling: A Practical Guide for Managers</strong><span class="guide-desc">Plan 24/7 coverage, choose forward rotation, respect minimum rest rules in the EU, UK and Canada, and meet US fair workweek laws with transparent scheduling.</span><span class="guide-time">7 min read</span></a></li>
+<li class="guide-item code-eve"><a href="overtime-laws-explained.html"><span class="guide-cat">Pay &amp; Law</span><strong>Overtime Laws Explained: How Extra Hours Are Paid in Five Countries</strong><span class="guide-desc">How overtime works in the US, Canada, UK, India and Australia: the FLSA 40-hour rule, state daily overtime, the 2026 salary threshold and premium rates.</span><span class="guide-time">8 min read</span></a></li></ul></div>
+</div></section></div>
+<section class="lead-band" aria-labelledby="lead-band-title">
+<div class="wrap lead-band-inner">
+<div class="lead-band-copy">
+<h2 id="lead-band-title">Running a team that never clocks out?</h2>
+<p>Get a free, side-by-side shortlist of scheduling, time-clock and payroll software matched to your industry, team size and budget, plus a buyer's checklist built from your answers.</p>
+<ul class="ticks">
+<li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Five questions, about a minute</li>
+<li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Free, with no obligation to buy</li>
+<li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>You choose who contacts you</li>
+</ul>
+</div>
+<div class="lead-band-start">
+<p class="lead-band-step">Start here: which industry are you in?</p>
+<ul class="pick-list"><li><a class="pick" href="get-matched.html?industry=healthcare">Healthcare and long-term care</a></li>
+<li><a class="pick" href="get-matched.html?industry=restaurants">Restaurants and food service</a></li>
+<li><a class="pick" href="get-matched.html?industry=retail">Retail</a></li>
+<li><a class="pick" href="get-matched.html?industry=hospitality">Hotels and hospitality</a></li>
+<li><a class="pick" href="get-matched.html?industry=manufacturing">Manufacturing</a></li>
+<li><a class="pick" href="get-matched.html?industry=warehouse">Warehouse and logistics</a></li>
+<li><a class="pick" href="get-matched.html?industry=security">Security</a></li>
+<li><a class="pick" href="get-matched.html?industry=other">Something else</a></li></ul>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap footer-top">
+<div class="footer-brand">
+<a class="brand brand-footer" href="index.html"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="4.5"/><path d="M16 5a11 11 0 0 1 9.53 16.5" fill="none" stroke="var(--amber)" stroke-width="4.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2.2" fill="currentColor"/></svg><span class="brand-word">824824</span><span class="brand-sub">Eight of Twenty-Four</span></a>
+<p>Free, accurate tools and plain-language guides for the people who work while others sleep, and for the managers who build their schedules.</p>
+<p class="footer-mail"><a class="mail-link" href="contact.html" data-mail data-subject="Hello from 824824.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>Email us</a></p>
+</div>
+<div class="footer-news">
+<h2 class="footer-head">The 8/24 Brief</h2>
+<p>New tools, pay and scheduling rule changes, and night-shift tips. About two emails a month.</p>
+<form class="form form-newsletter" data-form="newsletter" data-subject="New newsletter signup — 824824" data-success="You're subscribed. The next issue lands in your inbox." novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+<label class="field"><span>I mostly</span><select name="audience"><option>Work shifts</option><option>Schedule or manage shift workers</option><option>Both</option></select></label>
+<label class="check"><input type="checkbox" name="consent_newsletter" value="yes" required data-consent> <span>Send me The 8/24 Brief, about two emails a month. Unsubscribe any time.</span></label>
+<button class="btn btn-primary" type="submit">Subscribe</button>
+<p class="form-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</div>
+<div class="wrap footer-cols">
+<div><h2 class="footer-head">Tools</h2><ul><li><a href="time-card-calculator.html">Time card calculator</a></li>
+<li><a href="overtime-calculator.html">Overtime calculator</a></li>
+<li><a href="shift-differential-calculator.html">Shift differential calculator</a></li>
+<li><a href="hourly-salary-converter.html">Hourly and salary converter</a></li>
+<li><a href="hours-calculator.html">Hours calculator</a></li>
+<li><a href="decimal-hours-converter.html">Decimal hours converter</a></li>
+<li><a href="military-time-converter.html">Military time converter</a></li>
+<li><a href="printable-timesheet.html">Printable timesheet</a></li>
+<li><a href="shift-pattern-generator.html">Shift pattern generator</a></li>
+<li><a href="staffing-calculator.html">24/7 staffing calculator</a></li>
+<li><a href="night-shift-sleep-planner.html">Night shift sleep planner</a></li></ul></div>
+<div><h2 class="footer-head">Guides</h2><ul><li><a href="overtime-laws-explained.html">Overtime laws explained</a></li>
+<li><a href="rotating-shift-patterns.html">Rotating shift patterns</a></li>
+<li><a href="night-shift-survival-guide.html">Night shift survival</a></li>
+<li><a href="decimal-hours-time-card-math.html">Decimal hours and time cards</a></li>
+<li><a href="shift-differential-pay.html">Shift differential pay</a></li>
+<li><a href="fair-shift-scheduling-guide.html">Fair shift scheduling</a></li>
+<li><a href="24-hour-clock-guide.html">The 24-hour clock</a></li>
+<li><a href="history-of-the-8-hour-day.html">History of the 8-hour day</a></li></ul></div>
+<div><h2 class="footer-head">Get involved</h2><ul><li><a href="get-matched.html">Get matched with software</a></li>
+<li><a href="job-alerts.html">Shift job alerts</a></li>
+<li><a href="contests.html">Monthly contest</a></li>
+<li><a href="support.html">Support us</a></li>
+<li><a href="advertise.html">Advertise and sponsor</a></li>
+<li><a href="careers.html">Careers and contributors</a></li></ul></div>
+<div><h2 class="footer-head">Company</h2><ul><li><a href="about.html">About</a></li>
+<li><a href="what-does-824-mean.html">What 824 means</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html">Privacy policy</a></li>
+<li><a href="terms.html">Terms of use</a></li>
+<li><a href="disclaimer.html">Disclaimer and trademarks</a></li></ul></div>
+</div>
+<div class="wrap footer-legal">
+<p>&copy; 2026 824824.com. Tools and guides are general information, not legal, tax, financial or medical advice. Calculator results are estimates; check them against your employment contract, collective agreement and local law.</p>
+<p><strong>Trademark and copyright notice:</strong> &ldquo;824824&rdquo; is used here as a descriptive numeric domain name (8 hours of the 24-hour day). No trademark rights are claimed in the number, and 824824.com is not affiliated with, sponsored or endorsed by any company, person, team or organization that uses the numbers 8, 24, 824 or similar marks. Other product names and trademarks belong to their owners. Original text, tools and code &copy; 824824.com; embedded videos remain the property of their creators. <a href="disclaimer.html#trademark">Read the full disclosure</a>.</p>
+</div>
+</footer>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search tools and guides">
+<div class="search-box"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg><input type="search" id="search-input" placeholder="Search tools and guides" autocomplete="off" aria-controls="search-results" aria-label="Search tools and guides"><button type="button" class="icon-btn" data-search-close aria-label="Close search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+<ul class="search-results" id="search-results" role="listbox" aria-label="Results"></ul>
+<p class="search-hint">Try &ldquo;overtime&rdquo;, &ldquo;DuPont&rdquo; or &ldquo;night shift&rdquo;.</p>
+</dialog>
+
+<script src="assets/js/config.js?v=8a59b57171"></script>
+<script src="assets/js/app.js?v=8a59b57171" defer></script>
+<script src="assets/js/tools/core.js?v=8a59b57171" defer></script>
+<script src="assets/js/tools/pattern.js?v=8a59b57171" defer></script>
+</body>
+</html>
