@@ -146,7 +146,7 @@
   T.parseEntry = function (line) {
     var s = String(line || "").trim();
     if (!s) return null;
-    var range = /^(.+?)\s*(?:-|–|to)\s*(.+)$/i.exec(s);
+    var range = /^(.+?)\s*(?:-|\u2013|to)\s*(.+)$/i.exec(s);
     if (range && /[:apm]/i.test(s) && T.parseClock(range[1]) !== null && T.parseClock(range[2]) !== null) {
       return T.span(T.parseClock(range[1]) % 1440, T.parseClock(range[2]) % 1440);
     }
